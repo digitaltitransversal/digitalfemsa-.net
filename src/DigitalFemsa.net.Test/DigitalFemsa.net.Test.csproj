@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>DigitalFemsa.net.Test</AssemblyName>
+    <RootNamespace>DigitalFemsa.net.Test</RootNamespace>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.2" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalFemsa.net\DigitalFemsa.net.csproj" />
+  </ItemGroup>
+   <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+   </ItemGroup>
+   <ItemGroup>
+    <None Remove="coverlet.msbuild" />
+   </ItemGroup>
+  <PropertyGroup>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+</Project>

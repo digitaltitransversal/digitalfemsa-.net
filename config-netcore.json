@@ -1,0 +1,35 @@
+{
+  "targetFramework" : "netstandard2.0;net6.0",
+  "testTargetFramework" : "net6.0",
+  "files": {
+    "/local/CODE_OF_CONDUCT.md" : {},
+    "/local/LICENSE" : {},
+    "/local/CONTRIBUTING.md" : {},
+    "RuntimeInformation.mustache" : {
+      "templateType": "SupportingFiles",
+      "destinationFilename": "RuntimeInformation.cs",
+      "folder": "src/DigitalFemsa.net/Utils"
+    },
+    "VERSION.mustache" : {
+      "templateType": "SupportingFiles",
+      "destinationFilename": "VERSION"
+    }
+  },
+  "apiName" : "digitalfemsa",
+  "packageName" : "DigitalFemsa.net",
+  "netCoreProjectFile" : true,
+  "packageDescription" : "This is a .net library that allows interaction with https://api.digitalfemsa.io API.",
+  "packageTitle" : "DigitalFemsa Library",
+  "gitUserId": "digitalfemsa",
+  "gitRepoId": "digitalfemsa-.net",
+  "httpUserAgent": "DigitalFemsa/v2 .NetBindings/{Version}",
+  "packageAuthors" : "engineering@digitalfemsa.com",
+  "packageCompany" : "DigitalFemsa",
+  "useGenericHost" : false,
+  "templateDir": "/local/templates/netcore",
+  "useOneOfDiscriminatorLookup" : true,
+  "packageCopyright" : "DigitalFemsa",
+  "PackageReleaseNotes" : "add support for payout orders",
+  "releaseNote" : "update entity webhook, nuget config",
+  "packageVersion" : "1.0.0"
+}
