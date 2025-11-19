@@ -74,13 +74,22 @@ OrderRequest orderRequest = new OrderRequest(
 OrderResponse response = ordersApi.CreateOrder(orderRequest, acceptLanguage);
 ```
 
-
 ## Running the tests
 Navigate to digitalfemsa-.net folder and run the following commands.
 ```
 dotnet build
 dotnet test
 ```
+
+## Versioning and release
+
+To bump the library version across all relevant files, use the Makefile target.
+Usage (macOS, BSD sed):
+
+```
+make update-version VERSION=1.0.1
+```
+
 
 ## Contributing
 We encourage you to contribute to this repository, so everyone can benefit from new features, bug fixes, and any other improvements.
