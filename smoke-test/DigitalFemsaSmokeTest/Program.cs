@@ -19,21 +19,10 @@ static async Task StartMockServerOnce(HttpListener listener)
 {
     var context = await listener.GetContextAsync();
 
-    Console.WriteLine("\n=== Incoming request ===");
-    Console.WriteLine($"{context.Request.HttpMethod} {context.Request.RawUrl}");
-    Console.WriteLine("\n--- Headers ---");
-    foreach (var key in context.Request.Headers.AllKeys)
-    {
-        Console.WriteLine($"{key}: {context.Request.Headers[key]}");
-    }
-
-    Console.WriteLine("\n--- Body ---");
-    string body;
     using (var reader = new StreamReader(context.Request.InputStream, context.Request.ContentEncoding ?? Encoding.UTF8))
     {
-        body = await reader.ReadToEndAsync();
+        _ = await reader.ReadToEndAsync();
     }
-    Console.WriteLine(body);
 
     // Minimal JSON so the SDK can deserialize OrderResponse.
     var responseJson = "{\"id\":\"ord_test\",\"object\":\"order\",\"currency\":\"MXN\",\"created_at\":0,\"updated_at\":0,\"livemode\":false}";
@@ -58,8 +47,6 @@ httpListener.Start();
 
 var serverTask = StartMockServerOnce(httpListener);
 
-Console.WriteLine($"Mock server listening on {prefix}");
-
 Configuration configuration = new()
 {
     AccessToken = apiKey,
@@ -67,9 +54,6 @@ Configuration configuration = new()
 };
 
 var ordersApi = new OrdersApi(configuration);
-
-Console.WriteLine($"SDK loaded: {typeof(OrdersApi).FullName}");
-Console.WriteLine($"Configured BasePath: {configuration.BasePath}");
 
 var orderRequest = new OrderRequest(
     charges: new List<ChargeRequest>
@@ -93,12 +77,38 @@ var orderRequest = new OrderRequest(
 try
 {
     _ = await ordersApi.CreateOrderWithHttpInfoAsync(orderRequest, acceptLanguage: "es");
-    Console.WriteLine("\nCreateOrder completed (mocked response).\n");
+
+    await serverTask;
+
+    Console.WriteLine("✅ Smoke test succeeded: exits with code 0 (success)");
+}
+catch (ApiException ex)
+{
+    Environment.ExitCode = 1;
+
+    Console.Error.WriteLine($"Smoke test failed (ApiException). StatusCode: {ex.ErrorCode}");
+    if (!string.IsNullOrWhiteSpace(ex.ErrorContent?.ToString()))
+    {
+        Console.Error.WriteLine(ex.ErrorContent);
+    }
+    else
+    {
+        Console.Error.WriteLine(ex.Message);
+    }
+
+    httpListener.Stop();
+    try { await serverTask; } catch { }
+    return;
 }
 catch (Exception ex)
 {
-    Console.WriteLine("\nCreateOrder threw exception:");
-    Console.WriteLine(ex);
+    Environment.ExitCode = 1;
+
+    Console.Error.WriteLine("Smoke test failed.");
+    Console.Error.WriteLine(ex.ToString());
+
+    httpListener.Stop();
+    try { await serverTask; } catch { }
+    return;
 }
 
-await serverTask;
