@@ -17,6 +17,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using SystemOSPlatform = System.Runtime.InteropServices.OSPlatform;
+using SystemRuntimeInformation = System.Runtime.InteropServices.RuntimeInformation;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters;
 using System.Text;
@@ -202,20 +204,80 @@ namespace DigitalFemsa.net.Client
 
         private string GetDigitalFemsaUserAgent() 
         {
-          var values = new Dictionary<string, object>
+          var values = new Dictionary<string, string>
             {
-                { "bindings_version", Configuration.Version  },
                 { "lang", ".net" },
-                { "publisher", "digitalfemsa" },
+                { "sdk_version", Configuration.Version },
                 { "digitalfemsa_net_target_framework", RuntimeInformation.DigitalFemsaNetTargetFramework },
             };
+
+            static string GetUname()
+            {
+                string osName;
+                if (SystemRuntimeInformation.IsOSPlatform(SystemOSPlatform.Windows))
+                {
+                    osName = SystemOSPlatform.Windows.ToString();
+                }
+                else if (SystemRuntimeInformation.IsOSPlatform(SystemOSPlatform.Linux))
+                {
+                    osName = SystemOSPlatform.Linux.ToString();
+                }
+                else if (SystemRuntimeInformation.IsOSPlatform(SystemOSPlatform.OSX))
+                {
+                    osName = SystemOSPlatform.OSX.ToString();
+                }
+                else
+                {
+                    osName = "Unknown";
+                }
+
+                string hostName;
+                try
+                {
+                    hostName = Environment.MachineName;
+                }
+                catch (Exception)
+                {
+                    hostName = "(unknown)";
+                }
+
+                string version;
+                try
+                {
+                    version = Environment.OSVersion.Version.ToString();
+                }
+                catch (Exception)
+                {
+                    version = "(unknown)";
+                }
+
+                return $"{osName} {hostName} {version}";
+            }
+
             try
             {
-                values.Add("lang_version", RuntimeInformation.GetRuntimeVersion());
+                values.Add("uname", GetUname());
             }
             catch (Exception)
             {
-                values.Add("lang_version", "(unknown)");
+                values.Add("uname", "(unknown)");
+            }
+
+            var configuredLangVersion = Environment.GetEnvironmentVariable("SPIN_LANG_VERSION");
+            if (!string.IsNullOrWhiteSpace(configuredLangVersion))
+            {
+                values.Add("lang_version", configuredLangVersion);
+            }
+            else
+            {
+                try
+                {
+                    values.Add("lang_version", RuntimeInformation.GetRuntimeVersion());
+                }
+                catch (Exception)
+                {
+                    values.Add("lang_version", "(unknown)");
+                }
             }
 
             try
@@ -236,7 +298,17 @@ namespace DigitalFemsa.net.Client
                 values.Add("newtonsoft_json_version", "(unknown)");
             }
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(values, Formatting.None);
+            static string Sanitize(string value)
+            {
+                if (value == null)
+                {
+                    return string.Empty;
+                }
+
+                return value.Replace(";", ",").Replace("=", ":");
+            }
+
+            return string.Join(";", values.Select(kvp => $"{kvp.Key}={Sanitize(kvp.Value)}"));
         }
 
         /// <summary>
@@ -324,7 +396,7 @@ namespace DigitalFemsa.net.Client
             if (configuration == null) throw new ArgumentNullException("configuration");
 
             RestRequest request = new RestRequest(path, Method(method));
-            request.AddHeader("X-DigitalFemsa-Client-User-Agent", _digitalfemsaUserAgent);
+            request.AddHeader("Spin-Client-User-Agent", _digitalfemsaUserAgent);
             if (options.PathParameters != null)
             {
                 foreach (var pathParam in options.PathParameters)
