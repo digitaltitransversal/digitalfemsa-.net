@@ -160,8 +160,6 @@ docs/WebhookResponse.md
 docs/WebhookUpdateRequest.md
 docs/WebhooksApi.md
 src/DigitalFemsa.net.Test/DigitalFemsa.net.Test.csproj
-src/DigitalFemsa.net.Test/Model/ChargeOrderResponseChannelTests.cs
-src/DigitalFemsa.net.Test/Model/OrderResponseChannelTests.cs
 src/DigitalFemsa.net/Api/ApiKeysApi.cs
 src/DigitalFemsa.net/Api/BalancesApi.cs
 src/DigitalFemsa.net/Api/ChargesApi.cs

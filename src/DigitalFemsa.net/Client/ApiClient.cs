@@ -211,7 +211,7 @@ namespace DigitalFemsa.net.Client
                 { "digitalfemsa_net_target_framework", RuntimeInformation.DigitalFemsaNetTargetFramework },
             };
 
-            static string GetUname()
+            string GetUname()
             {
                 string osName;
                 if (SystemRuntimeInformation.IsOSPlatform(SystemOSPlatform.Windows))
@@ -298,7 +298,7 @@ namespace DigitalFemsa.net.Client
                 values.Add("newtonsoft_json_version", "(unknown)");
             }
 
-            static string Sanitize(string value)
+            string Sanitize(string value)
             {
                 if (value == null)
                 {
