@@ -44,16 +44,18 @@ namespace DigitalFemsa.net.Model
         /// <param name="carrier">Carrier name for the shipment.</param>
         /// <param name="trackingNumber">Tracking number can be used to track the shipment.</param>
         /// <param name="method">Method of shipment.</param>
+        /// <param name="description">Shipping line description.</param>
         /// <param name="metadata">Hash where the user can send additional information for each &#39;shipping&#39;..</param>
         /// <param name="id">id.</param>
         /// <param name="varObject">varObject.</param>
         /// <param name="parentId">parentId.</param>
-        public ShippingOrderResponse(long amount = default(long), string carrier = default(string), string trackingNumber = default(string), string method = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string id = default(string), string varObject = default(string), string parentId = default(string))
+        public ShippingOrderResponse(long amount = default(long), string carrier = default(string), string trackingNumber = default(string), string method = default(string), string description = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string id = default(string), string varObject = default(string), string parentId = default(string))
         {
             this.Amount = amount;
             this.Carrier = carrier;
             this.TrackingNumber = trackingNumber;
             this.Method = method;
+            this.Description = description;
             this.Metadata = metadata;
             this.Id = id;
             this.Object = varObject;
@@ -93,6 +95,14 @@ namespace DigitalFemsa.net.Model
         public string Method { get; set; }
 
         /// <summary>
+        /// Shipping line description
+        /// </summary>
+        /// <value>Shipping line description</value>
+        /// <example>Shipping line</example>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Hash where the user can send additional information for each &#39;shipping&#39;.
         /// </summary>
         /// <value>Hash where the user can send additional information for each &#39;shipping&#39;.</value>
@@ -103,18 +113,21 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        /// <example>ship_lin_2sLxi45ZFs1GHJmzx</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Object
         /// </summary>
+        /// <example>shipping_line</example>
         [DataMember(Name = "object", EmitDefaultValue = false)]
         public string Object { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentId
         /// </summary>
+        /// <example>ord_2sLxi3MqYFJ1QfTmP</example>
         [DataMember(Name = "parent_id", EmitDefaultValue = false)]
         public string ParentId { get; set; }
 
@@ -130,6 +143,7 @@ namespace DigitalFemsa.net.Model
             sb.Append("  Carrier: ").Append(Carrier).Append("\n");
             sb.Append("  TrackingNumber: ").Append(TrackingNumber).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");

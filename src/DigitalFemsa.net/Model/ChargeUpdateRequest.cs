@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// requested field for update a charge
+    /// Request body to update a charge. Only &#x60;reference_id&#x60; can be updated.
     /// </summary>
     [DataContract(Name = "charge_update_request")]
     public partial class ChargeUpdateRequest : IValidatableObject

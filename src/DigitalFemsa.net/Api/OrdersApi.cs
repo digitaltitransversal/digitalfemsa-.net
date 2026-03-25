@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Order
         /// </summary>
         /// <remarks>
-        /// Cancel an order that has been previously created.
+        /// Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -45,7 +45,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Order
         /// </summary>
         /// <remarks>
-        /// Cancel an order that has been previously created.
+        /// Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -58,7 +58,7 @@ namespace DigitalFemsa.net.Api
         /// Create order
         /// </summary>
         /// <remarks>
-        /// Create a new order.
+        /// Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -72,7 +72,7 @@ namespace DigitalFemsa.net.Api
         /// Create order
         /// </summary>
         /// <remarks>
-        /// Create a new order.
+        /// Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -85,7 +85,7 @@ namespace DigitalFemsa.net.Api
         /// Get Order
         /// </summary>
         /// <remarks>
-        /// Info for a specific order
+        /// Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -99,7 +99,7 @@ namespace DigitalFemsa.net.Api
         /// Get Order
         /// </summary>
         /// <remarks>
-        /// Info for a specific order
+        /// Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -112,7 +112,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of Orders
         /// </summary>
         /// <remarks>
-        /// Get order details in the form of a list
+        /// Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -129,7 +129,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of Orders
         /// </summary>
         /// <remarks>
-        /// Get order details in the form of a list
+        /// Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -145,7 +145,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Refund
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -160,7 +160,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Refund
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -174,7 +174,7 @@ namespace DigitalFemsa.net.Api
         /// Refund Order
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -189,7 +189,7 @@ namespace DigitalFemsa.net.Api
         /// Refund Order
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -203,13 +203,13 @@ namespace DigitalFemsa.net.Api
         /// Capture Order
         /// </summary>
         /// <remarks>
-        /// Processes an order that has been previously authorized.
+        /// Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrderResponse</returns>
         OrderResponse OrdersCreateCapture(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), OrderCaptureRequest orderCaptureRequest = default(OrderCaptureRequest), int operationIndex = 0);
@@ -218,21 +218,21 @@ namespace DigitalFemsa.net.Api
         /// Capture Order
         /// </summary>
         /// <remarks>
-        /// Processes an order that has been previously authorized.
+        /// Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrderResponse</returns>
         ApiResponse<OrderResponse> OrdersCreateCaptureWithHttpInfo(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), OrderCaptureRequest orderCaptureRequest = default(OrderCaptureRequest), int operationIndex = 0);
         /// <summary>
-        /// Update Order
+        /// Update order
         /// </summary>
         /// <remarks>
-        /// Update an existing Order.
+        /// Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -243,10 +243,10 @@ namespace DigitalFemsa.net.Api
         OrderResponse UpdateOrder(string id, OrderUpdateRequest orderUpdateRequest, string acceptLanguage = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Update Order
+        /// Update order
         /// </summary>
         /// <remarks>
-        /// Update an existing Order.
+        /// Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -268,7 +268,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Order
         /// </summary>
         /// <remarks>
-        /// Cancel an order that has been previously created.
+        /// Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -283,7 +283,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Order
         /// </summary>
         /// <remarks>
-        /// Cancel an order that has been previously created.
+        /// Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -297,7 +297,7 @@ namespace DigitalFemsa.net.Api
         /// Create order
         /// </summary>
         /// <remarks>
-        /// Create a new order.
+        /// Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -312,7 +312,7 @@ namespace DigitalFemsa.net.Api
         /// Create order
         /// </summary>
         /// <remarks>
-        /// Create a new order.
+        /// Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -326,7 +326,7 @@ namespace DigitalFemsa.net.Api
         /// Get Order
         /// </summary>
         /// <remarks>
-        /// Info for a specific order
+        /// Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -341,7 +341,7 @@ namespace DigitalFemsa.net.Api
         /// Get Order
         /// </summary>
         /// <remarks>
-        /// Info for a specific order
+        /// Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -355,7 +355,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of Orders
         /// </summary>
         /// <remarks>
-        /// Get order details in the form of a list
+        /// Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -373,7 +373,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of Orders
         /// </summary>
         /// <remarks>
-        /// Get order details in the form of a list
+        /// Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -390,7 +390,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Refund
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -406,7 +406,7 @@ namespace DigitalFemsa.net.Api
         /// Cancel Refund
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -421,7 +421,7 @@ namespace DigitalFemsa.net.Api
         /// Refund Order
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -437,7 +437,7 @@ namespace DigitalFemsa.net.Api
         /// Refund Order
         /// </summary>
         /// <remarks>
-        /// A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -452,13 +452,13 @@ namespace DigitalFemsa.net.Api
         /// Capture Order
         /// </summary>
         /// <remarks>
-        /// Processes an order that has been previously authorized.
+        /// Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrderResponse</returns>
@@ -468,22 +468,22 @@ namespace DigitalFemsa.net.Api
         /// Capture Order
         /// </summary>
         /// <remarks>
-        /// Processes an order that has been previously authorized.
+        /// Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderResponse>> OrdersCreateCaptureWithHttpInfoAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), OrderCaptureRequest orderCaptureRequest = default(OrderCaptureRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Order
+        /// Update order
         /// </summary>
         /// <remarks>
-        /// Update an existing Order.
+        /// Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -495,10 +495,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<OrderResponse> UpdateOrderAsync(string id, OrderUpdateRequest orderUpdateRequest, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Order
+        /// Update order
         /// </summary>
         /// <remarks>
-        /// Update an existing Order.
+        /// Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -629,7 +629,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Order Cancel an order that has been previously created.
+        /// Cancel Order Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -644,7 +644,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Order Cancel an order that has been previously created.
+        /// Cancel Order Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -717,7 +717,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Order Cancel an order that has been previously created.
+        /// Cancel Order Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -733,7 +733,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Order Cancel an order that has been previously created.
+        /// Cancel Order Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -809,7 +809,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create order Create a new order.
+        /// Create order Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -824,7 +824,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create order Create a new order.
+        /// Create order Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -898,7 +898,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create order Create a new order.
+        /// Create order Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -914,7 +914,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create order Create a new order.
+        /// Create order Creates a new order (products + amounts + customer data).  Minimum required fields: - &#x60;currency&#x60; - &#x60;line_items&#x60; - &#x60;customer_info&#x60;  About &#x60;customer_info&#x60;: - You can reference an existing customer using &#x60;customer_info.customer_id&#x60;, or - You can provide customer details at minimum &#x60;customer_info.name&#x60; and &#x60;customer_info.email&#x60; to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include &#x60;charges&#x60;. - Create an order with a checkout configuration (for a hosted payment flow): include &#x60;checkout&#x60;.  Important rules: - You cannot send &#x60;charges&#x60; and &#x60;checkout&#x60; in the same request (they are mutually exclusive). - If you send &#x60;shipping_contact_id&#x60; and/or &#x60;fiscal_entity_id&#x60;, you must also send &#x60;customer_info.customer_id&#x60; so the API can validate those IDs against that customer. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderRequest">requested field for order</param>
@@ -991,7 +991,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Order Info for a specific order
+        /// Get Order Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1006,7 +1006,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Order Info for a specific order
+        /// Get Order Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1079,7 +1079,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Order Info for a specific order
+        /// Get Order Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1095,7 +1095,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Order Info for a specific order
+        /// Get Order Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example &#x60;charges&#x60;, &#x60;line_items&#x60;, &#x60;shipping_lines&#x60;, &#x60;tax_lines&#x60;, and &#x60;discount_lines&#x60;) when available.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1171,7 +1171,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of Orders Get order details in the form of a list
+        /// Get a list of Orders Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1189,7 +1189,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of Orders Get order details in the form of a list
+        /// Get a list of Orders Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1274,7 +1274,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of Orders Get order details in the form of a list
+        /// Get a list of Orders Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1293,7 +1293,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of Orders Get order details in the form of a list
+        /// Get a list of Orders Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and &#x60;search&#x60; to filter by supported criteria. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1381,7 +1381,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Refund A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancel Refund Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1397,7 +1397,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Refund A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancel Refund Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1478,7 +1478,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Refund A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancel Refund Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1495,7 +1495,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Cancel Refund A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Cancel Refund Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1579,7 +1579,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Refund Order A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Refund Order Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1595,7 +1595,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Refund Order A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Refund Order Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1677,7 +1677,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Refund Order A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Refund Order Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1694,7 +1694,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Refund Order A refunded order describes the items, amount, and reason an order is being refunded.
+        /// Refund Order Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1779,13 +1779,13 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Capture Order Processes an order that has been previously authorized.
+        /// Capture Order Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrderResponse</returns>
         public OrderResponse OrdersCreateCapture(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), OrderCaptureRequest orderCaptureRequest = default(OrderCaptureRequest), int operationIndex = 0)
@@ -1795,13 +1795,13 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Capture Order Processes an order that has been previously authorized.
+        /// Capture Order Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrderResponse</returns>
         public DigitalFemsa.net.Client.ApiResponse<OrderResponse> OrdersCreateCaptureWithHttpInfo(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), OrderCaptureRequest orderCaptureRequest = default(OrderCaptureRequest), int operationIndex = 0)
@@ -1871,13 +1871,13 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Capture Order Processes an order that has been previously authorized.
+        /// Capture Order Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrderResponse</returns>
@@ -1888,13 +1888,13 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Capture Order Processes an order that has been previously authorized.
+        /// Capture Order Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="orderCaptureRequest">requested fields for capture order (optional)</param>
+        /// <param name="orderCaptureRequest">Requested fields for capturing an order (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrderResponse)</returns>
@@ -1967,7 +1967,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Order Update an existing Order.
+        /// Update order Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1982,7 +1982,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Order Update an existing Order.
+        /// Update order Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -2059,7 +2059,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Order Update an existing Order.
+        /// Update order Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -2075,7 +2075,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Order Update an existing Order.
+        /// Update order Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>

@@ -1,5 +1,5 @@
 # DigitalFemsa.net.Model.OrderResponseCharges
-The charges associated with the order
+List preview of charges created for the order. Charges are only created when included in the request or created later through payment flows. This field can be `null` depending on the response context. 
 
 ## Properties
 

@@ -44,7 +44,7 @@ namespace DigitalFemsa.net.Model
         /// <param name="varObject">Object type, in this case is list (required).</param>
         /// <param name="nextPageUrl">URL of the next page..</param>
         /// <param name="previousPageUrl">Url of the previous page..</param>
-        /// <param name="data">data.</param>
+        /// <param name="data">Customers.</param>
         public CustomersResponse(bool hasMore = default(bool), string varObject = default(string), string nextPageUrl = default(string), string previousPageUrl = default(string), List<CustomerResponse> data = default(List<CustomerResponse>))
         {
             this.HasMore = hasMore;
@@ -92,8 +92,9 @@ namespace DigitalFemsa.net.Model
         public string PreviousPageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Customers
         /// </summary>
+        /// <value>Customers</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<CustomerResponse> Data { get; set; }
 

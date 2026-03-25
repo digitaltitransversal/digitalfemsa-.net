@@ -40,12 +40,12 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerInfo" /> class.
         /// </summary>
+        /// <param name="customerId">customerId.</param>
         /// <param name="name">name (required).</param>
         /// <param name="email">email (required).</param>
-        /// <param name="phone">phone (required).</param>
+        /// <param name="phone">phone.</param>
         /// <param name="corporate">corporate.</param>
-        /// <param name="varObject">varObject.</param>
-        public CustomerInfo(string name = default(string), string email = default(string), string phone = default(string), bool corporate = default(bool), string varObject = default(string))
+        public CustomerInfo(string customerId = default(string), string name = default(string), string email = default(string), string phone = default(string), bool corporate = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -59,15 +59,17 @@ namespace DigitalFemsa.net.Model
                 throw new ArgumentNullException("email is a required property for CustomerInfo and cannot be null");
             }
             this.Email = email;
-            // to ensure "phone" is required (not null)
-            if (phone == null)
-            {
-                throw new ArgumentNullException("phone is a required property for CustomerInfo and cannot be null");
-            }
+            this.CustomerId = customerId;
             this.Phone = phone;
             this.Corporate = corporate;
-            this.Object = varObject;
         }
+
+        /// <summary>
+        /// Gets or Sets CustomerId
+        /// </summary>
+        /// <example>cus_23874283647</example>
+        [DataMember(Name = "customer_id", EmitDefaultValue = false)]
+        public string CustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -87,7 +89,7 @@ namespace DigitalFemsa.net.Model
         /// Gets or Sets Phone
         /// </summary>
         /// <example>5522997233</example>
-        [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "phone", EmitDefaultValue = false)]
         public string Phone { get; set; }
 
         /// <summary>
@@ -97,13 +99,6 @@ namespace DigitalFemsa.net.Model
         public bool Corporate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Object
-        /// </summary>
-        /// <example>customer_info</example>
-        [DataMember(Name = "object", EmitDefaultValue = false)]
-        public string Object { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,11 +106,11 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CustomerInfo {\n");
+            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Corporate: ").Append(Corporate).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

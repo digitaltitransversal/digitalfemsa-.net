@@ -33,12 +33,50 @@ namespace DigitalFemsa.net.Model
     public partial class UpdateOrderDiscountLinesRequest : IValidatableObject
     {
         /// <summary>
+        /// Defines Type
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Loyalty for value: loyalty
+            /// </summary>
+            [EnumMember(Value = "loyalty")]
+            Loyalty = 1,
+
+            /// <summary>
+            /// Enum Campaign for value: campaign
+            /// </summary>
+            [EnumMember(Value = "campaign")]
+            Campaign = 2,
+
+            /// <summary>
+            /// Enum Coupon for value: coupon
+            /// </summary>
+            [EnumMember(Value = "coupon")]
+            Coupon = 3,
+
+            /// <summary>
+            /// Enum Sign for value: sign
+            /// </summary>
+            [EnumMember(Value = "sign")]
+            Sign = 4
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        /// <example>loyalty</example>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateOrderDiscountLinesRequest" /> class.
         /// </summary>
         /// <param name="amount">amount.</param>
         /// <param name="code">Discount code..</param>
         /// <param name="type">type.</param>
-        public UpdateOrderDiscountLinesRequest(long amount = default(long), string code = default(string), string type = default(string))
+        public UpdateOrderDiscountLinesRequest(long amount = default(long), string code = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this.Amount = amount;
             this.Code = code;
@@ -59,13 +97,6 @@ namespace DigitalFemsa.net.Model
         /// <example>123</example>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public string Code { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        /// <example>loyalty</example>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

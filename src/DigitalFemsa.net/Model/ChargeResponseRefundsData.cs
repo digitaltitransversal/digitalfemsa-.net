@@ -47,7 +47,9 @@ namespace DigitalFemsa.net.Model
         /// <param name="id">id (required).</param>
         /// <param name="varObject">varObject (required).</param>
         /// <param name="status">refund status.</param>
-        public ChargeResponseRefundsData(long amount = default(long), string authCode = default(string), long createdAt = default(long), long expiresAt = default(long), string id = default(string), string varObject = default(string), string status = default(string))
+        /// <param name="payoutId">payoutId.</param>
+        /// <param name="reference">payout reference for oxxo stores.</param>
+        public ChargeResponseRefundsData(long amount = default(long), string authCode = default(string), long createdAt = default(long), long expiresAt = default(long), string id = default(string), string varObject = default(string), string status = default(string), string payoutId = default(string), string reference = default(string))
         {
             this.Amount = amount;
             this.CreatedAt = createdAt;
@@ -66,6 +68,8 @@ namespace DigitalFemsa.net.Model
             this.AuthCode = authCode;
             this.ExpiresAt = expiresAt;
             this.Status = status;
+            this.PayoutId = payoutId;
+            this.Reference = reference;
         }
 
         /// <summary>
@@ -120,6 +124,21 @@ namespace DigitalFemsa.net.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets PayoutId
+        /// </summary>
+        /// <example>6fca054a-8519-4c43-971e-cea35cc519bb</example>
+        [DataMember(Name = "payout_id", EmitDefaultValue = false)]
+        public string PayoutId { get; set; }
+
+        /// <summary>
+        /// payout reference for oxxo stores
+        /// </summary>
+        /// <value>payout reference for oxxo stores</value>
+        /// <example>12002000778626</example>
+        [DataMember(Name = "reference", EmitDefaultValue = false)]
+        public string Reference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -134,6 +153,8 @@ namespace DigitalFemsa.net.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  PayoutId: ").Append(PayoutId).Append("\n");
+            sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

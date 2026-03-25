@@ -43,7 +43,7 @@ namespace DigitalFemsa.net.Model
         /// <param name="address">address (required).</param>
         /// <param name="email">Email of the fiscal entity.</param>
         /// <param name="name">Name of the fiscal entity.</param>
-        /// <param name="metadata">Metadata associated with the fiscal entity.</param>
+        /// <param name="metadata">Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value. .</param>
         /// <param name="phone">Phone of the fiscal entity.</param>
         /// <param name="taxId">Tax ID of the fiscal entity.</param>
         public OrderUpdateFiscalEntityRequest(FiscalEntityAddress address = default(FiscalEntityAddress), string email = default(string), string name = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string phone = default(string), string taxId = default(string))
@@ -84,9 +84,9 @@ namespace DigitalFemsa.net.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Metadata associated with the fiscal entity
+        /// Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value. 
         /// </summary>
-        /// <value>Metadata associated with the fiscal entity</value>
+        /// <value>Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value. </value>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Dictionary<string, Object> Metadata { get; set; }
 

@@ -5,11 +5,11 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateWebhook**](WebhooksApi.md#createwebhook) | **POST** /webhooks | Create Webhook |
-| [**DeleteWebhook**](WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete Webhook |
-| [**GetWebhook**](WebhooksApi.md#getwebhook) | **GET** /webhooks/{id} | Get Webhook |
+| [**DeleteWebhook**](WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{id} | Delete webhook |
+| [**GetWebhook**](WebhooksApi.md#getwebhook) | **GET** /webhooks/{id} | Get webhook |
 | [**GetWebhooks**](WebhooksApi.md#getwebhooks) | **GET** /webhooks | Get List of Webhooks |
-| [**TestWebhook**](WebhooksApi.md#testwebhook) | **POST** /webhooks/{id}/test | Test Webhook |
-| [**UpdateWebhook**](WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{id} | Update Webhook |
+| [**TestWebhook**](WebhooksApi.md#testwebhook) | **POST** /webhooks/{id}/test | Test webhook |
+| [**UpdateWebhook**](WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{id} | Update webhook |
 
 <a id="createwebhook"></a>
 # **CreateWebhook**
@@ -39,7 +39,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new WebhooksApi(config);
-            var webhookRequest = new WebhookRequest(); // WebhookRequest | requested field for webhook
+            var webhookRequest = new WebhookRequest(); // WebhookRequest | Webhook creation/update request payload.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
 
             try
@@ -83,7 +83,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhookRequest** | [**WebhookRequest**](WebhookRequest.md) | requested field for webhook |  |
+| **webhookRequest** | [**WebhookRequest**](WebhookRequest.md) | Webhook creation/update request payload. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 
 ### Return type
@@ -113,7 +113,9 @@ catch (ApiException e)
 # **DeleteWebhook**
 > WebhookResponse DeleteWebhook (string id, string acceptLanguage = null)
 
-Delete Webhook
+Delete webhook
+
+Deletes a webhook.
 
 ### Example
 ```csharp
@@ -140,7 +142,7 @@ namespace Example
 
             try
             {
-                // Delete Webhook
+                // Delete webhook
                 WebhookResponse result = apiInstance.DeleteWebhook(id, acceptLanguage);
                 Debug.WriteLine(result);
             }
@@ -161,7 +163,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete Webhook
+    // Delete webhook
     ApiResponse<WebhookResponse> response = apiInstance.DeleteWebhookWithHttpInfo(id, acceptLanguage);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -199,7 +201,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -210,7 +212,9 @@ catch (ApiException e)
 # **GetWebhook**
 > WebhookResponse GetWebhook (string id, string acceptLanguage = null, string xChildCompanyId = null)
 
-Get Webhook
+Get webhook
+
+Retrieves the details of a webhook by its ID.
 
 ### Example
 ```csharp
@@ -238,7 +242,7 @@ namespace Example
 
             try
             {
-                // Get Webhook
+                // Get webhook
                 WebhookResponse result = apiInstance.GetWebhook(id, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -259,7 +263,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Webhook
+    // Get webhook
     ApiResponse<WebhookResponse> response = apiInstance.GetWebhookWithHttpInfo(id, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -298,7 +302,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -307,7 +311,7 @@ catch (ApiException e)
 
 <a id="getwebhooks"></a>
 # **GetWebhooks**
-> GetWebhooksResponse GetWebhooks (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string search = null, string next = null, string previous = null)
+> GetWebhooksResponse GetWebhooks (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string search = null, string url = null, string next = null, string previous = null)
 
 Get List of Webhooks
 
@@ -337,13 +341,14 @@ namespace Example
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
             var limit = 20;  // int? | The numbers of items to return, the maximum value is 250 (optional)  (default to 20)
             var search = "search_example";  // string | General order search, e.g. by mail, reference etc. (optional) 
+            var url = https://api.digitalfemsa.io/webhook;  // string | url for webhook filter (optional) 
             var next = "next_example";  // string | next page (optional) 
             var previous = "previous_example";  // string | previous page (optional) 
 
             try
             {
                 // Get List of Webhooks
-                GetWebhooksResponse result = apiInstance.GetWebhooks(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+                GetWebhooksResponse result = apiInstance.GetWebhooks(acceptLanguage, xChildCompanyId, limit, search, url, next, previous);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -364,7 +369,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get List of Webhooks
-    ApiResponse<GetWebhooksResponse> response = apiInstance.GetWebhooksWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+    ApiResponse<GetWebhooksResponse> response = apiInstance.GetWebhooksWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, url, next, previous);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -385,6 +390,7 @@ catch (ApiException e)
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 | **limit** | **int?** | The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
 | **search** | **string** | General order search, e.g. by mail, reference etc. | [optional]  |
+| **url** | **string** | url for webhook filter | [optional]  |
 | **next** | **string** | next page | [optional]  |
 | **previous** | **string** | previous page | [optional]  |
 
@@ -415,9 +421,9 @@ catch (ApiException e)
 # **TestWebhook**
 > WebhookResponse TestWebhook (string id, string acceptLanguage = null)
 
-Test Webhook
+Test webhook
 
-Send a webhook.ping event
+Sends a test event to the specified webhook to verify it can receive events.
 
 ### Example
 ```csharp
@@ -444,7 +450,7 @@ namespace Example
 
             try
             {
-                // Test Webhook
+                // Test webhook
                 WebhookResponse result = apiInstance.TestWebhook(id, acceptLanguage);
                 Debug.WriteLine(result);
             }
@@ -465,7 +471,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Test Webhook
+    // Test webhook
     ApiResponse<WebhookResponse> response = apiInstance.TestWebhookWithHttpInfo(id, acceptLanguage);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -514,9 +520,9 @@ catch (ApiException e)
 # **UpdateWebhook**
 > WebhookResponse UpdateWebhook (string id, WebhookUpdateRequest webhookUpdateRequest, string acceptLanguage = null, string xChildCompanyId = null)
 
-Update Webhook
+Update webhook
 
-updates an existing webhook
+Updates an existing webhook.
 
 ### Example
 ```csharp
@@ -539,13 +545,13 @@ namespace Example
 
             var apiInstance = new WebhooksApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
-            var webhookUpdateRequest = new WebhookUpdateRequest(); // WebhookUpdateRequest | requested fields in order to update a webhook
+            var webhookUpdateRequest = new WebhookUpdateRequest(); // WebhookUpdateRequest | Webhook update request payload.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
             try
             {
-                // Update Webhook
+                // Update webhook
                 WebhookResponse result = apiInstance.UpdateWebhook(id, webhookUpdateRequest, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -566,7 +572,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update Webhook
+    // Update webhook
     ApiResponse<WebhookResponse> response = apiInstance.UpdateWebhookWithHttpInfo(id, webhookUpdateRequest, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -585,7 +591,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
-| **webhookUpdateRequest** | [**WebhookUpdateRequest**](WebhookUpdateRequest.md) | requested fields in order to update a webhook |  |
+| **webhookUpdateRequest** | [**WebhookUpdateRequest**](WebhookUpdateRequest.md) | Webhook update request payload. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 
@@ -607,8 +613,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | successful operation |  -  |
-| **404** | not found entity |  -  |
 | **401** | authentication error |  -  |
+| **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

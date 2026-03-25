@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Get transaction
         /// </summary>
         /// <remarks>
-        /// Get the details of a transaction
+        /// Retrieves the details of a transaction by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -45,7 +45,7 @@ namespace DigitalFemsa.net.Api
         /// Get transaction
         /// </summary>
         /// <remarks>
-        /// Get the details of a transaction
+        /// Retrieves the details of a transaction by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -55,10 +55,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of TransactionResponse</returns>
         ApiResponse<TransactionResponse> GetTransactionWithHttpInfo(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get List transactions
+        /// List transactions
         /// </summary>
         /// <remarks>
-        /// Get transaction details in the form of a list
+        /// Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -75,10 +75,10 @@ namespace DigitalFemsa.net.Api
         GetTransactionsResponse GetTransactions(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string id = default(string), string chargeId = default(string), string type = default(string), string currency = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get List transactions
+        /// List transactions
         /// </summary>
         /// <remarks>
-        /// Get transaction details in the form of a list
+        /// Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -106,7 +106,7 @@ namespace DigitalFemsa.net.Api
         /// Get transaction
         /// </summary>
         /// <remarks>
-        /// Get the details of a transaction
+        /// Retrieves the details of a transaction by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -121,7 +121,7 @@ namespace DigitalFemsa.net.Api
         /// Get transaction
         /// </summary>
         /// <remarks>
-        /// Get the details of a transaction
+        /// Retrieves the details of a transaction by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -132,10 +132,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (TransactionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> GetTransactionWithHttpInfoAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get List transactions
+        /// List transactions
         /// </summary>
         /// <remarks>
-        /// Get transaction details in the form of a list
+        /// Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -153,10 +153,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<GetTransactionsResponse> GetTransactionsAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string id = default(string), string chargeId = default(string), string type = default(string), string currency = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get List transactions
+        /// List transactions
         /// </summary>
         /// <remarks>
-        /// Get transaction details in the form of a list
+        /// Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -293,7 +293,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get transaction Get the details of a transaction
+        /// Get transaction Retrieves the details of a transaction by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -308,7 +308,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get transaction Get the details of a transaction
+        /// Get transaction Retrieves the details of a transaction by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -381,7 +381,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get transaction Get the details of a transaction
+        /// Get transaction Retrieves the details of a transaction by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -397,7 +397,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get transaction Get the details of a transaction
+        /// Get transaction Retrieves the details of a transaction by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -473,7 +473,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get List transactions Get transaction details in the form of a list
+        /// List transactions Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -494,7 +494,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get List transactions Get transaction details in the form of a list
+        /// List transactions Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -594,7 +594,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get List transactions Get transaction details in the form of a list
+        /// List transactions Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -616,7 +616,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get List transactions Get transaction details in the form of a list
+        /// List transactions Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>

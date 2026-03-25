@@ -14,7 +14,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Get Event
 
-Returns a single event
+Returns a single event by its ID, including its payload (`data`) and webhook delivery information. The `webhook_status` indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
 
 ### Example
 ```csharp
@@ -102,7 +102,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -207,7 +207,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **500** | internal server error |  -  |
 
@@ -219,7 +219,7 @@ catch (ApiException e)
 
 Resend Event
 
-Try to send an event
+Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
 
 ### Example
 ```csharp

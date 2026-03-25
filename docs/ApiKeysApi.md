@@ -4,19 +4,19 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateApiKey**](ApiKeysApi.md#createapikey) | **POST** /api_keys | Create Api Key |
+| [**CreateApiKey**](ApiKeysApi.md#createapikey) | **POST** /api_keys | Create API key |
 | [**DeleteApiKey**](ApiKeysApi.md#deleteapikey) | **DELETE** /api_keys/{id} | Delete Api Key |
 | [**GetApiKey**](ApiKeysApi.md#getapikey) | **GET** /api_keys/{id} | Get Api Key |
-| [**GetApiKeys**](ApiKeysApi.md#getapikeys) | **GET** /api_keys | Get list of Api Keys |
+| [**GetApiKeys**](ApiKeysApi.md#getapikeys) | **GET** /api_keys | List API keys |
 | [**UpdateApiKey**](ApiKeysApi.md#updateapikey) | **PUT** /api_keys/{id} | Update Api Key |
 
 <a id="createapikey"></a>
 # **CreateApiKey**
 > ApiKeyCreateResponse CreateApiKey (ApiKeyRequest apiKeyRequest, string acceptLanguage = null, string xChildCompanyId = null)
 
-Create Api Key
+Create API key
 
-Create a api key
+Creates a new API key.  The response includes an `authentication_token` that is shown only once (at creation time). Copy and store it securely. 
 
 ### Example
 ```csharp
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Create Api Key
+                // Create API key
                 ApiKeyCreateResponse result = apiInstance.CreateApiKey(apiKeyRequest, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -65,7 +65,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create Api Key
+    // Create API key
     ApiResponse<ApiKeyCreateResponse> response = apiInstance.CreateApiKeyWithHttpInfo(apiKeyRequest, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -104,7 +104,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Content-Type - The format of the response body <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
@@ -315,9 +315,9 @@ catch (ApiException e)
 # **GetApiKeys**
 > GetApiKeysResponse GetApiKeys (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string next = null, string previous = null, string search = null)
 
-Get list of Api Keys
+List API keys
 
-Consume the list of api keys you have
+Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (`limit`, `next_page`, `previous_page`) to navigate through results. Use the `search` query parameter to perform a general search (for example by key `id` or description). 
 
 ### Example
 ```csharp
@@ -348,7 +348,7 @@ namespace Example
 
             try
             {
-                // Get list of Api Keys
+                // List API keys
                 GetApiKeysResponse result = apiInstance.GetApiKeys(acceptLanguage, xChildCompanyId, limit, next, previous, search);
                 Debug.WriteLine(result);
             }
@@ -369,7 +369,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get list of Api Keys
+    // List API keys
     ApiResponse<GetApiKeysResponse> response = apiInstance.GetApiKeysWithHttpInfo(acceptLanguage, xChildCompanyId, limit, next, previous, search);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -411,7 +411,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Content-Type - The format of the response body <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **500** | internal server error |  -  |
 

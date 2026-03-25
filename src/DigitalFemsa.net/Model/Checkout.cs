@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// It is a sub-resource of the Order model that can be stipulated in order to configure its corresponding checkout
+    /// Creates a Payment Link. This is a sub-resource related to an Order template: each time a customer pays using the link, the API will create an Order using &#x60;order_template&#x60;. 
     /// </summary>
     [DataContract(Name = "checkout")]
     public partial class Checkout : IValidatableObject
@@ -40,101 +40,65 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Checkout" /> class.
         /// </summary>
-        /// <param name="allowedPaymentMethods">Those are the payment methods that will be available for the link (required).</param>
-        /// <param name="expiresAt">It is the time when the link will expire. It is expressed in seconds since the Unix epoch. The valid range is from 2 to 365 days (the valid range will be taken from the next day of the creation date at 00:01 hrs)  (required).</param>
-        /// <param name="name">Reason for charge (required).</param>
-        /// <param name="needsShippingContact">This flag allows you to fill in the shipping information at checkout..</param>
-        /// <param name="onDemandEnabled">This flag allows you to specify if the link will be on demand..</param>
-        /// <param name="orderTemplate">orderTemplate (required).</param>
-        /// <param name="paymentsLimitCount">It is the number of payments that can be made through the link..</param>
+        /// <param name="name">Payment link name. (required).</param>
+        /// <param name="type">Checkout type. (required).</param>
         /// <param name="recurrent">false: single use. true: multiple payments (required).</param>
-        /// <param name="type">It is the type of link that will be created. It must be a valid type. (required).</param>
-        public Checkout(List<string> allowedPaymentMethods = default(List<string>), long expiresAt = default(long), string name = default(string), bool needsShippingContact = default(bool), bool? onDemandEnabled = default(bool?), CheckoutOrderTemplate orderTemplate = default(CheckoutOrderTemplate), int paymentsLimitCount = default(int), bool recurrent = default(bool), string type = default(string))
+        /// <param name="paymentsLimitCount">Required when &#x60;recurrent&#x60; is true. Maximum number of payments allowed through the link..</param>
+        /// <param name="allowedPaymentMethods">Payment methods available in the payment link. (required).</param>
+        /// <param name="needsShippingContact">This flag allows you to fill in the shipping information at checkout. (required).</param>
+        /// <param name="startsAt">Start time for the link. Unix timestamp in seconds..</param>
+        /// <param name="expiresAt">Expiration time for the link (Unix timestamp in seconds). Valid range is between 2 and 365 days (calculated from the next day of creation at 00:01).  (required).</param>
+        /// <param name="canNotExpire">If true, the link does not expire..</param>
+        /// <param name="orderTemplate">orderTemplate (required).</param>
+        public Checkout(string name = default(string), string type = default(string), bool recurrent = default(bool), int paymentsLimitCount = default(int), List<string> allowedPaymentMethods = default(List<string>), bool needsShippingContact = default(bool), long startsAt = default(long), long expiresAt = default(long), bool canNotExpire = default(bool), CheckoutOrderTemplate orderTemplate = default(CheckoutOrderTemplate))
         {
-            // to ensure "allowedPaymentMethods" is required (not null)
-            if (allowedPaymentMethods == null)
-            {
-                throw new ArgumentNullException("allowedPaymentMethods is a required property for Checkout and cannot be null");
-            }
-            this.AllowedPaymentMethods = allowedPaymentMethods;
-            this.ExpiresAt = expiresAt;
             // to ensure "name" is required (not null)
             if (name == null)
             {
                 throw new ArgumentNullException("name is a required property for Checkout and cannot be null");
             }
             this.Name = name;
-            // to ensure "orderTemplate" is required (not null)
-            if (orderTemplate == null)
-            {
-                throw new ArgumentNullException("orderTemplate is a required property for Checkout and cannot be null");
-            }
-            this.OrderTemplate = orderTemplate;
-            this.Recurrent = recurrent;
             // to ensure "type" is required (not null)
             if (type == null)
             {
                 throw new ArgumentNullException("type is a required property for Checkout and cannot be null");
             }
             this.Type = type;
+            this.Recurrent = recurrent;
+            // to ensure "allowedPaymentMethods" is required (not null)
+            if (allowedPaymentMethods == null)
+            {
+                throw new ArgumentNullException("allowedPaymentMethods is a required property for Checkout and cannot be null");
+            }
+            this.AllowedPaymentMethods = allowedPaymentMethods;
             this.NeedsShippingContact = needsShippingContact;
-            this.OnDemandEnabled = onDemandEnabled;
+            this.ExpiresAt = expiresAt;
+            // to ensure "orderTemplate" is required (not null)
+            if (orderTemplate == null)
+            {
+                throw new ArgumentNullException("orderTemplate is a required property for Checkout and cannot be null");
+            }
+            this.OrderTemplate = orderTemplate;
             this.PaymentsLimitCount = paymentsLimitCount;
+            this.StartsAt = startsAt;
+            this.CanNotExpire = canNotExpire;
         }
 
         /// <summary>
-        /// Those are the payment methods that will be available for the link
+        /// Payment link name.
         /// </summary>
-        /// <value>Those are the payment methods that will be available for the link</value>
-        /// <example>[&quot;cash&quot;]</example>
-        [DataMember(Name = "allowed_payment_methods", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> AllowedPaymentMethods { get; set; }
-
-        /// <summary>
-        /// It is the time when the link will expire. It is expressed in seconds since the Unix epoch. The valid range is from 2 to 365 days (the valid range will be taken from the next day of the creation date at 00:01 hrs) 
-        /// </summary>
-        /// <value>It is the time when the link will expire. It is expressed in seconds since the Unix epoch. The valid range is from 2 to 365 days (the valid range will be taken from the next day of the creation date at 00:01 hrs) </value>
-        /// <example>1680397724</example>
-        [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
-        public long ExpiresAt { get; set; }
-
-        /// <summary>
-        /// Reason for charge
-        /// </summary>
-        /// <value>Reason for charge</value>
-        /// <example>Payment Link Name 1594138857</example>
+        /// <value>Payment link name.</value>
+        /// <example>Payment Link Name</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// This flag allows you to fill in the shipping information at checkout.
+        /// Checkout type.
         /// </summary>
-        /// <value>This flag allows you to fill in the shipping information at checkout.</value>
-        /// <example>false</example>
-        [DataMember(Name = "needs_shipping_contact", EmitDefaultValue = true)]
-        public bool NeedsShippingContact { get; set; }
-
-        /// <summary>
-        /// This flag allows you to specify if the link will be on demand.
-        /// </summary>
-        /// <value>This flag allows you to specify if the link will be on demand.</value>
-        /// <example>true</example>
-        [DataMember(Name = "on_demand_enabled", EmitDefaultValue = true)]
-        public bool? OnDemandEnabled { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OrderTemplate
-        /// </summary>
-        [DataMember(Name = "order_template", IsRequired = true, EmitDefaultValue = true)]
-        public CheckoutOrderTemplate OrderTemplate { get; set; }
-
-        /// <summary>
-        /// It is the number of payments that can be made through the link.
-        /// </summary>
-        /// <value>It is the number of payments that can be made through the link.</value>
-        /// <example>5</example>
-        [DataMember(Name = "payments_limit_count", EmitDefaultValue = false)]
-        public int PaymentsLimitCount { get; set; }
+        /// <value>Checkout type.</value>
+        /// <example>PaymentLink</example>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public string Type { get; set; }
 
         /// <summary>
         /// false: single use. true: multiple payments
@@ -145,12 +109,57 @@ namespace DigitalFemsa.net.Model
         public bool Recurrent { get; set; }
 
         /// <summary>
-        /// It is the type of link that will be created. It must be a valid type.
+        /// Required when &#x60;recurrent&#x60; is true. Maximum number of payments allowed through the link.
         /// </summary>
-        /// <value>It is the type of link that will be created. It must be a valid type.</value>
-        /// <example>PaymentLink</example>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public string Type { get; set; }
+        /// <value>Required when &#x60;recurrent&#x60; is true. Maximum number of payments allowed through the link.</value>
+        [DataMember(Name = "payments_limit_count", EmitDefaultValue = false)]
+        public int PaymentsLimitCount { get; set; }
+
+        /// <summary>
+        /// Payment methods available in the payment link.
+        /// </summary>
+        /// <value>Payment methods available in the payment link.</value>
+        /// <example>[&quot;cash&quot;]</example>
+        [DataMember(Name = "allowed_payment_methods", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> AllowedPaymentMethods { get; set; }
+
+        /// <summary>
+        /// This flag allows you to fill in the shipping information at checkout.
+        /// </summary>
+        /// <value>This flag allows you to fill in the shipping information at checkout.</value>
+        /// <example>false</example>
+        [DataMember(Name = "needs_shipping_contact", IsRequired = true, EmitDefaultValue = true)]
+        public bool NeedsShippingContact { get; set; }
+
+        /// <summary>
+        /// Start time for the link. Unix timestamp in seconds.
+        /// </summary>
+        /// <value>Start time for the link. Unix timestamp in seconds.</value>
+        /// <example>1680224924</example>
+        [DataMember(Name = "starts_at", EmitDefaultValue = false)]
+        public long StartsAt { get; set; }
+
+        /// <summary>
+        /// Expiration time for the link (Unix timestamp in seconds). Valid range is between 2 and 365 days (calculated from the next day of creation at 00:01). 
+        /// </summary>
+        /// <value>Expiration time for the link (Unix timestamp in seconds). Valid range is between 2 and 365 days (calculated from the next day of creation at 00:01). </value>
+        /// <example>1680397724</example>
+        [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
+        public long ExpiresAt { get; set; }
+
+        /// <summary>
+        /// If true, the link does not expire.
+        /// </summary>
+        /// <value>If true, the link does not expire.</value>
+        /// <example>false</example>
+        [DataMember(Name = "can_not_expire", EmitDefaultValue = true)]
+        public bool CanNotExpire { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderTemplate
+        /// </summary>
+        [DataMember(Name = "order_template", IsRequired = true, EmitDefaultValue = true)]
+        public CheckoutOrderTemplate OrderTemplate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -160,15 +169,16 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Checkout {\n");
-            sb.Append("  AllowedPaymentMethods: ").Append(AllowedPaymentMethods).Append("\n");
-            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NeedsShippingContact: ").Append(NeedsShippingContact).Append("\n");
-            sb.Append("  OnDemandEnabled: ").Append(OnDemandEnabled).Append("\n");
-            sb.Append("  OrderTemplate: ").Append(OrderTemplate).Append("\n");
-            sb.Append("  PaymentsLimitCount: ").Append(PaymentsLimitCount).Append("\n");
-            sb.Append("  Recurrent: ").Append(Recurrent).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Recurrent: ").Append(Recurrent).Append("\n");
+            sb.Append("  PaymentsLimitCount: ").Append(PaymentsLimitCount).Append("\n");
+            sb.Append("  AllowedPaymentMethods: ").Append(AllowedPaymentMethods).Append("\n");
+            sb.Append("  NeedsShippingContact: ").Append(NeedsShippingContact).Append("\n");
+            sb.Append("  StartsAt: ").Append(StartsAt).Append("\n");
+            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
+            sb.Append("  CanNotExpire: ").Append(CanNotExpire).Append("\n");
+            sb.Append("  OrderTemplate: ").Append(OrderTemplate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

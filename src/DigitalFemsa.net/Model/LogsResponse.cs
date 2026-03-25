@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// logs model
+    /// Log model representing a recorded request/response cycle for troubleshooting and auditing.
     /// </summary>
     [DataContract(Name = "logs_response")]
     public partial class LogsResponse : IValidatableObject

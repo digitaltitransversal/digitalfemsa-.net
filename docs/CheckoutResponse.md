@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Livemode** | **bool** |  | 
 **Metadata** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
-**Name** | **string** | Reason for charge | 
+**Name** | **string** | Payment link name | 
 **NeedsShippingContact** | **bool** |  | [optional] 
 **Object** | **string** |  | 
 **PaidPaymentsCount** | **int** |  | [optional] 

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetTransfer**](TransfersApi.md#gettransfer) | **GET** /transfers/{id} | Get Transfer |
-| [**GetTransfers**](TransfersApi.md#gettransfers) | **GET** /transfers | Get a list of transfers |
+| [**GetTransfer**](TransfersApi.md#gettransfer) | **GET** /transfers/{id} | Get transfer |
+| [**GetTransfers**](TransfersApi.md#gettransfers) | **GET** /transfers | List transfers |
 
 <a id="gettransfer"></a>
 # **GetTransfer**
 > TransferResponse GetTransfer (string id, string acceptLanguage = null, string xChildCompanyId = null)
 
-Get Transfer
+Get transfer
 
-Get the details of a Transfer
+Retrieves the details of a transfer by its ID.
 
 ### Example
 ```csharp
@@ -41,7 +41,7 @@ namespace Example
 
             try
             {
-                // Get Transfer
+                // Get transfer
                 TransferResponse result = apiInstance.GetTransfer(id, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -62,7 +62,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Transfer
+    // Get transfer
     ApiResponse<TransferResponse> response = apiInstance.GetTransferWithHttpInfo(id, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -101,9 +101,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
-| **404** | authentication error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -112,9 +111,9 @@ catch (ApiException e)
 # **GetTransfers**
 > GetTransfersResponse GetTransfers (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string search = null, string next = null, string previous = null)
 
-Get a list of transfers
+List transfers
 
-Get transfers details in the form of a list
+Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
 
 ### Example
 ```csharp
@@ -145,7 +144,7 @@ namespace Example
 
             try
             {
-                // Get a list of transfers
+                // List transfers
                 GetTransfersResponse result = apiInstance.GetTransfers(acceptLanguage, xChildCompanyId, limit, search, next, previous);
                 Debug.WriteLine(result);
             }
@@ -166,7 +165,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a list of transfers
+    // List transfers
     ApiResponse<GetTransfersResponse> response = apiInstance.GetTransfersWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, next, previous);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -208,7 +207,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **500** | internal server error |  -  |
 

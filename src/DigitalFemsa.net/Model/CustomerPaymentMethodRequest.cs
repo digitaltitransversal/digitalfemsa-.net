@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// Contains details of the payment methods that the customer has active or has used in Femsa
+    /// Payment method data to attach to a customer.
     /// </summary>
     [DataContract(Name = "customer_payment_method_request")]
     public partial class CustomerPaymentMethodRequest : IValidatableObject
@@ -40,7 +40,7 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerPaymentMethodRequest" /> class.
         /// </summary>
-        /// <param name="type">Type of payment method (required).</param>
+        /// <param name="type">Type of payment method. (required).</param>
         public CustomerPaymentMethodRequest(string type = default(string))
         {
             // to ensure "type" is required (not null)
@@ -52,9 +52,9 @@ namespace DigitalFemsa.net.Model
         }
 
         /// <summary>
-        /// Type of payment method
+        /// Type of payment method.
         /// </summary>
-        /// <value>Type of payment method</value>
+        /// <value>Type of payment method.</value>
         /// <example>cash</example>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }

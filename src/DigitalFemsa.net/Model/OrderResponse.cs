@@ -27,109 +27,161 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// order response
+    /// Order model. Some nested resources are returned as list previews (for example: &#x60;charges&#x60;, &#x60;line_items&#x60;), and may be &#x60;null&#x60; depending on the request/context. The &#x60;checkout&#x60; field is only present when the order is linked to a checkout (&#x60;channel.checkout_request_id&#x60;). 
     /// </summary>
     [DataContract(Name = "order_response")]
     public partial class OrderResponse : IValidatableObject
     {
         /// <summary>
+        /// Defines Object
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ObjectEnum
+        {
+            /// <summary>
+            /// Enum Order for value: order
+            /// </summary>
+            [EnumMember(Value = "order")]
+            Order = 1
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Object
+        /// </summary>
+        /// <example>order</example>
+        [DataMember(Name = "object", EmitDefaultValue = false)]
+        public ObjectEnum? Object { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="OrderResponse" /> class.
         /// </summary>
-        /// <param name="amount">The total amount to be collected in cents.</param>
-        /// <param name="amountRefunded">The total amount refunded in cents.</param>
-        /// <param name="channel">channel.</param>
-        /// <param name="charges">charges.</param>
-        /// <param name="checkout">checkout.</param>
-        /// <param name="createdAt">The time at which the object was created in seconds since the Unix epoch.</param>
-        /// <param name="currency">The three-letter ISO 4217 currency code. The currency of the order..</param>
-        /// <param name="customerInfo">customerInfo.</param>
-        /// <param name="discountLines">discountLines.</param>
-        /// <param name="fiscalEntity">fiscalEntity.</param>
         /// <param name="id">id.</param>
-        /// <param name="isRefundable">isRefundable.</param>
-        /// <param name="lineItems">lineItems.</param>
-        /// <param name="livemode">Whether the object exists in live mode or test mode.</param>
-        /// <param name="metadata">Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format..</param>
-        /// <param name="nextAction">nextAction.</param>
-        /// <param name="varObject">String representing the object’s type. Objects of the same type share the same value..</param>
-        /// <param name="paymentStatus">The payment status of the order..</param>
-        /// <param name="processingMode">Indicates the processing mode for the order, either ecommerce, recurrent or validation..</param>
+        /// <param name="varObject">varObject.</param>
+        /// <param name="livemode">livemode.</param>
+        /// <param name="amount">amount.</param>
+        /// <param name="currency">currency.</param>
+        /// <param name="paymentStatus">Current payment status of the order. It can be &#x60;null&#x60; for orders without payment information yet..</param>
+        /// <param name="amountRefunded">amountRefunded.</param>
+        /// <param name="splitPayment">Indicates whether the order uses split payments (when available/configured)..</param>
+        /// <param name="metadata">Metadata attached to the order..</param>
+        /// <param name="isRefundable">Indicates whether the order is currently refundable..</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        /// <param name="customerInfo">customerInfo.</param>
         /// <param name="shippingContact">shippingContact.</param>
-        /// <param name="updatedAt">The time at which the object was last updated in seconds since the Unix epoch.</param>
-        public OrderResponse(int amount = default(int), int amountRefunded = default(int), ChargeResponseChannel channel = default(ChargeResponseChannel), OrderResponseCharges charges = default(OrderResponseCharges), OrderResponseCheckout checkout = default(OrderResponseCheckout), long createdAt = default(long), string currency = default(string), OrderResponseCustomerInfo customerInfo = default(OrderResponseCustomerInfo), OrderResponseDiscountLines discountLines = default(OrderResponseDiscountLines), OrderFiscalEntityResponse fiscalEntity = default(OrderFiscalEntityResponse), string id = default(string), bool isRefundable = default(bool), OrderResponseProducts lineItems = default(OrderResponseProducts), bool livemode = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), OrderNextActionResponse nextAction = default(OrderNextActionResponse), string varObject = default(string), string paymentStatus = default(string), string processingMode = default(string), OrderResponseShippingContact shippingContact = default(OrderResponseShippingContact), long updatedAt = default(long))
+        /// <param name="channel">channel.</param>
+        /// <param name="fiscalEntity">fiscalEntity.</param>
+        /// <param name="checkout">checkout.</param>
+        /// <param name="lineItems">lineItems.</param>
+        /// <param name="discountLines">discountLines.</param>
+        /// <param name="charges">charges.</param>
+        /// <param name="partialReference">Partial reference information (when applicable). Structure may vary depending on the payment flow..</param>
+        /// <param name="paymentsInfo">Additional payment information (when available). Structure may vary..</param>
+        public OrderResponse(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), bool livemode = default(bool), int amount = default(int), string currency = default(string), string paymentStatus = default(string), int amountRefunded = default(int), bool? splitPayment = default(bool?), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool isRefundable = default(bool), long createdAt = default(long), long updatedAt = default(long), OrderResponseCustomerInfo customerInfo = default(OrderResponseCustomerInfo), OrderResponseShippingContact shippingContact = default(OrderResponseShippingContact), OrderResponseChannel channel = default(OrderResponseChannel), OrderFiscalEntityResponse fiscalEntity = default(OrderFiscalEntityResponse), OrderResponseCheckout checkout = default(OrderResponseCheckout), OrderResponseProducts lineItems = default(OrderResponseProducts), OrderResponseDiscountLines discountLines = default(OrderResponseDiscountLines), OrderResponseCharges charges = default(OrderResponseCharges), Dictionary<string, Object> partialReference = default(Dictionary<string, Object>), Dictionary<string, Object> paymentsInfo = default(Dictionary<string, Object>))
         {
-            this.Amount = amount;
-            this.AmountRefunded = amountRefunded;
-            this.Channel = channel;
-            this.Charges = charges;
-            this.Checkout = checkout;
-            this.CreatedAt = createdAt;
-            this.Currency = currency;
-            this.CustomerInfo = customerInfo;
-            this.DiscountLines = discountLines;
-            this.FiscalEntity = fiscalEntity;
             this.Id = id;
-            this.IsRefundable = isRefundable;
-            this.LineItems = lineItems;
-            this.Livemode = livemode;
-            this.Metadata = metadata;
-            this.NextAction = nextAction;
             this.Object = varObject;
+            this.Livemode = livemode;
+            this.Amount = amount;
+            this.Currency = currency;
             this.PaymentStatus = paymentStatus;
-            this.ProcessingMode = processingMode;
-            this.ShippingContact = shippingContact;
+            this.AmountRefunded = amountRefunded;
+            this.SplitPayment = splitPayment;
+            this.Metadata = metadata;
+            this.IsRefundable = isRefundable;
+            this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
+            this.CustomerInfo = customerInfo;
+            this.ShippingContact = shippingContact;
+            this.Channel = channel;
+            this.FiscalEntity = fiscalEntity;
+            this.Checkout = checkout;
+            this.LineItems = lineItems;
+            this.DiscountLines = discountLines;
+            this.Charges = charges;
+            this.PartialReference = partialReference;
+            this.PaymentsInfo = paymentsInfo;
         }
 
         /// <summary>
-        /// The total amount to be collected in cents
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>The total amount to be collected in cents</value>
-        /// <example>21605</example>
+        /// <example>ord_2zKSF2aUY2kBRcyXJ</example>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Livemode
+        /// </summary>
+        /// <example>true</example>
+        [DataMember(Name = "livemode", EmitDefaultValue = true)]
+        public bool Livemode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        /// <example>10000</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public int Amount { get; set; }
 
         /// <summary>
-        /// The total amount refunded in cents
+        /// Gets or Sets Currency
         /// </summary>
-        /// <value>The total amount refunded in cents</value>
+        /// <example>MXN</example>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Current payment status of the order. It can be &#x60;null&#x60; for orders without payment information yet.
+        /// </summary>
+        /// <value>Current payment status of the order. It can be &#x60;null&#x60; for orders without payment information yet.</value>
+        /// <example>pending_payment</example>
+        [DataMember(Name = "payment_status", EmitDefaultValue = true)]
+        public string PaymentStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AmountRefunded
+        /// </summary>
         /// <example>0</example>
         [DataMember(Name = "amount_refunded", EmitDefaultValue = false)]
         public int AmountRefunded { get; set; }
 
         /// <summary>
-        /// Gets or Sets Channel
+        /// Indicates whether the order uses split payments (when available/configured).
         /// </summary>
-        [DataMember(Name = "channel", EmitDefaultValue = false)]
-        public ChargeResponseChannel Channel { get; set; }
+        /// <value>Indicates whether the order uses split payments (when available/configured).</value>
+        [DataMember(Name = "split_payment", EmitDefaultValue = true)]
+        public bool? SplitPayment { get; set; }
 
         /// <summary>
-        /// Gets or Sets Charges
+        /// Metadata attached to the order.
         /// </summary>
-        [DataMember(Name = "charges", EmitDefaultValue = false)]
-        public OrderResponseCharges Charges { get; set; }
+        /// <value>Metadata attached to the order.</value>
+        /// <example>{}</example>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// Gets or Sets Checkout
+        /// Indicates whether the order is currently refundable.
         /// </summary>
-        [DataMember(Name = "checkout", EmitDefaultValue = false)]
-        public OrderResponseCheckout Checkout { get; set; }
+        /// <value>Indicates whether the order is currently refundable.</value>
+        /// <example>false</example>
+        [DataMember(Name = "is_refundable", EmitDefaultValue = true)]
+        public bool IsRefundable { get; set; }
 
         /// <summary>
-        /// The time at which the object was created in seconds since the Unix epoch
+        /// Gets or Sets CreatedAt
         /// </summary>
-        /// <value>The time at which the object was created in seconds since the Unix epoch</value>
-        /// <example>1676328434</example>
+        /// <example>1767651766</example>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public long CreatedAt { get; set; }
 
         /// <summary>
-        /// The three-letter ISO 4217 currency code. The currency of the order.
+        /// Gets or Sets UpdatedAt
         /// </summary>
-        /// <value>The three-letter ISO 4217 currency code. The currency of the order.</value>
-        /// <example>MXN</example>
-        [DataMember(Name = "currency", EmitDefaultValue = false)]
-        public string Currency { get; set; }
+        /// <example>1767651766</example>
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
+        public long UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerInfo
@@ -138,10 +190,16 @@ namespace DigitalFemsa.net.Model
         public OrderResponseCustomerInfo CustomerInfo { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiscountLines
+        /// Gets or Sets ShippingContact
         /// </summary>
-        [DataMember(Name = "discount_lines", EmitDefaultValue = false)]
-        public OrderResponseDiscountLines DiscountLines { get; set; }
+        [DataMember(Name = "shipping_contact", EmitDefaultValue = true)]
+        public OrderResponseShippingContact ShippingContact { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Channel
+        /// </summary>
+        [DataMember(Name = "channel", EmitDefaultValue = true)]
+        public OrderResponseChannel Channel { get; set; }
 
         /// <summary>
         /// Gets or Sets FiscalEntity
@@ -150,18 +208,10 @@ namespace DigitalFemsa.net.Model
         public OrderFiscalEntityResponse FiscalEntity { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets Checkout
         /// </summary>
-        /// <example>ord_2tMtQQpDvfnNjiuFG</example>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsRefundable
-        /// </summary>
-        /// <example>false</example>
-        [DataMember(Name = "is_refundable", EmitDefaultValue = true)]
-        public bool IsRefundable { get; set; }
+        [DataMember(Name = "checkout", EmitDefaultValue = false)]
+        public OrderResponseCheckout Checkout { get; set; }
 
         /// <summary>
         /// Gets or Sets LineItems
@@ -170,63 +220,30 @@ namespace DigitalFemsa.net.Model
         public OrderResponseProducts LineItems { get; set; }
 
         /// <summary>
-        /// Whether the object exists in live mode or test mode
+        /// Gets or Sets DiscountLines
         /// </summary>
-        /// <value>Whether the object exists in live mode or test mode</value>
-        /// <example>false</example>
-        [DataMember(Name = "livemode", EmitDefaultValue = true)]
-        public bool Livemode { get; set; }
+        [DataMember(Name = "discount_lines", EmitDefaultValue = false)]
+        public OrderResponseDiscountLines DiscountLines { get; set; }
 
         /// <summary>
-        /// Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+        /// Gets or Sets Charges
         /// </summary>
-        /// <value>Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Metadata { get; set; }
+        [DataMember(Name = "charges", EmitDefaultValue = false)]
+        public OrderResponseCharges Charges { get; set; }
 
         /// <summary>
-        /// Gets or Sets NextAction
+        /// Partial reference information (when applicable). Structure may vary depending on the payment flow.
         /// </summary>
-        [DataMember(Name = "next_action", EmitDefaultValue = false)]
-        public OrderNextActionResponse NextAction { get; set; }
+        /// <value>Partial reference information (when applicable). Structure may vary depending on the payment flow.</value>
+        [DataMember(Name = "partial_reference", EmitDefaultValue = true)]
+        public Dictionary<string, Object> PartialReference { get; set; }
 
         /// <summary>
-        /// String representing the object’s type. Objects of the same type share the same value.
+        /// Additional payment information (when available). Structure may vary.
         /// </summary>
-        /// <value>String representing the object’s type. Objects of the same type share the same value.</value>
-        /// <example>order</example>
-        [DataMember(Name = "object", EmitDefaultValue = false)]
-        public string Object { get; set; }
-
-        /// <summary>
-        /// The payment status of the order.
-        /// </summary>
-        /// <value>The payment status of the order.</value>
-        /// <example>paid</example>
-        [DataMember(Name = "payment_status", EmitDefaultValue = false)]
-        public string PaymentStatus { get; set; }
-
-        /// <summary>
-        /// Indicates the processing mode for the order, either ecommerce, recurrent or validation.
-        /// </summary>
-        /// <value>Indicates the processing mode for the order, either ecommerce, recurrent or validation.</value>
-        /// <example>ecommerce</example>
-        [DataMember(Name = "processing_mode", EmitDefaultValue = false)]
-        public string ProcessingMode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShippingContact
-        /// </summary>
-        [DataMember(Name = "shipping_contact", EmitDefaultValue = false)]
-        public OrderResponseShippingContact ShippingContact { get; set; }
-
-        /// <summary>
-        /// The time at which the object was last updated in seconds since the Unix epoch
-        /// </summary>
-        /// <value>The time at which the object was last updated in seconds since the Unix epoch</value>
-        /// <example>1676328434</example>
-        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
-        public long UpdatedAt { get; set; }
+        /// <value>Additional payment information (when available). Structure may vary.</value>
+        [DataMember(Name = "payments_info", EmitDefaultValue = true)]
+        public Dictionary<string, Object> PaymentsInfo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -236,27 +253,28 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderResponse {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  AmountRefunded: ").Append(AmountRefunded).Append("\n");
-            sb.Append("  Channel: ").Append(Channel).Append("\n");
-            sb.Append("  Charges: ").Append(Charges).Append("\n");
-            sb.Append("  Checkout: ").Append(Checkout).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  CustomerInfo: ").Append(CustomerInfo).Append("\n");
-            sb.Append("  DiscountLines: ").Append(DiscountLines).Append("\n");
-            sb.Append("  FiscalEntity: ").Append(FiscalEntity).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  IsRefundable: ").Append(IsRefundable).Append("\n");
-            sb.Append("  LineItems: ").Append(LineItems).Append("\n");
-            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  NextAction: ").Append(NextAction).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  PaymentStatus: ").Append(PaymentStatus).Append("\n");
-            sb.Append("  ProcessingMode: ").Append(ProcessingMode).Append("\n");
-            sb.Append("  ShippingContact: ").Append(ShippingContact).Append("\n");
+            sb.Append("  AmountRefunded: ").Append(AmountRefunded).Append("\n");
+            sb.Append("  SplitPayment: ").Append(SplitPayment).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  IsRefundable: ").Append(IsRefundable).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  CustomerInfo: ").Append(CustomerInfo).Append("\n");
+            sb.Append("  ShippingContact: ").Append(ShippingContact).Append("\n");
+            sb.Append("  Channel: ").Append(Channel).Append("\n");
+            sb.Append("  FiscalEntity: ").Append(FiscalEntity).Append("\n");
+            sb.Append("  Checkout: ").Append(Checkout).Append("\n");
+            sb.Append("  LineItems: ").Append(LineItems).Append("\n");
+            sb.Append("  DiscountLines: ").Append(DiscountLines).Append("\n");
+            sb.Append("  Charges: ").Append(Charges).Append("\n");
+            sb.Append("  PartialReference: ").Append(PartialReference).Append("\n");
+            sb.Append("  PaymentsInfo: ").Append(PaymentsInfo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,6 +295,12 @@ namespace DigitalFemsa.net.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Currency (string) maxLength
+            if (this.Currency != null && this.Currency.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+            }
+
             yield break;
         }
     }

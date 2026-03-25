@@ -61,7 +61,7 @@ namespace DigitalFemsa.net.Model
         /// Indicates if the api key is active
         /// </summary>
         /// <value>Indicates if the api key is active</value>
-        /// <example>true</example>
+        /// <example>false</example>
         [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 

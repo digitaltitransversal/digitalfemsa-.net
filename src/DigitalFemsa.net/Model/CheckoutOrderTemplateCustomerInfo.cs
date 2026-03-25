@@ -28,7 +28,7 @@ using System.Reflection;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// It is the information of the customer who will be created when receiving a new payment.
+    /// Customer information used when creating the order.
     /// </summary>
     [JsonConverter(typeof(CheckoutOrderTemplateCustomerInfoJsonConverter))]
     [DataContract(Name = "checkout_order_template_customer_info")]

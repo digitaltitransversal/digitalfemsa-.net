@@ -28,10 +28,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Transfer
+        /// Get transfer
         /// </summary>
         /// <remarks>
-        /// Get the details of a Transfer
+        /// Retrieves the details of a transfer by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -42,10 +42,10 @@ namespace DigitalFemsa.net.Api
         TransferResponse GetTransfer(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get Transfer
+        /// Get transfer
         /// </summary>
         /// <remarks>
-        /// Get the details of a Transfer
+        /// Retrieves the details of a transfer by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -55,10 +55,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of TransferResponse</returns>
         ApiResponse<TransferResponse> GetTransferWithHttpInfo(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get a list of transfers
+        /// List transfers
         /// </summary>
         /// <remarks>
-        /// Get transfers details in the form of a list
+        /// Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -72,10 +72,10 @@ namespace DigitalFemsa.net.Api
         GetTransfersResponse GetTransfers(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get a list of transfers
+        /// List transfers
         /// </summary>
         /// <remarks>
-        /// Get transfers details in the form of a list
+        /// Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -97,10 +97,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Transfer
+        /// Get transfer
         /// </summary>
         /// <remarks>
-        /// Get the details of a Transfer
+        /// Retrieves the details of a transfer by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -112,10 +112,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<TransferResponse> GetTransferAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Transfer
+        /// Get transfer
         /// </summary>
         /// <remarks>
-        /// Get the details of a Transfer
+        /// Retrieves the details of a transfer by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -126,10 +126,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (TransferResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransferResponse>> GetTransferWithHttpInfoAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get a list of transfers
+        /// List transfers
         /// </summary>
         /// <remarks>
-        /// Get transfers details in the form of a list
+        /// Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -144,10 +144,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<GetTransfersResponse> GetTransfersAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get a list of transfers
+        /// List transfers
         /// </summary>
         /// <remarks>
-        /// Get transfers details in the form of a list
+        /// Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -281,7 +281,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Transfer Get the details of a Transfer
+        /// Get transfer Retrieves the details of a transfer by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -296,7 +296,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Transfer Get the details of a Transfer
+        /// Get transfer Retrieves the details of a transfer by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -369,7 +369,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Transfer Get the details of a Transfer
+        /// Get transfer Retrieves the details of a transfer by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -385,7 +385,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Transfer Get the details of a Transfer
+        /// Get transfer Retrieves the details of a transfer by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -461,7 +461,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of transfers Get transfers details in the form of a list
+        /// List transfers Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -479,7 +479,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of transfers Get transfers details in the form of a list
+        /// List transfers Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -564,7 +564,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of transfers Get transfers details in the form of a list
+        /// List transfers Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -583,7 +583,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of transfers Get transfers details in the form of a list
+        /// List transfers Returns a paginated list of transfers (payouts/dispersions).  A transfer represents a payout of funds to the merchant (where the money is sent and the payout status). Transfers typically aggregate multiple transactions.  If you need movement-level details (amount/fee/net per operation) or to reconcile charges, use GET /transactions. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>

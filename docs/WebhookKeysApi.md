@@ -5,10 +5,10 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateWebhookKey**](WebhookKeysApi.md#createwebhookkey) | **POST** /webhook_keys | Create Webhook Key |
-| [**DeleteWebhookKey**](WebhookKeysApi.md#deletewebhookkey) | **DELETE** /webhook_keys/{id} | Delete Webhook key |
-| [**GetWebhookKey**](WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get Webhook Key |
+| [**DeleteWebhookKey**](WebhookKeysApi.md#deletewebhookkey) | **DELETE** /webhook_keys/{id} | Delete webhook key |
+| [**GetWebhookKey**](WebhookKeysApi.md#getwebhookkey) | **GET** /webhook_keys/{id} | Get webhook key |
 | [**GetWebhookKeys**](WebhookKeysApi.md#getwebhookkeys) | **GET** /webhook_keys | Get List of Webhook Keys |
-| [**UpdateWebhookKey**](WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update Webhook Key |
+| [**UpdateWebhookKey**](WebhookKeysApi.md#updatewebhookkey) | **PUT** /webhook_keys/{id} | Update webhook key |
 
 <a id="createwebhookkey"></a>
 # **CreateWebhookKey**
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Create Webhook Key
 
-Create a webhook key
+Creates a new webhook signing key for the current company.
 
 ### Example
 ```csharp
@@ -112,7 +112,9 @@ catch (ApiException e)
 # **DeleteWebhookKey**
 > WebhookKeyDeleteResponse DeleteWebhookKey (string id, string acceptLanguage = null)
 
-Delete Webhook key
+Delete webhook key
+
+Deletes a webhook signing key.
 
 ### Example
 ```csharp
@@ -139,7 +141,7 @@ namespace Example
 
             try
             {
-                // Delete Webhook key
+                // Delete webhook key
                 WebhookKeyDeleteResponse result = apiInstance.DeleteWebhookKey(id, acceptLanguage);
                 Debug.WriteLine(result);
             }
@@ -160,7 +162,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete Webhook key
+    // Delete webhook key
     ApiResponse<WebhookKeyDeleteResponse> response = apiInstance.DeleteWebhookKeyWithHttpInfo(id, acceptLanguage);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -198,7 +200,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -209,7 +211,9 @@ catch (ApiException e)
 # **GetWebhookKey**
 > WebhookKeyResponse GetWebhookKey (string id, string acceptLanguage = null, string xChildCompanyId = null)
 
-Get Webhook Key
+Get webhook key
+
+Retrieves the details of a webhook signing key by its ID.
 
 ### Example
 ```csharp
@@ -237,7 +241,7 @@ namespace Example
 
             try
             {
-                // Get Webhook Key
+                // Get webhook key
                 WebhookKeyResponse result = apiInstance.GetWebhookKey(id, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -258,7 +262,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Webhook Key
+    // Get webhook key
     ApiResponse<WebhookKeyResponse> response = apiInstance.GetWebhookKeyWithHttpInfo(id, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -297,7 +301,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -404,7 +408,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **500** | internal server error |  -  |
 
@@ -414,9 +418,9 @@ catch (ApiException e)
 # **UpdateWebhookKey**
 > WebhookKeyResponse UpdateWebhookKey (string id, string acceptLanguage = null, WebhookKeyUpdateRequest webhookKeyUpdateRequest = null)
 
-Update Webhook Key
+Update webhook key
 
-updates an existing webhook key
+Activates or deactivates an existing webhook signing key.
 
 ### Example
 ```csharp
@@ -444,7 +448,7 @@ namespace Example
 
             try
             {
-                // Update Webhook Key
+                // Update webhook key
                 WebhookKeyResponse result = apiInstance.UpdateWebhookKey(id, acceptLanguage, webhookKeyUpdateRequest);
                 Debug.WriteLine(result);
             }
@@ -465,7 +469,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update Webhook Key
+    // Update webhook key
     ApiResponse<WebhookKeyResponse> response = apiInstance.UpdateWebhookKeyWithHttpInfo(id, acceptLanguage, webhookKeyUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

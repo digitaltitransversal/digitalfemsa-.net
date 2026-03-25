@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// update customer
+    /// Request body to update a customer.
     /// </summary>
     [DataContract(Name = "update_customer")]
     public partial class UpdateCustomer : IValidatableObject
@@ -35,120 +35,103 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCustomer" /> class.
         /// </summary>
-        /// <param name="antifraudInfo">antifraudInfo.</param>
-        /// <param name="defaultPaymentSourceId">It is a parameter that allows to identify in the response, the Femsa ID of a payment method (payment_id).</param>
-        /// <param name="email">An email address is a series of customizable characters followed by a universal Internet symbol, the at symbol (@), the name of a host server, and a web domain ending (.mx, .com, .org, . net, etc)..</param>
-        /// <param name="name">Client&#39;s name.</param>
-        /// <param name="phone">Is the customer&#39;s phone number.</param>
-        /// <param name="defaultShippingContactId">It is a parameter that allows to identify in the response, the Femsa ID of the shipping address (shipping_contact).</param>
-        /// <param name="corporate">It is a value that allows identifying if the email is corporate or not. (default to false).</param>
-        /// <param name="customReference">It is an undefined value..</param>
-        /// <param name="fiscalEntities">fiscalEntities.</param>
-        /// <param name="metadata">metadata.</param>
-        /// <param name="paymentSources">Contains details of the payment methods that the customer has active or has used in Femsa.</param>
-        /// <param name="shippingContacts">Contains the detail of the shipping addresses that the client has active or has used in Femsa.</param>
-        public UpdateCustomer(UpdateCustomerAntifraudInfo antifraudInfo = default(UpdateCustomerAntifraudInfo), string defaultPaymentSourceId = default(string), string email = default(string), string name = default(string), string phone = default(string), string defaultShippingContactId = default(string), bool corporate = false, string customReference = default(string), List<CustomerFiscalEntitiesRequest> fiscalEntities = default(List<CustomerFiscalEntitiesRequest>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<CustomerPaymentMethodsRequest> paymentSources = default(List<CustomerPaymentMethodsRequest>), List<CustomerShippingContacts> shippingContacts = default(List<CustomerShippingContacts>))
+        /// <param name="name">Customer&#39;s name..</param>
+        /// <param name="email">Customer email address..</param>
+        /// <param name="phone">Customer phone number..</param>
+        /// <param name="corporate">True if the customer represents a company..</param>
+        /// <param name="customReference">Merchant-defined reference used to identify the customer in your system..</param>
+        /// <param name="metadata">Arbitrary metadata associated with the customer..</param>
+        /// <param name="paymentSources">Customer payment sources to create/attach (offline recurrent references)..</param>
+        /// <param name="defaultPaymentSourceId">Sets the default payment source for the customer (must be an existing payment source on the customer)..</param>
+        /// <param name="defaultFiscalEntityId">Sets the default fiscal entity for the customer (must be an existing fiscal entity on the customer)..</param>
+        /// <param name="defaultShippingContactId">Sets the default shipping contact for the customer (must be an existing shipping contact on the customer)..</param>
+        public UpdateCustomer(string name = default(string), string email = default(string), string phone = default(string), bool corporate = default(bool), string customReference = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<CustomerPaymentMethodsRequest> paymentSources = default(List<CustomerPaymentMethodsRequest>), string defaultPaymentSourceId = default(string), string defaultFiscalEntityId = default(string), string defaultShippingContactId = default(string))
         {
-            this.AntifraudInfo = antifraudInfo;
-            this.DefaultPaymentSourceId = defaultPaymentSourceId;
-            this.Email = email;
             this.Name = name;
+            this.Email = email;
             this.Phone = phone;
-            this.DefaultShippingContactId = defaultShippingContactId;
             this.Corporate = corporate;
             this.CustomReference = customReference;
-            this.FiscalEntities = fiscalEntities;
             this.Metadata = metadata;
             this.PaymentSources = paymentSources;
-            this.ShippingContacts = shippingContacts;
+            this.DefaultPaymentSourceId = defaultPaymentSourceId;
+            this.DefaultFiscalEntityId = defaultFiscalEntityId;
+            this.DefaultShippingContactId = defaultShippingContactId;
         }
 
         /// <summary>
-        /// Gets or Sets AntifraudInfo
+        /// Customer&#39;s name.
         /// </summary>
-        [DataMember(Name = "antifraud_info", EmitDefaultValue = true)]
-        public UpdateCustomerAntifraudInfo AntifraudInfo { get; set; }
+        /// <value>Customer&#39;s name.</value>
+        /// <example>Miguel</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// It is a parameter that allows to identify in the response, the Femsa ID of a payment method (payment_id)
+        /// Customer email address.
         /// </summary>
-        /// <value>It is a parameter that allows to identify in the response, the Femsa ID of a payment method (payment_id)</value>
-        /// <example>src_1a2b3c4d5e6f7g8h</example>
-        [DataMember(Name = "default_payment_source_id", EmitDefaultValue = false)]
-        public string DefaultPaymentSourceId { get; set; }
-
-        /// <summary>
-        /// An email address is a series of customizable characters followed by a universal Internet symbol, the at symbol (@), the name of a host server, and a web domain ending (.mx, .com, .org, . net, etc).
-        /// </summary>
-        /// <value>An email address is a series of customizable characters followed by a universal Internet symbol, the at symbol (@), the name of a host server, and a web domain ending (.mx, .com, .org, . net, etc).</value>
+        /// <value>Customer email address.</value>
         /// <example>miguel@gmail.com</example>
         [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Client&#39;s name
+        /// Customer phone number.
         /// </summary>
-        /// <value>Client&#39;s name</value>
-        /// <example>miguel</example>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Is the customer&#39;s phone number
-        /// </summary>
-        /// <value>Is the customer&#39;s phone number</value>
-        /// <example>+5215555555555</example>
+        /// <value>Customer phone number.</value>
+        /// <example>5215555555555</example>
         [DataMember(Name = "phone", EmitDefaultValue = false)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// It is a parameter that allows to identify in the response, the Femsa ID of the shipping address (shipping_contact)
+        /// True if the customer represents a company.
         /// </summary>
-        /// <value>It is a parameter that allows to identify in the response, the Femsa ID of the shipping address (shipping_contact)</value>
-        /// <example>ship_cont_1a2b3c4d5e6f7g8h</example>
-        [DataMember(Name = "default_shipping_contact_id", EmitDefaultValue = false)]
-        public string DefaultShippingContactId { get; set; }
-
-        /// <summary>
-        /// It is a value that allows identifying if the email is corporate or not.
-        /// </summary>
-        /// <value>It is a value that allows identifying if the email is corporate or not.</value>
-        /// <example>false</example>
+        /// <value>True if the customer represents a company.</value>
         [DataMember(Name = "corporate", EmitDefaultValue = true)]
         public bool Corporate { get; set; }
 
         /// <summary>
-        /// It is an undefined value.
+        /// Merchant-defined reference used to identify the customer in your system.
         /// </summary>
-        /// <value>It is an undefined value.</value>
+        /// <value>Merchant-defined reference used to identify the customer in your system.</value>
+        /// <example>customer_123</example>
         [DataMember(Name = "custom_reference", EmitDefaultValue = false)]
         public string CustomReference { get; set; }
 
         /// <summary>
-        /// Gets or Sets FiscalEntities
+        /// Arbitrary metadata associated with the customer.
         /// </summary>
-        [DataMember(Name = "fiscal_entities", EmitDefaultValue = false)]
-        public List<CustomerFiscalEntitiesRequest> FiscalEntities { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
+        /// <value>Arbitrary metadata associated with the customer.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// Contains details of the payment methods that the customer has active or has used in Femsa
+        /// Customer payment sources to create/attach (offline recurrent references).
         /// </summary>
-        /// <value>Contains details of the payment methods that the customer has active or has used in Femsa</value>
+        /// <value>Customer payment sources to create/attach (offline recurrent references).</value>
         [DataMember(Name = "payment_sources", EmitDefaultValue = false)]
         public List<CustomerPaymentMethodsRequest> PaymentSources { get; set; }
 
         /// <summary>
-        /// Contains the detail of the shipping addresses that the client has active or has used in Femsa
+        /// Sets the default payment source for the customer (must be an existing payment source on the customer).
         /// </summary>
-        /// <value>Contains the detail of the shipping addresses that the client has active or has used in Femsa</value>
-        [DataMember(Name = "shipping_contacts", EmitDefaultValue = false)]
-        public List<CustomerShippingContacts> ShippingContacts { get; set; }
+        /// <value>Sets the default payment source for the customer (must be an existing payment source on the customer).</value>
+        [DataMember(Name = "default_payment_source_id", EmitDefaultValue = false)]
+        public string DefaultPaymentSourceId { get; set; }
+
+        /// <summary>
+        /// Sets the default fiscal entity for the customer (must be an existing fiscal entity on the customer).
+        /// </summary>
+        /// <value>Sets the default fiscal entity for the customer (must be an existing fiscal entity on the customer).</value>
+        [DataMember(Name = "default_fiscal_entity_id", EmitDefaultValue = false)]
+        public string DefaultFiscalEntityId { get; set; }
+
+        /// <summary>
+        /// Sets the default shipping contact for the customer (must be an existing shipping contact on the customer).
+        /// </summary>
+        /// <value>Sets the default shipping contact for the customer (must be an existing shipping contact on the customer).</value>
+        [DataMember(Name = "default_shipping_contact_id", EmitDefaultValue = false)]
+        public string DefaultShippingContactId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -158,18 +141,16 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateCustomer {\n");
-            sb.Append("  AntifraudInfo: ").Append(AntifraudInfo).Append("\n");
-            sb.Append("  DefaultPaymentSourceId: ").Append(DefaultPaymentSourceId).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
-            sb.Append("  DefaultShippingContactId: ").Append(DefaultShippingContactId).Append("\n");
             sb.Append("  Corporate: ").Append(Corporate).Append("\n");
             sb.Append("  CustomReference: ").Append(CustomReference).Append("\n");
-            sb.Append("  FiscalEntities: ").Append(FiscalEntities).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  PaymentSources: ").Append(PaymentSources).Append("\n");
-            sb.Append("  ShippingContacts: ").Append(ShippingContacts).Append("\n");
+            sb.Append("  DefaultPaymentSourceId: ").Append(DefaultPaymentSourceId).Append("\n");
+            sb.Append("  DefaultFiscalEntityId: ").Append(DefaultFiscalEntityId).Append("\n");
+            sb.Append("  DefaultShippingContactId: ").Append(DefaultShippingContactId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

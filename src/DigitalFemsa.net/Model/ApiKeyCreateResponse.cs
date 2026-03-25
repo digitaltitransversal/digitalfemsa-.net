@@ -46,7 +46,7 @@ namespace DigitalFemsa.net.Model
         /// <param name="varObject">Object name, value is &#39;api_key&#39;.</param>
         /// <param name="prefix">The first few characters of the authentication_token.</param>
         /// <param name="role">Indicates if the api key is private or public.</param>
-        /// <param name="authenticationToken">It is occupied as a user when authenticated with basic authentication, with a blank password. This value will only appear once, in the request to create a new key. Copy and save it in a safe place..</param>
+        /// <param name="authenticationToken">Used as the username for Basic Authentication, with a blank password. This value is shown only once (when the key is created). Copy and store it securely. .</param>
         public ApiKeyCreateResponse(bool active = default(bool), long createdAt = default(long), long updatedAt = default(long), long? deactivatedAt = default(long?), string description = default(string), string id = default(string), bool livemode = default(bool), bool deleted = default(bool), string varObject = default(string), string prefix = default(string), string role = default(string), string authenticationToken = default(string))
         {
             this.Active = active;
@@ -151,9 +151,9 @@ namespace DigitalFemsa.net.Model
         public string Role { get; set; }
 
         /// <summary>
-        /// It is occupied as a user when authenticated with basic authentication, with a blank password. This value will only appear once, in the request to create a new key. Copy and save it in a safe place.
+        /// Used as the username for Basic Authentication, with a blank password. This value is shown only once (when the key is created). Copy and store it securely. 
         /// </summary>
-        /// <value>It is occupied as a user when authenticated with basic authentication, with a blank password. This value will only appear once, in the request to create a new key. Copy and save it in a safe place.</value>
+        /// <value>Used as the username for Basic Authentication, with a blank password. This value is shown only once (when the key is created). Copy and store it securely. </value>
         /// <example>key_rpHzxufNgjFCdprEEFZRTKi</example>
         [DataMember(Name = "authentication_token", EmitDefaultValue = false)]
         public string AuthenticationToken { get; set; }

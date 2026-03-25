@@ -5,17 +5,18 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CancelCheckout**](PaymentLinkApi.md#cancelcheckout) | **PUT** /checkouts/{id}/cancel | Cancel Payment Link |
-| [**CreateCheckout**](PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Unique Payment Link |
+| [**CreateCheckout**](PaymentLinkApi.md#createcheckout) | **POST** /checkouts | Create Payment Link |
 | [**EmailCheckout**](PaymentLinkApi.md#emailcheckout) | **POST** /checkouts/{id}/email | Send an email |
 | [**GetCheckout**](PaymentLinkApi.md#getcheckout) | **GET** /checkouts/{id} | Get a payment link by ID |
 | [**GetCheckouts**](PaymentLinkApi.md#getcheckouts) | **GET** /checkouts | Get a list of payment links |
-| [**SmsCheckout**](PaymentLinkApi.md#smscheckout) | **POST** /checkouts/{id}/sms | Send an sms |
 
 <a id="cancelcheckout"></a>
 # **CancelCheckout**
 > CheckoutResponse CancelCheckout (string id, string acceptLanguage = null, string xChildCompanyId = null)
 
 Cancel Payment Link
+
+Cancels an existing payment link. After cancellation, the link can no longer be used to generate new payments. This operation is idempotent: cancelling an already cancelled payment link returns the current resource representation.
 
 ### Example
 ```csharp
@@ -103,7 +104,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
@@ -116,7 +117,9 @@ catch (ApiException e)
 # **CreateCheckout**
 > CheckoutResponse CreateCheckout (Checkout checkout, string acceptLanguage = null, string xChildCompanyId = null)
 
-Create Unique Payment Link
+Create Payment Link
+
+Creates a Payment Link: a shareable URL that lets your customer pay without you building a custom checkout. Configure the link type, allowed payment methods, and expiration. The request also includes an order_template (currency and line items) used to generate an Order when the customer completes a payment. Use recurrent=false for a single-use link, or recurrent=true to allow multiple payments (limited by payments_limit_count).
 
 ### Example
 ```csharp
@@ -144,7 +147,7 @@ namespace Example
 
             try
             {
-                // Create Unique Payment Link
+                // Create Payment Link
                 CheckoutResponse result = apiInstance.CreateCheckout(checkout, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -165,7 +168,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create Unique Payment Link
+    // Create Payment Link
     ApiResponse<CheckoutResponse> response = apiInstance.CreateCheckoutWithHttpInfo(checkout, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -204,7 +207,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **422** | parameter validation error |  -  |
@@ -306,7 +309,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
@@ -320,6 +323,8 @@ catch (ApiException e)
 > CheckoutResponse GetCheckout (string id, string acceptLanguage = null, string xChildCompanyId = null)
 
 Get a payment link by ID
+
+Retrieves the details of a checkout by its ID.
 
 ### Example
 ```csharp
@@ -407,11 +412,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
-| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -422,7 +426,7 @@ catch (ApiException e)
 
 Get a list of payment links
 
-Returns a list of links generated by the merchant
+Returns a paginated list of payment links created by the merchant. Results can be navigated using the pagination parameters.
 
 ### Example
 ```csharp
@@ -516,112 +520,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
-| **422** | parameter validation error |  -  |
-| **500** | internal server error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="smscheckout"></a>
-# **SmsCheckout**
-> CheckoutResponse SmsCheckout (string id, SmsCheckoutRequest smsCheckoutRequest, string acceptLanguage = null, string xChildCompanyId = null)
-
-Send an sms
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using DigitalFemsa.net.Api;
-using DigitalFemsa.net.Client;
-using DigitalFemsa.net.Model;
-
-namespace Example
-{
-    public class SmsCheckoutExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.digitalfemsa.io";
-            // Configure Bearer token for authorization: bearerAuth
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            var apiInstance = new PaymentLinkApi(config);
-            var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
-            var smsCheckoutRequest = new SmsCheckoutRequest(); // SmsCheckoutRequest | requested field for sms checkout
-            var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
-            var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
-
-            try
-            {
-                // Send an sms
-                CheckoutResponse result = apiInstance.SmsCheckout(id, smsCheckoutRequest, acceptLanguage, xChildCompanyId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling PaymentLinkApi.SmsCheckout: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SmsCheckoutWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Send an sms
-    ApiResponse<CheckoutResponse> response = apiInstance.SmsCheckoutWithHttpInfo(id, smsCheckoutRequest, acceptLanguage, xChildCompanyId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling PaymentLinkApi.SmsCheckoutWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **string** | Identifier of the resource |  |
-| **smsCheckoutRequest** | [**SmsCheckoutRequest**](SmsCheckoutRequest.md) | requested field for sms checkout |  |
-| **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
-| **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
-
-### Return type
-
-[**CheckoutResponse**](CheckoutResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/vnd.app-v2.1.0+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
-| **401** | authentication error |  -  |
-| **402** | payment required error |  -  |
-| **404** | not found entity |  -  |
 | **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 

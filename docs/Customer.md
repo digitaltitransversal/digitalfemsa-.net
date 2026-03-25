@@ -1,22 +1,19 @@
 # DigitalFemsa.net.Model.Customer
-a customer
+Customer create request.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AntifraudInfo** | [**CustomerAntifraudInfo**](CustomerAntifraudInfo.md) |  | [optional] 
-**Corporate** | **bool** | It is a value that allows identifying if the email is corporate or not. | [optional] [default to false]
-**CustomReference** | **string** | It is an undefined value. | [optional] 
-**Email** | **string** | An email address is a series of customizable characters followed by a universal Internet symbol, the at symbol (@), the name of a host server, and a web domain ending (.mx, .com, .org, . net, etc). | 
-**DefaultPaymentSourceId** | **string** | It is a parameter that allows to identify in the response, the Femsa ID of a payment method (payment_id) | [optional] 
-**DefaultShippingContactId** | **string** | It is a parameter that allows to identify in the response, the Femsa ID of the shipping address (shipping_contact) | [optional] 
-**FiscalEntities** | [**List&lt;CustomerFiscalEntitiesRequest&gt;**](CustomerFiscalEntitiesRequest.md) |  | [optional] 
-**Metadata** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
-**Name** | **string** | Client&#39;s name | 
-**PaymentSources** | [**List&lt;CustomerPaymentMethodsRequest&gt;**](CustomerPaymentMethodsRequest.md) | Contains details of the payment methods that the customer has active or has used in Femsa | [optional] 
-**Phone** | **string** | Is the customer&#39;s phone number | 
-**ShippingContacts** | [**List&lt;CustomerShippingContacts&gt;**](CustomerShippingContacts.md) | Contains the detail of the shipping addresses that the client has active or has used in Femsa | [optional] 
+**Name** | **string** | Customer&#39;s name. | 
+**Email** | **string** | Customer email address. | 
+**Phone** | **string** | Customer phone number. | [optional] 
+**Corporate** | **bool** | Indicates whether the customer email is corporate. | [optional] [default to false]
+**CustomReference** | **string** | Merchant-defined reference used to identify the customer in your system. | [optional] 
+**Metadata** | **Dictionary&lt;string, Object&gt;** | Arbitrary metadata associated with the customer. | [optional] 
+**PaymentSources** | [**List&lt;CustomerPaymentMethodsRequest&gt;**](CustomerPaymentMethodsRequest.md) | Customer payment sources to be created with the customer (optional). | [optional] 
+**FiscalEntities** | [**List&lt;CustomerFiscalEntitiesRequest&gt;**](CustomerFiscalEntitiesRequest.md) | Customer fiscal entities to be created with the customer (optional). | [optional] 
+**ShippingContacts** | [**List&lt;CustomerShippingContacts&gt;**](CustomerShippingContacts.md) | Customer shipping contacts to be created with the customer (optional). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

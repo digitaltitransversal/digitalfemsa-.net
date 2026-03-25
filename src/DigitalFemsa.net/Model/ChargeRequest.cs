@@ -72,6 +72,7 @@ namespace DigitalFemsa.net.Model
         /// Custom reference to add to the charge
         /// </summary>
         /// <value>Custom reference to add to the charge</value>
+        /// <example>ref_2tN73UdUSNrYRPD9r</example>
         [DataMember(Name = "reference_id", EmitDefaultValue = false)]
         public string ReferenceId { get; set; }
 

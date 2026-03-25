@@ -42,16 +42,16 @@ namespace DigitalFemsa.net.Model
         /// </summary>
         /// <param name="address">address (required).</param>
         /// <param name="taxId">taxId.</param>
+        /// <param name="name">name.</param>
         /// <param name="email">email.</param>
         /// <param name="phone">phone.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="companyName">companyName.</param>
         /// <param name="id">id (required).</param>
         /// <param name="varObject">varObject (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="parentId">parentId.</param>
         /// <param name="varDefault">varDefault.</param>
-        public UpdateCustomerFiscalEntitiesResponse(CustomerAddress address = default(CustomerAddress), string taxId = default(string), string email = default(string), string phone = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string companyName = default(string), string id = default(string), string varObject = default(string), long createdAt = default(long), string parentId = default(string), bool varDefault = default(bool))
+        public UpdateCustomerFiscalEntitiesResponse(CustomerAddress address = default(CustomerAddress), string taxId = default(string), string name = default(string), string email = default(string), string phone = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string id = default(string), string varObject = default(string), long createdAt = default(long), string parentId = default(string), bool varDefault = default(bool))
         {
             // to ensure "address" is required (not null)
             if (address == null)
@@ -73,10 +73,10 @@ namespace DigitalFemsa.net.Model
             this.Object = varObject;
             this.CreatedAt = createdAt;
             this.TaxId = taxId;
+            this.Name = name;
             this.Email = email;
             this.Phone = phone;
             this.Metadata = metadata;
-            this.CompanyName = companyName;
             this.ParentId = parentId;
             this.Default = varDefault;
         }
@@ -92,6 +92,13 @@ namespace DigitalFemsa.net.Model
         /// </summary>
         [DataMember(Name = "tax_id", EmitDefaultValue = false)]
         public string TaxId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        /// <example>Femsa</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -110,13 +117,6 @@ namespace DigitalFemsa.net.Model
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Dictionary<string, Object> Metadata { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CompanyName
-        /// </summary>
-        /// <example>Femsa</example>
-        [DataMember(Name = "company_name", EmitDefaultValue = false)]
-        public string CompanyName { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -162,10 +162,10 @@ namespace DigitalFemsa.net.Model
             sb.Append("class UpdateCustomerFiscalEntitiesResponse {\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");

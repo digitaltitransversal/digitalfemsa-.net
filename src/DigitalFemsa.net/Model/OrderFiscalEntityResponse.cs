@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// Fiscal entity of the order, Currently it is a purely informative field
+    /// Fiscal entity information associated with the order. This field can be &#x60;null&#x60;.
     /// </summary>
     [DataContract(Name = "order_fiscal_entity_response")]
     public partial class OrderFiscalEntityResponse : IValidatableObject

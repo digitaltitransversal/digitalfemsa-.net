@@ -4,21 +4,21 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateCustomer**](CustomersApi.md#createcustomer) | **POST** /customers | Create customer |
+| [**CreateCustomer**](CustomersApi.md#createcustomer) | **POST** /customers | Create a customer |
 | [**CreateCustomerFiscalEntities**](CustomersApi.md#createcustomerfiscalentities) | **POST** /customers/{id}/fiscal_entities | Create Fiscal Entity |
 | [**DeleteCustomerById**](CustomersApi.md#deletecustomerbyid) | **DELETE** /customers/{id} | Delete Customer |
 | [**GetCustomerById**](CustomersApi.md#getcustomerbyid) | **GET** /customers/{id} | Get Customer |
 | [**GetCustomers**](CustomersApi.md#getcustomers) | **GET** /customers | Get a list of customers |
 | [**UpdateCustomer**](CustomersApi.md#updatecustomer) | **PUT** /customers/{id} | Update customer |
-| [**UpdateCustomerFiscalEntities**](CustomersApi.md#updatecustomerfiscalentities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update  Fiscal Entity |
+| [**UpdateCustomerFiscalEntities**](CustomersApi.md#updatecustomerfiscalentities) | **PUT** /customers/{id}/fiscal_entities/{fiscal_entities_id} | Update Fiscal Entity |
 
 <a id="createcustomer"></a>
 # **CreateCustomer**
 > CustomerResponse CreateCustomer (Customer customer, string acceptLanguage = null, string xChildCompanyId = null)
 
-Create customer
+Create a customer
 
-The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
 
 ### Example
 ```csharp
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create customer
+                // Create a customer
                 CustomerResponse result = apiInstance.CreateCustomer(customer, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -67,7 +67,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create customer
+    // Create a customer
     ApiResponse<CustomerResponse> response = apiInstance.CreateCustomerWithHttpInfo(customer, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -106,7 +106,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **422** | parameter validation error |  -  |
@@ -120,7 +120,7 @@ catch (ApiException e)
 
 Create Fiscal Entity
 
-Create Fiscal entity resource that corresponds to a customer ID.
+Create a fiscal entity resource for a given customer ID.
 
 ### Example
 ```csharp
@@ -427,7 +427,7 @@ catch (ApiException e)
 
 Get a list of customers
 
-The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
 
 ### Example
 ```csharp
@@ -521,8 +521,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
+| **402** | payment required error |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -635,7 +637,7 @@ catch (ApiException e)
 # **UpdateCustomerFiscalEntities**
 > UpdateCustomerFiscalEntitiesResponse UpdateCustomerFiscalEntities (string id, string fiscalEntitiesId, CustomerUpdateFiscalEntitiesRequest customerUpdateFiscalEntitiesRequest, string acceptLanguage = null, string xChildCompanyId = null)
 
-Update  Fiscal Entity
+Update Fiscal Entity
 
 Update Fiscal Entity resource that corresponds to a customer ID.
 
@@ -661,13 +663,13 @@ namespace Example
             var apiInstance = new CustomersApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
             var fiscalEntitiesId = fis_ent_2tQ8HkkfbauaKP9Ho;  // string | identifier
-            var customerUpdateFiscalEntitiesRequest = new CustomerUpdateFiscalEntitiesRequest(); // CustomerUpdateFiscalEntitiesRequest | requested field for customer update fiscal entities
+            var customerUpdateFiscalEntitiesRequest = new CustomerUpdateFiscalEntitiesRequest(); // CustomerUpdateFiscalEntitiesRequest | Request body for updating a customer fiscal entity.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
             try
             {
-                // Update  Fiscal Entity
+                // Update Fiscal Entity
                 UpdateCustomerFiscalEntitiesResponse result = apiInstance.UpdateCustomerFiscalEntities(id, fiscalEntitiesId, customerUpdateFiscalEntitiesRequest, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -688,7 +690,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update  Fiscal Entity
+    // Update Fiscal Entity
     ApiResponse<UpdateCustomerFiscalEntitiesResponse> response = apiInstance.UpdateCustomerFiscalEntitiesWithHttpInfo(id, fiscalEntitiesId, customerUpdateFiscalEntitiesRequest, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -708,7 +710,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
 | **fiscalEntitiesId** | **string** | identifier |  |
-| **customerUpdateFiscalEntitiesRequest** | [**CustomerUpdateFiscalEntitiesRequest**](CustomerUpdateFiscalEntitiesRequest.md) | requested field for customer update fiscal entities |  |
+| **customerUpdateFiscalEntitiesRequest** | [**CustomerUpdateFiscalEntitiesRequest**](CustomerUpdateFiscalEntitiesRequest.md) | Request body for updating a customer fiscal entity. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 

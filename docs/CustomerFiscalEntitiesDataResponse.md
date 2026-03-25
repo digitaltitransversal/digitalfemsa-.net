@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | [**CustomerAddress**](CustomerAddress.md) |  | 
 **TaxId** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
 **Phone** | **string** |  | [optional] 
 **Metadata** | **Dictionary&lt;string, Object&gt;** |  | [optional] 
-**CompanyName** | **string** |  | [optional] 
 **Id** | **string** |  | 
 **Object** | **string** |  | 
 **CreatedAt** | **long** |  | 

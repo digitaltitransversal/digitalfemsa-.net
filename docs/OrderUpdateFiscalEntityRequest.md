@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Address** | [**FiscalEntityAddress**](FiscalEntityAddress.md) |  | 
 **Email** | **string** | Email of the fiscal entity | [optional] 
 **Name** | **string** | Name of the fiscal entity | [optional] 
-**Metadata** | **Dictionary&lt;string, Object&gt;** | Metadata associated with the fiscal entity | [optional] 
+**Metadata** | **Dictionary&lt;string, Object&gt;** | Arbitrary key-value data associated with the fiscal entity for your internal use. Keys should be strings; values can be any JSON value.  | [optional] 
 **Phone** | **string** | Phone of the fiscal entity | [optional] 
 **TaxId** | **string** | Tax ID of the fiscal entity | [optional] 
 

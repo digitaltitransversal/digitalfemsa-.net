@@ -27,11 +27,193 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// The Transaction object represents the actions or steps of an order. Statuses can be: unprocessed, pending, available, owen, paid_out, voided, capture, capture_reversal, liquidation, liquidation_reversal, payout, payout_reversal, refund, refund_reversal, chargeback, chargeback_reversal, rounding_adjustment, won_chargeback, transferred, and transferred.
+    /// Transaction object.
     /// </summary>
     [DataContract(Name = "transaction_response")]
     public partial class TransactionResponse : IValidatableObject
     {
+        /// <summary>
+        /// Code indicating transaction status.
+        /// </summary>
+        /// <value>Code indicating transaction status.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Unprocessed for value: unprocessed
+            /// </summary>
+            [EnumMember(Value = "unprocessed")]
+            Unprocessed = 1,
+
+            /// <summary>
+            /// Enum Pending for value: pending
+            /// </summary>
+            [EnumMember(Value = "pending")]
+            Pending = 2,
+
+            /// <summary>
+            /// Enum Available for value: available
+            /// </summary>
+            [EnumMember(Value = "available")]
+            Available = 3,
+
+            /// <summary>
+            /// Enum Owing for value: owing
+            /// </summary>
+            [EnumMember(Value = "owing")]
+            Owing = 4,
+
+            /// <summary>
+            /// Enum PaidOut for value: paid_out
+            /// </summary>
+            [EnumMember(Value = "paid_out")]
+            PaidOut = 5,
+
+            /// <summary>
+            /// Enum OnHold for value: on_hold
+            /// </summary>
+            [EnumMember(Value = "on_hold")]
+            OnHold = 6,
+
+            /// <summary>
+            /// Enum Retained for value: retained
+            /// </summary>
+            [EnumMember(Value = "retained")]
+            Retained = 7,
+
+            /// <summary>
+            /// Enum Voided for value: voided
+            /// </summary>
+            [EnumMember(Value = "voided")]
+            Voided = 8
+        }
+
+
+        /// <summary>
+        /// Code indicating transaction status.
+        /// </summary>
+        /// <value>Code indicating transaction status.</value>
+        /// <example>pending</example>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public StatusEnum Status { get; set; }
+        /// <summary>
+        /// Transaction type.
+        /// </summary>
+        /// <value>Transaction type.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Capture for value: capture
+            /// </summary>
+            [EnumMember(Value = "capture")]
+            Capture = 1,
+
+            /// <summary>
+            /// Enum CaptureReversal for value: capture_reversal
+            /// </summary>
+            [EnumMember(Value = "capture_reversal")]
+            CaptureReversal = 2,
+
+            /// <summary>
+            /// Enum Liquidation for value: liquidation
+            /// </summary>
+            [EnumMember(Value = "liquidation")]
+            Liquidation = 3,
+
+            /// <summary>
+            /// Enum LiquidationReversal for value: liquidation_reversal
+            /// </summary>
+            [EnumMember(Value = "liquidation_reversal")]
+            LiquidationReversal = 4,
+
+            /// <summary>
+            /// Enum Payout for value: payout
+            /// </summary>
+            [EnumMember(Value = "payout")]
+            Payout = 5,
+
+            /// <summary>
+            /// Enum PayoutReversal for value: payout_reversal
+            /// </summary>
+            [EnumMember(Value = "payout_reversal")]
+            PayoutReversal = 6,
+
+            /// <summary>
+            /// Enum Refund for value: refund
+            /// </summary>
+            [EnumMember(Value = "refund")]
+            Refund = 7,
+
+            /// <summary>
+            /// Enum RefundReversal for value: refund_reversal
+            /// </summary>
+            [EnumMember(Value = "refund_reversal")]
+            RefundReversal = 8,
+
+            /// <summary>
+            /// Enum RoundingAdjustment for value: rounding_adjustment
+            /// </summary>
+            [EnumMember(Value = "rounding_adjustment")]
+            RoundingAdjustment = 9,
+
+            /// <summary>
+            /// Enum Transfer for value: transfer
+            /// </summary>
+            [EnumMember(Value = "transfer")]
+            Transfer = 10,
+
+            /// <summary>
+            /// Enum Transferred for value: transferred
+            /// </summary>
+            [EnumMember(Value = "transferred")]
+            Transferred = 11,
+
+            /// <summary>
+            /// Enum Retention for value: retention
+            /// </summary>
+            [EnumMember(Value = "retention")]
+            Retention = 12,
+
+            /// <summary>
+            /// Enum TemporaryRetention for value: temporary_retention
+            /// </summary>
+            [EnumMember(Value = "temporary_retention")]
+            TemporaryRetention = 13,
+
+            /// <summary>
+            /// Enum CashoutRetention for value: cashout_retention
+            /// </summary>
+            [EnumMember(Value = "cashout_retention")]
+            CashoutRetention = 14,
+
+            /// <summary>
+            /// Enum CashoutConfirmation for value: cashout_confirmation
+            /// </summary>
+            [EnumMember(Value = "cashout_confirmation")]
+            CashoutConfirmation = 15,
+
+            /// <summary>
+            /// Enum CashoutCancelation for value: cashout_cancelation
+            /// </summary>
+            [EnumMember(Value = "cashout_cancelation")]
+            CashoutCancelation = 16,
+
+            /// <summary>
+            /// Enum AutofundCapture for value: autofund_capture
+            /// </summary>
+            [EnumMember(Value = "autofund_capture")]
+            AutofundCapture = 17
+        }
+
+
+        /// <summary>
+        /// Transaction type.
+        /// </summary>
+        /// <value>Transaction type.</value>
+        /// <example>capture</example>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public TypeEnum Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionResponse" /> class.
         /// </summary>
@@ -40,101 +222,52 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionResponse" /> class.
         /// </summary>
-        /// <param name="amount">The amount of the transaction. (required).</param>
-        /// <param name="charge">Randomly assigned unique order identifier associated with the charge. (required).</param>
-        /// <param name="createdAt">Date and time of creation of the transaction in Unix format. (required).</param>
-        /// <param name="currency">The currency of the transaction. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217) (required).</param>
-        /// <param name="fee">The amount to be deducted for taxes and commissions. (required).</param>
         /// <param name="id">Unique identifier of the transaction. (required).</param>
-        /// <param name="livemode">Indicates whether the transaction was created in live mode or test mode. (required).</param>
-        /// <param name="net">The net amount after deducting commissions and taxes. (required).</param>
         /// <param name="varObject">Object name, which is transaction. (required).</param>
+        /// <param name="amount">The amount of the transaction. (required).</param>
+        /// <param name="fee">The amount to be deducted for taxes and commissions. (required).</param>
+        /// <param name="net">The net amount after deducting commissions and taxes. (required).</param>
+        /// <param name="currency">The currency of the transaction. It uses the 3-letter code of ISO 4217. (required).</param>
         /// <param name="status">Code indicating transaction status. (required).</param>
-        /// <param name="type">Transaction Type (required).</param>
-        public TransactionResponse(long amount = default(long), string charge = default(string), long createdAt = default(long), string currency = default(string), long fee = default(long), string id = default(string), bool livemode = default(bool), long net = default(long), string varObject = default(string), string status = default(string), string type = default(string))
+        /// <param name="type">Transaction type. (required).</param>
+        /// <param name="createdAt">Date and time of creation of the transaction in Unix format. (required).</param>
+        /// <param name="livemode">Indicates whether the transaction was created in live mode or test mode. (required).</param>
+        /// <param name="charge">Charge ID associated with the transaction (present only if the transaction belongs to a charge)..</param>
+        /// <param name="transfer">Transfer ID associated with the transaction (present only if the transaction belongs to a transfer)..</param>
+        /// <param name="transferredAt">Date and time when the transaction was transferred, in Unix format..</param>
+        /// <param name="formula">Transaction fee formula identifier (if available)..</param>
+        public TransactionResponse(string id = default(string), string varObject = default(string), long amount = default(long), long fee = default(long), long net = default(long), string currency = default(string), StatusEnum status = default(StatusEnum), TypeEnum type = default(TypeEnum), long createdAt = default(long), bool livemode = default(bool), string charge = default(string), string transfer = default(string), long? transferredAt = default(long?), string formula = default(string))
         {
-            this.Amount = amount;
-            // to ensure "charge" is required (not null)
-            if (charge == null)
-            {
-                throw new ArgumentNullException("charge is a required property for TransactionResponse and cannot be null");
-            }
-            this.Charge = charge;
-            this.CreatedAt = createdAt;
-            // to ensure "currency" is required (not null)
-            if (currency == null)
-            {
-                throw new ArgumentNullException("currency is a required property for TransactionResponse and cannot be null");
-            }
-            this.Currency = currency;
-            this.Fee = fee;
             // to ensure "id" is required (not null)
             if (id == null)
             {
                 throw new ArgumentNullException("id is a required property for TransactionResponse and cannot be null");
             }
             this.Id = id;
-            this.Livemode = livemode;
-            this.Net = net;
             // to ensure "varObject" is required (not null)
             if (varObject == null)
             {
                 throw new ArgumentNullException("varObject is a required property for TransactionResponse and cannot be null");
             }
             this.Object = varObject;
-            // to ensure "status" is required (not null)
-            if (status == null)
+            this.Amount = amount;
+            this.Fee = fee;
+            this.Net = net;
+            // to ensure "currency" is required (not null)
+            if (currency == null)
             {
-                throw new ArgumentNullException("status is a required property for TransactionResponse and cannot be null");
+                throw new ArgumentNullException("currency is a required property for TransactionResponse and cannot be null");
             }
+            this.Currency = currency;
             this.Status = status;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for TransactionResponse and cannot be null");
-            }
             this.Type = type;
+            this.CreatedAt = createdAt;
+            this.Livemode = livemode;
+            this.Charge = charge;
+            this.Transfer = transfer;
+            this.TransferredAt = transferredAt;
+            this.Formula = formula;
         }
-
-        /// <summary>
-        /// The amount of the transaction.
-        /// </summary>
-        /// <value>The amount of the transaction.</value>
-        /// <example>1000</example>
-        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
-        public long Amount { get; set; }
-
-        /// <summary>
-        /// Randomly assigned unique order identifier associated with the charge.
-        /// </summary>
-        /// <value>Randomly assigned unique order identifier associated with the charge.</value>
-        /// <example>5ee7ec58885a45585e6d9f8m</example>
-        [DataMember(Name = "charge", IsRequired = true, EmitDefaultValue = true)]
-        public string Charge { get; set; }
-
-        /// <summary>
-        /// Date and time of creation of the transaction in Unix format.
-        /// </summary>
-        /// <value>Date and time of creation of the transaction in Unix format.</value>
-        /// <example>1553273553</example>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
-        public long CreatedAt { get; set; }
-
-        /// <summary>
-        /// The currency of the transaction. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)
-        /// </summary>
-        /// <value>The currency of the transaction. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)</value>
-        /// <example>MXN</example>
-        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
-        public string Currency { get; set; }
-
-        /// <summary>
-        /// The amount to be deducted for taxes and commissions.
-        /// </summary>
-        /// <value>The amount to be deducted for taxes and commissions.</value>
-        /// <example>560</example>
-        [DataMember(Name = "fee", IsRequired = true, EmitDefaultValue = true)]
-        public long Fee { get; set; }
 
         /// <summary>
         /// Unique identifier of the transaction.
@@ -145,12 +278,28 @@ namespace DigitalFemsa.net.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Indicates whether the transaction was created in live mode or test mode.
+        /// Object name, which is transaction.
         /// </summary>
-        /// <value>Indicates whether the transaction was created in live mode or test mode.</value>
-        /// <example>true</example>
-        [DataMember(Name = "livemode", IsRequired = true, EmitDefaultValue = true)]
-        public bool Livemode { get; set; }
+        /// <value>Object name, which is transaction.</value>
+        /// <example>transaction</example>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public string Object { get; set; }
+
+        /// <summary>
+        /// The amount of the transaction.
+        /// </summary>
+        /// <value>The amount of the transaction.</value>
+        /// <example>1000</example>
+        [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
+        public long Amount { get; set; }
+
+        /// <summary>
+        /// The amount to be deducted for taxes and commissions.
+        /// </summary>
+        /// <value>The amount to be deducted for taxes and commissions.</value>
+        /// <example>560</example>
+        [DataMember(Name = "fee", IsRequired = true, EmitDefaultValue = true)]
+        public long Fee { get; set; }
 
         /// <summary>
         /// The net amount after deducting commissions and taxes.
@@ -161,28 +310,59 @@ namespace DigitalFemsa.net.Model
         public long Net { get; set; }
 
         /// <summary>
-        /// Object name, which is transaction.
+        /// The currency of the transaction. It uses the 3-letter code of ISO 4217.
         /// </summary>
-        /// <value>Object name, which is transaction.</value>
-        /// <example>transaction</example>
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public string Object { get; set; }
+        /// <value>The currency of the transaction. It uses the 3-letter code of ISO 4217.</value>
+        /// <example>MXN</example>
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
 
         /// <summary>
-        /// Code indicating transaction status.
+        /// Date and time of creation of the transaction in Unix format.
         /// </summary>
-        /// <value>Code indicating transaction status.</value>
-        /// <example>pending</example>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public string Status { get; set; }
+        /// <value>Date and time of creation of the transaction in Unix format.</value>
+        /// <example>1553273553</example>
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        public long CreatedAt { get; set; }
 
         /// <summary>
-        /// Transaction Type
+        /// Indicates whether the transaction was created in live mode or test mode.
         /// </summary>
-        /// <value>Transaction Type</value>
-        /// <example>capture</example>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public string Type { get; set; }
+        /// <value>Indicates whether the transaction was created in live mode or test mode.</value>
+        /// <example>true</example>
+        [DataMember(Name = "livemode", IsRequired = true, EmitDefaultValue = true)]
+        public bool Livemode { get; set; }
+
+        /// <summary>
+        /// Charge ID associated with the transaction (present only if the transaction belongs to a charge).
+        /// </summary>
+        /// <value>Charge ID associated with the transaction (present only if the transaction belongs to a charge).</value>
+        /// <example>5ee7ec58885a45585e6d9f8m</example>
+        [DataMember(Name = "charge", EmitDefaultValue = true)]
+        public string Charge { get; set; }
+
+        /// <summary>
+        /// Transfer ID associated with the transaction (present only if the transaction belongs to a transfer).
+        /// </summary>
+        /// <value>Transfer ID associated with the transaction (present only if the transaction belongs to a transfer).</value>
+        /// <example>trf_2tPAmKCEJqh8RE6nY</example>
+        [DataMember(Name = "transfer", EmitDefaultValue = true)]
+        public string Transfer { get; set; }
+
+        /// <summary>
+        /// Date and time when the transaction was transferred, in Unix format.
+        /// </summary>
+        /// <value>Date and time when the transaction was transferred, in Unix format.</value>
+        /// <example>1553273999</example>
+        [DataMember(Name = "transferred_at", EmitDefaultValue = true)]
+        public long? TransferredAt { get; set; }
+
+        /// <summary>
+        /// Transaction fee formula identifier (if available).
+        /// </summary>
+        /// <value>Transaction fee formula identifier (if available).</value>
+        [DataMember(Name = "formula", EmitDefaultValue = true)]
+        public string Formula { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -192,17 +372,20 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionResponse {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Charge: ").Append(Charge).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Currency: ").Append(Currency).Append("\n");
-            sb.Append("  Fee: ").Append(Fee).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
-            sb.Append("  Net: ").Append(Net).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  Fee: ").Append(Fee).Append("\n");
+            sb.Append("  Net: ").Append(Net).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Livemode: ").Append(Livemode).Append("\n");
+            sb.Append("  Charge: ").Append(Charge).Append("\n");
+            sb.Append("  Transfer: ").Append(Transfer).Append("\n");
+            sb.Append("  TransferredAt: ").Append(TransferredAt).Append("\n");
+            sb.Append("  Formula: ").Append(Formula).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -11,7 +11,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | [**OrderCancelRefund**](OrdersApi.md#ordercancelrefund) | **DELETE** /orders/{id}/refunds/{refund_id} | Cancel Refund |
 | [**OrderRefund**](OrdersApi.md#orderrefund) | **POST** /orders/{id}/refunds | Refund Order |
 | [**OrdersCreateCapture**](OrdersApi.md#orderscreatecapture) | **POST** /orders/{id}/capture | Capture Order |
-| [**UpdateOrder**](OrdersApi.md#updateorder) | **PUT** /orders/{id} | Update Order |
+| [**UpdateOrder**](OrdersApi.md#updateorder) | **PUT** /orders/{id} | Update order |
 
 <a id="cancelorder"></a>
 # **CancelOrder**
@@ -19,7 +19,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Cancel Order
 
-Cancel an order that has been previously created.
+Cancels an existing order. This operation marks the order as cancelled and prevents further processing depending on its current state. If the order cannot be cancelled (for example, due to its status or related charge constraints), the API returns an error response.
 
 ### Example
 ```csharp
@@ -107,7 +107,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | Successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
@@ -122,7 +122,7 @@ catch (ApiException e)
 
 Create order
 
-Create a new order.
+Creates a new order (products + amounts + customer data).  Minimum required fields: - `currency` - `line_items` - `customer_info`  About `customer_info`: - You can reference an existing customer using `customer_info.customer_id`, or - You can provide customer details at minimum `customer_info.name` and `customer_info.email` to create the order with customer context.  How to create the order: - Create an order only (no payment): send only the order data. - Create an order and create the first payment charge: include `charges`. - Create an order with a checkout configuration (for a hosted payment flow): include `checkout`.  Important rules: - You cannot send `charges` and `checkout` in the same request (they are mutually exclusive). - If you send `shipping_contact_id` and/or `fiscal_entity_id`, you must also send `customer_info.customer_id` so the API can validate those IDs against that customer. 
 
 ### Example
 ```csharp
@@ -211,9 +211,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | successful operation |  -  |
-| **422** | parameter validation error |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -224,7 +224,7 @@ catch (ApiException e)
 
 Get Order
 
-Info for a specific order
+Returns the full details of an Order by its ID. The response follows the standard Order representation, including nested previews (for example `charges`, `line_items`, `shipping_lines`, `tax_lines`, and `discount_lines`) when available.
 
 ### Example
 ```csharp
@@ -312,7 +312,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
@@ -325,7 +325,7 @@ catch (ApiException e)
 
 Get a list of Orders
 
-Get order details in the form of a list
+Returns a paginated list of orders created in your account. Use pagination parameters to navigate through results, and `search` to filter by supported criteria. 
 
 ### Example
 ```csharp
@@ -431,7 +431,7 @@ catch (ApiException e)
 
 Cancel Refund
 
-A refunded order describes the items, amount, and reason an order is being refunded.
+Cancels a refund previously created for an order. This operation is only available when the refund is still cancellable according to its current status and the payment method rules. If the refund cannot be cancelled, the API returns an error response.
 
 ### Example
 ```csharp
@@ -521,7 +521,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
@@ -536,7 +536,7 @@ catch (ApiException e)
 
 Refund Order
 
-A refunded order describes the items, amount, and reason an order is being refunded.
+Creates a refund for an order. This operation is used to refund a previously paid order (fully or partially, depending on the request body). The API will validate the order and its related charges before processing the refund. If the refund cannot be created due to business rules or state, an error response is returned.
 
 ### Example
 ```csharp
@@ -626,7 +626,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **402** | payment required error |  -  |
 | **404** | not found entity |  -  |
@@ -641,7 +641,7 @@ catch (ApiException e)
 
 Capture Order
 
-Processes an order that has been previously authorized.
+Captures (finalizes) an order that has been previously authorized. Use this endpoint to capture a specific amount. The captured amount must be greater than 0 and must comply with the order and charge constraints enforced by the API.
 
 ### Example
 ```csharp
@@ -666,7 +666,7 @@ namespace Example
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
-            var orderCaptureRequest = new OrderCaptureRequest(); // OrderCaptureRequest | requested fields for capture order (optional) 
+            var orderCaptureRequest = new OrderCaptureRequest(); // OrderCaptureRequest | Requested fields for capturing an order (optional) 
 
             try
             {
@@ -712,7 +712,7 @@ catch (ApiException e)
 | **id** | **string** | Identifier of the resource |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
-| **orderCaptureRequest** | [**OrderCaptureRequest**](OrderCaptureRequest.md) | requested fields for capture order | [optional]  |
+| **orderCaptureRequest** | [**OrderCaptureRequest**](OrderCaptureRequest.md) | Requested fields for capturing an order | [optional]  |
 
 ### Return type
 
@@ -731,7 +731,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **428** | Precondition Required |  -  |
@@ -743,9 +743,9 @@ catch (ApiException e)
 # **UpdateOrder**
 > OrderResponse UpdateOrder (string id, OrderUpdateRequest orderUpdateRequest, string acceptLanguage = null)
 
-Update Order
+Update order
 
-Update an existing Order.
+Updates an existing order by its ID.  Orders are the central resource in the API. Updating an order may also update related order sub-resources when they are included in the request payload, according to server-side validations.  Only fields supported by the API can be modified. 
 
 ### Example
 ```csharp
@@ -773,7 +773,7 @@ namespace Example
 
             try
             {
-                // Update Order
+                // Update order
                 OrderResponse result = apiInstance.UpdateOrder(id, orderUpdateRequest, acceptLanguage);
                 Debug.WriteLine(result);
             }
@@ -794,7 +794,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update Order
+    // Update order
     ApiResponse<OrderResponse> response = apiInstance.UpdateOrderWithHttpInfo(id, orderUpdateRequest, acceptLanguage);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -833,7 +833,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **422** | parameter validation error |  -  |

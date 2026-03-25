@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Create Discount
         /// </summary>
         /// <remarks>
-        /// Create discount lines for an existing orden
+        /// Create discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -46,7 +46,7 @@ namespace DigitalFemsa.net.Api
         /// Create Discount
         /// </summary>
         /// <remarks>
-        /// Create discount lines for an existing orden
+        /// Create discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -60,7 +60,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Discount
         /// </summary>
         /// <remarks>
-        /// Delete an existing discount lines for an existing orden
+        /// Delete an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -75,7 +75,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Discount
         /// </summary>
         /// <remarks>
-        /// Delete an existing discount lines for an existing orden
+        /// Delete an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -89,7 +89,7 @@ namespace DigitalFemsa.net.Api
         /// Get Discount
         /// </summary>
         /// <remarks>
-        /// Get an existing discount lines for an existing orden
+        /// Get an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -104,7 +104,7 @@ namespace DigitalFemsa.net.Api
         /// Get Discount
         /// </summary>
         /// <remarks>
-        /// Get an existing discount lines for an existing orden
+        /// Get an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -115,10 +115,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of DiscountLinesResponse</returns>
         ApiResponse<DiscountLinesResponse> OrdersGetDiscountLineWithHttpInfo(string id, string discountLinesId, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get a List of Discount
+        /// Get a List of Discounts
         /// </summary>
         /// <remarks>
-        /// Get discount lines for an existing orden
+        /// Get discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -133,10 +133,10 @@ namespace DigitalFemsa.net.Api
         GetOrderDiscountLinesResponse OrdersGetDiscountLines(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get a List of Discount
+        /// Get a List of Discounts
         /// </summary>
         /// <remarks>
-        /// Get discount lines for an existing orden
+        /// Get discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -153,7 +153,7 @@ namespace DigitalFemsa.net.Api
         /// Update Discount
         /// </summary>
         /// <remarks>
-        /// Update an existing discount lines for an existing orden
+        /// Update an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -169,7 +169,7 @@ namespace DigitalFemsa.net.Api
         /// Update Discount
         /// </summary>
         /// <remarks>
-        /// Update an existing discount lines for an existing orden
+        /// Update an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -193,7 +193,7 @@ namespace DigitalFemsa.net.Api
         /// Create Discount
         /// </summary>
         /// <remarks>
-        /// Create discount lines for an existing orden
+        /// Create discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -209,7 +209,7 @@ namespace DigitalFemsa.net.Api
         /// Create Discount
         /// </summary>
         /// <remarks>
-        /// Create discount lines for an existing orden
+        /// Create discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -224,7 +224,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Discount
         /// </summary>
         /// <remarks>
-        /// Delete an existing discount lines for an existing orden
+        /// Delete an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -240,7 +240,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Discount
         /// </summary>
         /// <remarks>
-        /// Delete an existing discount lines for an existing orden
+        /// Delete an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -255,7 +255,7 @@ namespace DigitalFemsa.net.Api
         /// Get Discount
         /// </summary>
         /// <remarks>
-        /// Get an existing discount lines for an existing orden
+        /// Get an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -271,7 +271,7 @@ namespace DigitalFemsa.net.Api
         /// Get Discount
         /// </summary>
         /// <remarks>
-        /// Get an existing discount lines for an existing orden
+        /// Get an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -283,10 +283,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (DiscountLinesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DiscountLinesResponse>> OrdersGetDiscountLineWithHttpInfoAsync(string id, string discountLinesId, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get a List of Discount
+        /// Get a List of Discounts
         /// </summary>
         /// <remarks>
-        /// Get discount lines for an existing orden
+        /// Get discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -302,10 +302,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<GetOrderDiscountLinesResponse> OrdersGetDiscountLinesAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get a List of Discount
+        /// Get a List of Discounts
         /// </summary>
         /// <remarks>
-        /// Get discount lines for an existing orden
+        /// Get discount lines for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -323,7 +323,7 @@ namespace DigitalFemsa.net.Api
         /// Update Discount
         /// </summary>
         /// <remarks>
-        /// Update an existing discount lines for an existing orden
+        /// Update an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -340,7 +340,7 @@ namespace DigitalFemsa.net.Api
         /// Update Discount
         /// </summary>
         /// <remarks>
-        /// Update an existing discount lines for an existing orden
+        /// Update an existing discount line for an existing order
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -473,7 +473,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Discount Create discount lines for an existing orden
+        /// Create Discount Create discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -489,7 +489,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Discount Create discount lines for an existing orden
+        /// Create Discount Create discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -571,7 +571,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Discount Create discount lines for an existing orden
+        /// Create Discount Create discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -588,7 +588,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Discount Create discount lines for an existing orden
+        /// Create Discount Create discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -673,7 +673,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Discount Delete an existing discount lines for an existing orden
+        /// Delete Discount Delete an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -689,7 +689,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Discount Delete an existing discount lines for an existing orden
+        /// Delete Discount Delete an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -770,7 +770,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Discount Delete an existing discount lines for an existing orden
+        /// Delete Discount Delete an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -787,7 +787,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Discount Delete an existing discount lines for an existing orden
+        /// Delete Discount Delete an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -871,7 +871,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Discount Get an existing discount lines for an existing orden
+        /// Get Discount Get an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -887,7 +887,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Discount Get an existing discount lines for an existing orden
+        /// Get Discount Get an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -968,7 +968,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Discount Get an existing discount lines for an existing orden
+        /// Get Discount Get an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -985,7 +985,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Discount Get an existing discount lines for an existing orden
+        /// Get Discount Get an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1069,7 +1069,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a List of Discount Get discount lines for an existing orden
+        /// Get a List of Discounts Get discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1088,7 +1088,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a List of Discount Get discount lines for an existing orden
+        /// Get a List of Discounts Get discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1181,7 +1181,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a List of Discount Get discount lines for an existing orden
+        /// Get a List of Discounts Get discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1201,7 +1201,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a List of Discount Get discount lines for an existing orden
+        /// Get a List of Discounts Get discount lines for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1297,7 +1297,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Discount Update an existing discount lines for an existing orden
+        /// Update Discount Update an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1314,7 +1314,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Discount Update an existing discount lines for an existing orden
+        /// Update Discount Update an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1404,7 +1404,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Discount Update an existing discount lines for an existing orden
+        /// Update Discount Update an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1422,7 +1422,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Discount Update an existing discount lines for an existing orden
+        /// Update Discount Update an existing discount line for an existing order
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>

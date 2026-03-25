@@ -34,7 +34,7 @@ namespace DigitalFemsa.net.Api
         /// What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WebhookResponse</returns>
@@ -47,14 +47,17 @@ namespace DigitalFemsa.net.Api
         /// What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WebhookResponse</returns>
         ApiResponse<WebhookResponse> CreateWebhookWithHttpInfo(WebhookRequest webhookRequest, string acceptLanguage = default(string), int operationIndex = 0);
         /// <summary>
-        /// Delete Webhook
+        /// Delete webhook
         /// </summary>
+        /// <remarks>
+        /// Deletes a webhook.
+        /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -63,10 +66,10 @@ namespace DigitalFemsa.net.Api
         WebhookResponse DeleteWebhook(string id, string acceptLanguage = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Delete Webhook
+        /// Delete webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -75,8 +78,11 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of WebhookResponse</returns>
         ApiResponse<WebhookResponse> DeleteWebhookWithHttpInfo(string id, string acceptLanguage = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get Webhook
+        /// Get webhook
         /// </summary>
+        /// <remarks>
+        /// Retrieves the details of a webhook by its ID.
+        /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -86,10 +92,10 @@ namespace DigitalFemsa.net.Api
         WebhookResponse GetWebhook(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get Webhook
+        /// Get webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -109,11 +115,12 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetWebhooksResponse</returns>
-        GetWebhooksResponse GetWebhooks(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
+        GetWebhooksResponse GetWebhooks(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Get List of Webhooks
@@ -126,16 +133,17 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetWebhooksResponse</returns>
-        ApiResponse<GetWebhooksResponse> GetWebhooksWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
+        ApiResponse<GetWebhooksResponse> GetWebhooksWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
         /// <summary>
-        /// Test Webhook
+        /// Test webhook
         /// </summary>
         /// <remarks>
-        /// Send a webhook.ping event
+        /// Sends a test event to the specified webhook to verify it can receive events.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -145,10 +153,10 @@ namespace DigitalFemsa.net.Api
         WebhookResponse TestWebhook(string id, string acceptLanguage = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Test Webhook
+        /// Test webhook
         /// </summary>
         /// <remarks>
-        /// Send a webhook.ping event
+        /// Sends a test event to the specified webhook to verify it can receive events.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -157,14 +165,14 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of WebhookResponse</returns>
         ApiResponse<WebhookResponse> TestWebhookWithHttpInfo(string id, string acceptLanguage = default(string), int operationIndex = 0);
         /// <summary>
-        /// Update Webhook
+        /// Update webhook
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook
+        /// Updates an existing webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -172,14 +180,14 @@ namespace DigitalFemsa.net.Api
         WebhookResponse UpdateWebhook(string id, WebhookUpdateRequest webhookUpdateRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Update Webhook
+        /// Update webhook
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook
+        /// Updates an existing webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -201,7 +209,7 @@ namespace DigitalFemsa.net.Api
         /// What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -215,17 +223,17 @@ namespace DigitalFemsa.net.Api
         /// What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> CreateWebhookWithHttpInfoAsync(WebhookRequest webhookRequest, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Webhook
+        /// Delete webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -236,10 +244,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookResponse> DeleteWebhookAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Webhook
+        /// Delete webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -249,10 +257,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> DeleteWebhookWithHttpInfoAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Webhook
+        /// Get webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -264,10 +272,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookResponse> GetWebhookAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Webhook
+        /// Get webhook
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -288,12 +296,13 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetWebhooksResponse</returns>
-        System.Threading.Tasks.Task<GetWebhooksResponse> GetWebhooksAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetWebhooksResponse> GetWebhooksAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get List of Webhooks
@@ -306,17 +315,18 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetWebhooksResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWebhooksResponse>> GetWebhooksWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetWebhooksResponse>> GetWebhooksWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Test Webhook
+        /// Test webhook
         /// </summary>
         /// <remarks>
-        /// Send a webhook.ping event
+        /// Sends a test event to the specified webhook to verify it can receive events.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -327,10 +337,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookResponse> TestWebhookAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Test Webhook
+        /// Test webhook
         /// </summary>
         /// <remarks>
-        /// Send a webhook.ping event
+        /// Sends a test event to the specified webhook to verify it can receive events.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -340,14 +350,14 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (WebhookResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookResponse>> TestWebhookWithHttpInfoAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Webhook
+        /// Update webhook
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook
+        /// Updates an existing webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -356,14 +366,14 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookResponse> UpdateWebhookAsync(string id, WebhookUpdateRequest webhookUpdateRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Webhook
+        /// Update webhook
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook
+        /// Updates an existing webhook.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -494,7 +504,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>WebhookResponse</returns>
@@ -508,7 +518,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of WebhookResponse</returns>
@@ -577,7 +587,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -592,7 +602,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook What we do at Femsa translates into events. For example, an event of interest to us occurs at the time a payment is successfully processed. At that moment we will be interested in doing several things: Send an email to the buyer, generate an invoice, start the process of shipping the product, etc.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRequest">requested field for webhook</param>
+        /// <param name="webhookRequest">Webhook creation/update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -661,7 +671,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook 
+        /// Delete webhook Deletes a webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -675,7 +685,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook 
+        /// Delete webhook Deletes a webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -743,7 +753,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook 
+        /// Delete webhook Deletes a webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -758,7 +768,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook 
+        /// Delete webhook Deletes a webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -829,7 +839,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook 
+        /// Get webhook Retrieves the details of a webhook by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -844,7 +854,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook 
+        /// Get webhook Retrieves the details of a webhook by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -917,7 +927,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook 
+        /// Get webhook Retrieves the details of a webhook by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -933,7 +943,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook 
+        /// Get webhook Retrieves the details of a webhook by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1016,13 +1026,14 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetWebhooksResponse</returns>
-        public GetWebhooksResponse GetWebhooks(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
+        public GetWebhooksResponse GetWebhooks(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
         {
-            DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> localVarResponse = GetWebhooksWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+            DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> localVarResponse = GetWebhooksWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, url, next, previous);
             return localVarResponse.Data;
         }
 
@@ -1034,11 +1045,12 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetWebhooksResponse</returns>
-        public DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> GetWebhooksWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
+        public DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> GetWebhooksWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
         {
             DigitalFemsa.net.Client.RequestOptions localVarRequestOptions = new DigitalFemsa.net.Client.RequestOptions();
 
@@ -1069,6 +1081,10 @@ namespace DigitalFemsa.net.Api
             if (search != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "url", url));
             }
             if (next != null)
             {
@@ -1119,14 +1135,15 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetWebhooksResponse</returns>
-        public async System.Threading.Tasks.Task<GetWebhooksResponse> GetWebhooksAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetWebhooksResponse> GetWebhooksAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> localVarResponse = await GetWebhooksWithHttpInfoAsync(acceptLanguage, xChildCompanyId, limit, search, next, previous, operationIndex, cancellationToken).ConfigureAwait(false);
+            DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse> localVarResponse = await GetWebhooksWithHttpInfoAsync(acceptLanguage, xChildCompanyId, limit, search, url, next, previous, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1138,12 +1155,13 @@ namespace DigitalFemsa.net.Api
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
         /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="url">url for webhook filter (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetWebhooksResponse)</returns>
-        public async System.Threading.Tasks.Task<DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse>> GetWebhooksWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DigitalFemsa.net.Client.ApiResponse<GetWebhooksResponse>> GetWebhooksWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string url = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             DigitalFemsa.net.Client.RequestOptions localVarRequestOptions = new DigitalFemsa.net.Client.RequestOptions();
@@ -1175,6 +1193,10 @@ namespace DigitalFemsa.net.Api
             if (search != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "url", url));
             }
             if (next != null)
             {
@@ -1219,7 +1241,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Test Webhook Send a webhook.ping event
+        /// Test webhook Sends a test event to the specified webhook to verify it can receive events.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1233,7 +1255,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Test Webhook Send a webhook.ping event
+        /// Test webhook Sends a test event to the specified webhook to verify it can receive events.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1301,7 +1323,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Test Webhook Send a webhook.ping event
+        /// Test webhook Sends a test event to the specified webhook to verify it can receive events.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1316,7 +1338,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Test Webhook Send a webhook.ping event
+        /// Test webhook Sends a test event to the specified webhook to verify it can receive events.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1387,11 +1409,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook updates an existing webhook
+        /// Update webhook Updates an existing webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1403,11 +1425,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook updates an existing webhook
+        /// Update webhook Updates an existing webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1485,11 +1507,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook updates an existing webhook
+        /// Update webhook Updates an existing webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1502,11 +1524,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook updates an existing webhook
+        /// Update webhook Updates an existing webhook.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="webhookUpdateRequest">requested fields in order to update a webhook</param>
+        /// <param name="webhookUpdateRequest">Webhook update request payload.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

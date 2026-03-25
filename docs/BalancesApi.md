@@ -12,7 +12,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Get a company's balance
 
-Get a company's balance
+Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
 
 ### Example
 ```csharp
@@ -96,8 +96,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
+| **402** | payment required error |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

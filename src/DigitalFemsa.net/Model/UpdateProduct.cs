@@ -35,45 +35,25 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProduct" /> class.
         /// </summary>
-        /// <param name="antifraudInfo">antifraudInfo.</param>
-        /// <param name="description">description.</param>
-        /// <param name="sku">sku.</param>
         /// <param name="name">name.</param>
         /// <param name="unitPrice">unitPrice.</param>
         /// <param name="quantity">quantity.</param>
-        /// <param name="tags">tags.</param>
+        /// <param name="sku">sku.</param>
         /// <param name="brand">brand.</param>
+        /// <param name="description">description.</param>
+        /// <param name="tags">tags.</param>
         /// <param name="metadata">metadata.</param>
-        public UpdateProduct(Dictionary<string, Object> antifraudInfo = default(Dictionary<string, Object>), string description = default(string), string sku = default(string), string name = default(string), long unitPrice = default(long), int quantity = default(int), List<string> tags = default(List<string>), string brand = default(string), Dictionary<string, string> metadata = default(Dictionary<string, string>))
+        public UpdateProduct(string name = default(string), long unitPrice = default(long), int quantity = default(int), string sku = default(string), string brand = default(string), string description = default(string), List<string> tags = default(List<string>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
-            this.AntifraudInfo = antifraudInfo;
-            this.Description = description;
-            this.Sku = sku;
             this.Name = name;
             this.UnitPrice = unitPrice;
             this.Quantity = quantity;
-            this.Tags = tags;
+            this.Sku = sku;
             this.Brand = brand;
+            this.Description = description;
+            this.Tags = tags;
             this.Metadata = metadata;
         }
-
-        /// <summary>
-        /// Gets or Sets AntifraudInfo
-        /// </summary>
-        [DataMember(Name = "antifraud_info", EmitDefaultValue = false)]
-        public Dictionary<string, Object> AntifraudInfo { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Description
-        /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Sku
-        /// </summary>
-        [DataMember(Name = "sku", EmitDefaultValue = false)]
-        public string Sku { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -97,10 +77,10 @@ namespace DigitalFemsa.net.Model
         public int Quantity { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        /// Gets or Sets Sku
         /// </summary>
-        [DataMember(Name = "tags", EmitDefaultValue = false)]
-        public List<string> Tags { get; set; }
+        [DataMember(Name = "sku", EmitDefaultValue = false)]
+        public string Sku { get; set; }
 
         /// <summary>
         /// Gets or Sets Brand
@@ -109,10 +89,22 @@ namespace DigitalFemsa.net.Model
         public string Brand { get; set; }
 
         /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, string> Metadata { get; set; }
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,14 +114,13 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateProduct {\n");
-            sb.Append("  AntifraudInfo: ").Append(AntifraudInfo).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -151,12 +142,6 @@ namespace DigitalFemsa.net.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 250)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
-            }
-
             // UnitPrice (long) minimum
             if (this.UnitPrice < (long)0)
             {
@@ -167,6 +152,12 @@ namespace DigitalFemsa.net.Model
             if (this.Quantity < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 250)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
             }
 
             yield break;

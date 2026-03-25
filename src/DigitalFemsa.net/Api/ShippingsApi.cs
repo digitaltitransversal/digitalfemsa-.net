@@ -31,11 +31,11 @@ namespace DigitalFemsa.net.Api
         /// Create Shipping
         /// </summary>
         /// <remarks>
-        /// Create new shipping for an existing orden
+        /// Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -46,11 +46,11 @@ namespace DigitalFemsa.net.Api
         /// Create Shipping
         /// </summary>
         /// <remarks>
-        /// Create new shipping for an existing orden
+        /// Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -60,7 +60,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Shipping
         /// </summary>
         /// <remarks>
-        /// Delete shipping
+        /// Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -75,7 +75,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Shipping
         /// </summary>
         /// <remarks>
-        /// Delete shipping
+        /// Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -89,12 +89,12 @@ namespace DigitalFemsa.net.Api
         /// Update Shipping
         /// </summary>
         /// <remarks>
-        /// Update existing shipping for an existing orden
+        /// Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -105,12 +105,12 @@ namespace DigitalFemsa.net.Api
         /// Update Shipping
         /// </summary>
         /// <remarks>
-        /// Update existing shipping for an existing orden
+        /// Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -129,11 +129,11 @@ namespace DigitalFemsa.net.Api
         /// Create Shipping
         /// </summary>
         /// <remarks>
-        /// Create new shipping for an existing orden
+        /// Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -145,11 +145,11 @@ namespace DigitalFemsa.net.Api
         /// Create Shipping
         /// </summary>
         /// <remarks>
-        /// Create new shipping for an existing orden
+        /// Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -160,7 +160,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Shipping
         /// </summary>
         /// <remarks>
-        /// Delete shipping
+        /// Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -176,7 +176,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Shipping
         /// </summary>
         /// <remarks>
-        /// Delete shipping
+        /// Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -191,12 +191,12 @@ namespace DigitalFemsa.net.Api
         /// Update Shipping
         /// </summary>
         /// <remarks>
-        /// Update existing shipping for an existing orden
+        /// Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -208,12 +208,12 @@ namespace DigitalFemsa.net.Api
         /// Update Shipping
         /// </summary>
         /// <remarks>
-        /// Update existing shipping for an existing orden
+        /// Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -341,11 +341,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Shipping Create new shipping for an existing orden
+        /// Create Shipping Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -357,11 +357,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Shipping Create new shipping for an existing orden
+        /// Create Shipping Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -439,11 +439,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Shipping Create new shipping for an existing orden
+        /// Create Shipping Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -456,11 +456,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Shipping Create new shipping for an existing orden
+        /// Create Shipping Creates a new shipping line for an existing order. The shipping line is added to the order identified by &#x60;id&#x60;. The response returns the created shipping line.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -541,7 +541,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Shipping Delete shipping
+        /// Delete Shipping Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -557,7 +557,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Shipping Delete shipping
+        /// Delete Shipping Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -638,7 +638,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Shipping Delete shipping
+        /// Delete Shipping Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -655,7 +655,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Shipping Delete shipping
+        /// Delete Shipping Deletes an existing shipping line from an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -739,12 +739,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Shipping Update existing shipping for an existing orden
+        /// Update Shipping Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -756,12 +756,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Shipping Update existing shipping for an existing orden
+        /// Update Shipping Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -846,12 +846,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Shipping Update existing shipping for an existing orden
+        /// Update Shipping Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -864,12 +864,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Shipping Update existing shipping for an existing orden
+        /// Update Shipping Updates an existing shipping line for an order. The shipping line identified by &#x60;shipping_id&#x60; belongs to the order identified by &#x60;id&#x60;. Only the fields provided in the request body are updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingId">identifier</param>
-        /// <param name="shippingRequest">requested field for a shipping</param>
+        /// <param name="shippingRequest">Request body for creating or updating a shipping line.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

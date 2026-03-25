@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// balance model
+    /// Company balance summary.  Monetary fields are returned as arrays of amounts grouped by currency (see &#x60;balance_common_field&#x60; items). 
     /// </summary>
     [DataContract(Name = "balance_response")]
     public partial class BalanceResponse : IValidatableObject
@@ -35,16 +35,16 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BalanceResponse" /> class.
         /// </summary>
-        /// <param name="available">The balance&#39;s available.</param>
+        /// <param name="available">Amounts currently available, grouped by currency..</param>
         /// <param name="cashoutRetentionAmount">The balance&#39;s cashout retention amount.</param>
         /// <param name="conektaRetention">The balance&#39;s Femsa retention.</param>
-        /// <param name="gateway">The balance&#39;s gateway.</param>
-        /// <param name="pending">The balance&#39;s pending.</param>
-        /// <param name="retained">The balance&#39;s retained.</param>
-        /// <param name="retentionAmount">The balance&#39;s retention amount.</param>
-        /// <param name="targetCollateralAmount">The balance&#39;s target collateral amount.</param>
-        /// <param name="targetRetentionAmount">The balance&#39;s target retention amount.</param>
-        /// <param name="temporarilyRetained">The balance&#39;s temporarily retained.</param>
+        /// <param name="gateway">Gateway balance amounts, grouped by currency..</param>
+        /// <param name="pending">Amounts pending settlement, grouped by currency..</param>
+        /// <param name="retained">Amounts currently retained, grouped by currency..</param>
+        /// <param name="retentionAmount">Retention amount applied, grouped by currency..</param>
+        /// <param name="targetCollateralAmount">Target collateral amount, grouped by currency..</param>
+        /// <param name="targetRetentionAmount">Target retention amount, grouped by currency..</param>
+        /// <param name="temporarilyRetained">Amounts temporarily retained.</param>
         public BalanceResponse(List<BalanceCommonField> available = default(List<BalanceCommonField>), List<BalanceCommonField> cashoutRetentionAmount = default(List<BalanceCommonField>), List<BalanceCommonField> conektaRetention = default(List<BalanceCommonField>), List<BalanceCommonField> gateway = default(List<BalanceCommonField>), List<BalanceCommonField> pending = default(List<BalanceCommonField>), List<BalanceCommonField> retained = default(List<BalanceCommonField>), List<BalanceCommonField> retentionAmount = default(List<BalanceCommonField>), Object targetCollateralAmount = default(Object), List<BalanceCommonField> targetRetentionAmount = default(List<BalanceCommonField>), List<BalanceCommonField> temporarilyRetained = default(List<BalanceCommonField>))
         {
             this.Available = available;
@@ -60,9 +60,9 @@ namespace DigitalFemsa.net.Model
         }
 
         /// <summary>
-        /// The balance&#39;s available
+        /// Amounts currently available, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s available</value>
+        /// <value>Amounts currently available, grouped by currency.</value>
         [DataMember(Name = "available", EmitDefaultValue = false)]
         public List<BalanceCommonField> Available { get; set; }
 
@@ -81,51 +81,51 @@ namespace DigitalFemsa.net.Model
         public List<BalanceCommonField> ConektaRetention { get; set; }
 
         /// <summary>
-        /// The balance&#39;s gateway
+        /// Gateway balance amounts, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s gateway</value>
+        /// <value>Gateway balance amounts, grouped by currency.</value>
         [DataMember(Name = "gateway", EmitDefaultValue = false)]
         public List<BalanceCommonField> Gateway { get; set; }
 
         /// <summary>
-        /// The balance&#39;s pending
+        /// Amounts pending settlement, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s pending</value>
+        /// <value>Amounts pending settlement, grouped by currency.</value>
         [DataMember(Name = "pending", EmitDefaultValue = false)]
         public List<BalanceCommonField> Pending { get; set; }
 
         /// <summary>
-        /// The balance&#39;s retained
+        /// Amounts currently retained, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s retained</value>
+        /// <value>Amounts currently retained, grouped by currency.</value>
         [DataMember(Name = "retained", EmitDefaultValue = false)]
         public List<BalanceCommonField> Retained { get; set; }
 
         /// <summary>
-        /// The balance&#39;s retention amount
+        /// Retention amount applied, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s retention amount</value>
+        /// <value>Retention amount applied, grouped by currency.</value>
         [DataMember(Name = "retention_amount", EmitDefaultValue = false)]
         public List<BalanceCommonField> RetentionAmount { get; set; }
 
         /// <summary>
-        /// The balance&#39;s target collateral amount
+        /// Target collateral amount, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s target collateral amount</value>
+        /// <value>Target collateral amount, grouped by currency.</value>
         [DataMember(Name = "target_collateral_amount", EmitDefaultValue = false)]
         public Object TargetCollateralAmount { get; set; }
 
         /// <summary>
-        /// The balance&#39;s target retention amount
+        /// Target retention amount, grouped by currency.
         /// </summary>
-        /// <value>The balance&#39;s target retention amount</value>
+        /// <value>Target retention amount, grouped by currency.</value>
         [DataMember(Name = "target_retention_amount", EmitDefaultValue = false)]
         public List<BalanceCommonField> TargetRetentionAmount { get; set; }
 
         /// <summary>
-        /// The balance&#39;s temporarily retained
+        /// Amounts temporarily retained
         /// </summary>
-        /// <value>The balance&#39;s temporarily retained</value>
+        /// <value>Amounts temporarily retained</value>
         [DataMember(Name = "temporarily_retained", EmitDefaultValue = false)]
         public List<BalanceCommonField> TemporarilyRetained { get; set; }
 

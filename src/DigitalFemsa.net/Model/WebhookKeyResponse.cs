@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// webhook keys model
+    /// Represents a webhook signing key configuration for the company.
     /// </summary>
     [DataContract(Name = "webhook-key_response")]
     public partial class WebhookKeyResponse : IValidatableObject

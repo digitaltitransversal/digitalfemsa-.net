@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// event model
+    /// Webhook log model returned after resending an event webhook delivery.
     /// </summary>
     [DataContract(Name = "events_resend_response")]
     public partial class EventsResendResponse : IValidatableObject
@@ -89,7 +89,7 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets Url
         /// </summary>
-        /// <example>https://username:password@mockoon.stg.femsa.io/payments-api/cash/merchant_approval</example>
+        /// <example>https://example.com/new-webhooks</example>
         [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 

@@ -61,7 +61,7 @@ namespace DigitalFemsa.net.Model
         /// Indicates if the api key is active
         /// </summary>
         /// <value>Indicates if the api key is active</value>
-        /// <example>true</example>
+        /// <example>false</example>
         [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
@@ -117,7 +117,7 @@ namespace DigitalFemsa.net.Model
         /// Indicates if the api key was deleted
         /// </summary>
         /// <value>Indicates if the api key was deleted</value>
-        /// <example>false</example>
+        /// <example>true</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 

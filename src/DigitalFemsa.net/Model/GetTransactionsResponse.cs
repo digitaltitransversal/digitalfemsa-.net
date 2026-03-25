@@ -44,7 +44,7 @@ namespace DigitalFemsa.net.Model
         /// <param name="varObject">Object type, in this case is list (required).</param>
         /// <param name="nextPageUrl">URL of the next page..</param>
         /// <param name="previousPageUrl">Url of the previous page..</param>
-        /// <param name="data">Transactions.</param>
+        /// <param name="data">Transactions (ledger movements).</param>
         public GetTransactionsResponse(bool hasMore = default(bool), string varObject = default(string), string nextPageUrl = default(string), string previousPageUrl = default(string), List<TransactionResponse> data = default(List<TransactionResponse>))
         {
             this.HasMore = hasMore;
@@ -92,9 +92,9 @@ namespace DigitalFemsa.net.Model
         public string PreviousPageUrl { get; set; }
 
         /// <summary>
-        /// Transactions
+        /// Transactions (ledger movements)
         /// </summary>
-        /// <value>Transactions</value>
+        /// <value>Transactions (ledger movements)</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<TransactionResponse> Data { get; set; }
 

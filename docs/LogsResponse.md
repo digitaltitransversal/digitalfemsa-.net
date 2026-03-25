@@ -1,5 +1,5 @@
 # DigitalFemsa.net.Model.LogsResponse
-logs model
+Log model representing a recorded request/response cycle for troubleshooting and auditing.
 
 ## Properties
 
