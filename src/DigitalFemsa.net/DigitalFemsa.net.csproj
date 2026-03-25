@@ -3,6 +3,7 @@
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
     <AssemblyName>DigitalFemsa.net</AssemblyName>
     <PackageId>DigitalFemsa.net</PackageId>
     <OutputType>Library</OutputType>
