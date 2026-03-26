@@ -33,6 +33,28 @@ namespace DigitalFemsa.net.Model
     public partial class ApiKeyRequest : IValidatableObject
     {
         /// <summary>
+        /// Defines the type of API key to create. Only \&quot;private\&quot; is supported for creation. A \&quot;public\&quot; API key already exists by default per company/environment. 
+        /// </summary>
+        /// <value>Defines the type of API key to create. Only \&quot;private\&quot; is supported for creation. A \&quot;public\&quot; API key already exists by default per company/environment. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RoleEnum
+        {
+            /// <summary>
+            /// Enum Private for value: private
+            /// </summary>
+            [EnumMember(Value = "private")]
+            Private = 1
+        }
+
+
+        /// <summary>
+        /// Defines the type of API key to create. Only \&quot;private\&quot; is supported for creation. A \&quot;public\&quot; API key already exists by default per company/environment. 
+        /// </summary>
+        /// <value>Defines the type of API key to create. Only \&quot;private\&quot; is supported for creation. A \&quot;public\&quot; API key already exists by default per company/environment. </value>
+        /// <example>private</example>
+        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
+        public RoleEnum Role { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,33 +62,21 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyRequest" /> class.
         /// </summary>
-        /// <param name="description">A name or brief explanation of what this api key is used for.</param>
-        /// <param name="role">role (required).</param>
-        public ApiKeyRequest(string description = default(string), string role = default(string))
+        /// <param name="description">A name or brief explanation of what this API key is used for..</param>
+        /// <param name="role">Defines the type of API key to create. Only \&quot;private\&quot; is supported for creation. A \&quot;public\&quot; API key already exists by default per company/environment.  (required).</param>
+        public ApiKeyRequest(string description = default(string), RoleEnum role = default(RoleEnum))
         {
-            // to ensure "role" is required (not null)
-            if (role == null)
-            {
-                throw new ArgumentNullException("role is a required property for ApiKeyRequest and cannot be null");
-            }
             this.Role = role;
             this.Description = description;
         }
 
         /// <summary>
-        /// A name or brief explanation of what this api key is used for
+        /// A name or brief explanation of what this API key is used for.
         /// </summary>
-        /// <value>A name or brief explanation of what this api key is used for</value>
+        /// <value>A name or brief explanation of what this API key is used for.</value>
         /// <example>online store</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Role
-        /// </summary>
-        /// <example>private</example>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
-        public string Role { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

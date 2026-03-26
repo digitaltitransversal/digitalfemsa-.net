@@ -1,5 +1,5 @@
 # DigitalFemsa.net.Model.WebhookRequest
-a webhook
+Parameters used to create or update a webhook.
 
 ## Properties
 

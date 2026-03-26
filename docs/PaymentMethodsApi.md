@@ -15,7 +15,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Create Payment Method
 
-Create a payment method for a customer.
+Creates a new payment method for a customer. The payment method is associated with the customer identified by `id`. The accepted fields depend on the payment method `type`.
 
 ### Example
 ```csharp
@@ -119,7 +119,7 @@ catch (ApiException e)
 
 Delete Payment Method
 
-Delete an existing payment method
+Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
 
 ### Example
 ```csharp
@@ -332,7 +332,7 @@ catch (ApiException e)
 
 Update Payment Method
 
-Gets a payment Method that corresponds to a customer ID.
+Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by `payment_method_id` for the customer identified by `id`. The fields that can be updated depend on the payment method `type`.
 
 ### Example
 ```csharp
@@ -356,7 +356,7 @@ namespace Example
             var apiInstance = new PaymentMethodsApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
             var paymentMethodId = src_2tQ974hSHcsdeSZHG;  // string | Identifier of the payment method
-            var updatePaymentMethods = new UpdatePaymentMethods(); // UpdatePaymentMethods | requested field for customer payment methods
+            var updatePaymentMethods = new UpdatePaymentMethods(); // UpdatePaymentMethods | Request body for updating a customer payment method.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
@@ -403,7 +403,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
 | **paymentMethodId** | **string** | Identifier of the payment method |  |
-| **updatePaymentMethods** | [**UpdatePaymentMethods**](UpdatePaymentMethods.md) | requested field for customer payment methods |  |
+| **updatePaymentMethods** | [**UpdatePaymentMethods**](UpdatePaymentMethods.md) | Request body for updating a customer payment method. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 

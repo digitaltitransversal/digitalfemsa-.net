@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Object** | **string** | Object name, value is &#39;api_key&#39; | [optional] 
 **Prefix** | **string** | The first few characters of the authentication_token | [optional] 
 **Role** | **string** | Indicates if the api key is private or public | [optional] 
-**AuthenticationToken** | **string** | It is occupied as a user when authenticated with basic authentication, with a blank password. This value will only appear once, in the request to create a new key. Copy and save it in a safe place. | [optional] 
+**AuthenticationToken** | **string** | Used as the username for Basic Authentication, with a blank password. This value is shown only once (when the key is created). Copy and store it securely.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,13 +39,13 @@ namespace DigitalFemsa.net.Model
         /// <param name="receiver">receiver.</param>
         /// <param name="betweenStreets">betweenStreets.</param>
         /// <param name="address">address.</param>
-        /// <param name="parentId">parentId.</param>
+        /// <param name="parentId">Customer ID that owns this shipping contact..</param>
         /// <param name="varDefault">varDefault.</param>
         /// <param name="id">id.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="metadata">Metadata associated with the shipping contact.</param>
         /// <param name="varObject">varObject.</param>
-        /// <param name="deleted">deleted.</param>
+        /// <param name="deleted">Present only when the shipping contact was deleted..</param>
         public CustomerShippingContactsResponse(string phone = default(string), string receiver = default(string), string betweenStreets = default(string), CustomerShippingContactsResponseAddress address = default(CustomerShippingContactsResponseAddress), string parentId = default(string), bool varDefault = default(bool), string id = default(string), long createdAt = default(long), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string varObject = default(string), bool deleted = default(bool))
         {
             this.Phone = phone;
@@ -89,8 +89,10 @@ namespace DigitalFemsa.net.Model
         public CustomerShippingContactsResponseAddress Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentId
+        /// Customer ID that owns this shipping contact.
         /// </summary>
+        /// <value>Customer ID that owns this shipping contact.</value>
+        /// <example>cus_1234567890</example>
         [DataMember(Name = "parent_id", EmitDefaultValue = false)]
         public string ParentId { get; set; }
 
@@ -104,7 +106,7 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /// <example>adr_1234567890</example>
+        /// <example>ship_cont_1234567890</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -130,9 +132,10 @@ namespace DigitalFemsa.net.Model
         public string Object { get; set; }
 
         /// <summary>
-        /// Gets or Sets Deleted
+        /// Present only when the shipping contact was deleted.
         /// </summary>
-        /// <example>false</example>
+        /// <value>Present only when the shipping contact was deleted.</value>
+        /// <example>true</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 

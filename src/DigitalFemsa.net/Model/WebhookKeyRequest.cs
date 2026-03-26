@@ -36,9 +36,10 @@ namespace DigitalFemsa.net.Model
         /// Initializes a new instance of the <see cref="WebhookKeyRequest" /> class.
         /// </summary>
         /// <param name="active">Indicates if the webhook key is active (default to true).</param>
-        public WebhookKeyRequest(bool active = true)
+        public WebhookKeyRequest(bool? active = true)
         {
-            this.Active = active;
+            // use default value if no "active" provided
+            this.Active = active ?? true;
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace DigitalFemsa.net.Model
         /// <value>Indicates if the webhook key is active</value>
         /// <example>true</example>
         [DataMember(Name = "active", EmitDefaultValue = true)]
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

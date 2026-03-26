@@ -40,12 +40,12 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetChargesResponse" /> class.
         /// </summary>
-        /// <param name="hasMore">Indicates if there are more pages to be requested (required).</param>
-        /// <param name="varObject">Object type, in this case is list (required).</param>
         /// <param name="nextPageUrl">URL of the next page..</param>
         /// <param name="previousPageUrl">Url of the previous page..</param>
+        /// <param name="hasMore">Indicates if there are more pages to be requested (required).</param>
+        /// <param name="varObject">Object type, in this case is list (required).</param>
         /// <param name="data">data.</param>
-        public GetChargesResponse(bool hasMore = default(bool), string varObject = default(string), string nextPageUrl = default(string), string previousPageUrl = default(string), List<ChargeResponse> data = default(List<ChargeResponse>))
+        public GetChargesResponse(string nextPageUrl = default(string), string previousPageUrl = default(string), bool hasMore = default(bool), string varObject = default(string), List<ChargeResponse> data = default(List<ChargeResponse>))
         {
             this.HasMore = hasMore;
             // to ensure "varObject" is required (not null)
@@ -58,22 +58,6 @@ namespace DigitalFemsa.net.Model
             this.PreviousPageUrl = previousPageUrl;
             this.Data = data;
         }
-
-        /// <summary>
-        /// Indicates if there are more pages to be requested
-        /// </summary>
-        /// <value>Indicates if there are more pages to be requested</value>
-        /// <example>false</example>
-        [DataMember(Name = "has_more", IsRequired = true, EmitDefaultValue = true)]
-        public bool HasMore { get; set; }
-
-        /// <summary>
-        /// Object type, in this case is list
-        /// </summary>
-        /// <value>Object type, in this case is list</value>
-        /// <example>list</example>
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
-        public string Object { get; set; }
 
         /// <summary>
         /// URL of the next page.
@@ -92,6 +76,22 @@ namespace DigitalFemsa.net.Model
         public string PreviousPageUrl { get; set; }
 
         /// <summary>
+        /// Indicates if there are more pages to be requested
+        /// </summary>
+        /// <value>Indicates if there are more pages to be requested</value>
+        /// <example>false</example>
+        [DataMember(Name = "has_more", IsRequired = true, EmitDefaultValue = true)]
+        public bool HasMore { get; set; }
+
+        /// <summary>
+        /// Object type, in this case is list
+        /// </summary>
+        /// <value>Object type, in this case is list</value>
+        /// <example>list</example>
+        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        public string Object { get; set; }
+
+        /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", EmitDefaultValue = false)]
@@ -105,10 +105,10 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetChargesResponse {\n");
-            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  NextPageUrl: ").Append(NextPageUrl).Append("\n");
             sb.Append("  PreviousPageUrl: ").Append(PreviousPageUrl).Append("\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

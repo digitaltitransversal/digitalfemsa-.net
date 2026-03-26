@@ -28,40 +28,43 @@ namespace DigitalFemsa.net.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get A List of Charges
-        /// </summary>
-        /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
-        /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
-        /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
-        /// <param name="next">next page (optional)</param>
-        /// <param name="previous">previous page (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetChargesResponse</returns>
-        GetChargesResponse GetCharges(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
-
-        /// <summary>
-        /// Get A List of Charges
+        /// List charges
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetChargesResponse</returns>
-        ApiResponse<GetChargesResponse> GetChargesWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
+        /// <returns>GetChargesResponse</returns>
+        GetChargesResponse GetCharges(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0);
+
         /// <summary>
-        /// Create charge
+        /// List charges
         /// </summary>
         /// <remarks>
-        /// Create charge for an existing orden
+        /// Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
+        /// </remarks>
+        /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
+        /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
+        /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
+        /// <param name="next">next page (optional)</param>
+        /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetChargesResponse</returns>
+        ApiResponse<GetChargesResponse> GetChargesWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0);
+        /// <summary>
+        /// Create a charge for an order
+        /// </summary>
+        /// <remarks>
+        /// Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -73,10 +76,10 @@ namespace DigitalFemsa.net.Api
         ChargeOrderResponse OrdersCreateCharge(string id, ChargeRequest chargeRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Create charge
+        /// Create a charge for an order
         /// </summary>
         /// <remarks>
-        /// Create charge for an existing orden
+        /// Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -89,6 +92,9 @@ namespace DigitalFemsa.net.Api
         /// <summary>
         /// Update a charge
         /// </summary>
+        /// <remarks>
+        /// Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
+        /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="chargeUpdateRequest">requested field for update a charge</param>
@@ -102,7 +108,7 @@ namespace DigitalFemsa.net.Api
         /// Update a charge
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -122,45 +128,45 @@ namespace DigitalFemsa.net.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get A List of Charges
+        /// List charges
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetChargesResponse</returns>
-        System.Threading.Tasks.Task<GetChargesResponse> GetChargesAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetChargesResponse> GetChargesAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get A List of Charges
+        /// List charges
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetChargesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetChargesResponse>> GetChargesWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetChargesResponse>> GetChargesWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create charge
+        /// Create a charge for an order
         /// </summary>
         /// <remarks>
-        /// Create charge for an existing orden
+        /// Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -173,10 +179,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<ChargeOrderResponse> OrdersCreateChargeAsync(string id, ChargeRequest chargeRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create charge
+        /// Create a charge for an order
         /// </summary>
         /// <remarks>
-        /// Create charge for an existing orden
+        /// Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -191,7 +197,7 @@ namespace DigitalFemsa.net.Api
         /// Update a charge
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -207,7 +213,7 @@ namespace DigitalFemsa.net.Api
         /// Update a charge
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -339,36 +345,36 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get A List of Charges 
+        /// List charges Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetChargesResponse</returns>
-        public GetChargesResponse GetCharges(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
+        public GetChargesResponse GetCharges(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0)
         {
-            DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> localVarResponse = GetChargesWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+            DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> localVarResponse = GetChargesWithHttpInfo(acceptLanguage, xChildCompanyId, limit, next, previous, search);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get A List of Charges 
+        /// List charges Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetChargesResponse</returns>
-        public DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> GetChargesWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0)
+        public DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> GetChargesWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0)
         {
             DigitalFemsa.net.Client.RequestOptions localVarRequestOptions = new DigitalFemsa.net.Client.RequestOptions();
 
@@ -396,10 +402,6 @@ namespace DigitalFemsa.net.Api
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
-            if (search != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
-            }
             if (next != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "next", next));
@@ -407,6 +409,10 @@ namespace DigitalFemsa.net.Api
             if (previous != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "previous", previous));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
             }
             if (acceptLanguage != null)
             {
@@ -442,38 +448,38 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get A List of Charges 
+        /// List charges Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetChargesResponse</returns>
-        public async System.Threading.Tasks.Task<GetChargesResponse> GetChargesAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetChargesResponse> GetChargesAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> localVarResponse = await GetChargesWithHttpInfoAsync(acceptLanguage, xChildCompanyId, limit, search, next, previous, operationIndex, cancellationToken).ConfigureAwait(false);
+            DigitalFemsa.net.Client.ApiResponse<GetChargesResponse> localVarResponse = await GetChargesWithHttpInfoAsync(acceptLanguage, xChildCompanyId, limit, next, previous, search, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get A List of Charges 
+        /// List charges Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use &#x60;search&#x60; to filter charges (for example by id or reference). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="limit">The numbers of items to return, the maximum value is 250 (optional, default to 20)</param>
-        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="next">next page (optional)</param>
         /// <param name="previous">previous page (optional)</param>
+        /// <param name="search">General order search, e.g. by mail, reference etc. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetChargesResponse)</returns>
-        public async System.Threading.Tasks.Task<DigitalFemsa.net.Client.ApiResponse<GetChargesResponse>> GetChargesWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DigitalFemsa.net.Client.ApiResponse<GetChargesResponse>> GetChargesWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             DigitalFemsa.net.Client.RequestOptions localVarRequestOptions = new DigitalFemsa.net.Client.RequestOptions();
@@ -502,10 +508,6 @@ namespace DigitalFemsa.net.Api
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
-            if (search != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
-            }
             if (next != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "next", next));
@@ -513,6 +515,10 @@ namespace DigitalFemsa.net.Api
             if (previous != null)
             {
                 localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "previous", previous));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(DigitalFemsa.net.Client.ClientUtils.ParameterToMultiMap("", "search", search));
             }
             if (acceptLanguage != null)
             {
@@ -549,7 +555,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create charge Create charge for an existing orden
+        /// Create a charge for an order Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -565,7 +571,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create charge Create charge for an existing orden
+        /// Create a charge for an order Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -647,7 +653,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create charge Create charge for an existing orden
+        /// Create a charge for an order Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -664,7 +670,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create charge Create charge for an existing orden
+        /// Create a charge for an order Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter &#x60;id&#x60;. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -749,7 +755,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update a charge 
+        /// Update a charge Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -765,7 +771,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update a charge 
+        /// Update a charge Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -847,7 +853,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update a charge 
+        /// Update a charge Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -864,7 +870,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update a charge 
+        /// Update a charge Updates an existing charge. Only &#x60;reference_id&#x60; can be updated.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>

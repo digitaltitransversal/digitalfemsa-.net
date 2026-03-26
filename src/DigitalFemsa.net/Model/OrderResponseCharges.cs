@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// The charges associated with the order
+    /// List preview of charges created for the order. Charges are only created when included in the request or created later through payment flows. This field can be &#x60;null&#x60; depending on the response context. 
     /// </summary>
     [DataContract(Name = "order_response_charges")]
     public partial class OrderResponseCharges : IValidatableObject

@@ -28,14 +28,14 @@ namespace DigitalFemsa.net.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create a shipping contacts
+        /// Create a shipping contact
         /// </summary>
         /// <remarks>
-        /// Create a shipping contacts for a customer.
+        /// Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -43,14 +43,14 @@ namespace DigitalFemsa.net.Api
         CustomerShippingContactsResponse CreateCustomerShippingContacts(string id, CustomerShippingContacts customerShippingContacts, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Create a shipping contacts
+        /// Create a shipping contact
         /// </summary>
         /// <remarks>
-        /// Create a shipping contacts for a customer.
+        /// Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -94,7 +94,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -110,7 +110,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -126,14 +126,14 @@ namespace DigitalFemsa.net.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create a shipping contacts
+        /// Create a shipping contact
         /// </summary>
         /// <remarks>
-        /// Create a shipping contacts for a customer.
+        /// Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -142,14 +142,14 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<CustomerShippingContactsResponse> CreateCustomerShippingContactsAsync(string id, CustomerShippingContacts customerShippingContacts, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create a shipping contacts
+        /// Create a shipping contact
         /// </summary>
         /// <remarks>
-        /// Create a shipping contacts for a customer.
+        /// Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -196,7 +196,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -213,7 +213,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -341,11 +341,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create a shipping contacts Create a shipping contacts for a customer.
+        /// Create a shipping contact Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -357,11 +357,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create a shipping contacts Create a shipping contacts for a customer.
+        /// Create a shipping contact Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -439,11 +439,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create a shipping contacts Create a shipping contacts for a customer.
+        /// Create a shipping contact Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -456,11 +456,11 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create a shipping contacts Create a shipping contacts for a customer.
+        /// Create a shipping contact Creates a new shipping contact for a customer. The shipping contact is associated with the customer identified by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
-        /// <param name="customerShippingContacts">requested field for customer shippings contacts</param>
+        /// <param name="customerShippingContacts">Request body for creating or updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -744,7 +744,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -761,7 +761,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -851,7 +851,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -869,7 +869,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="shippingContactsId">identifier</param>
-        /// <param name="customerUpdateShippingContacts">requested field for customer update shippings contacts</param>
+        /// <param name="customerUpdateShippingContacts">Request body for updating a customer shipping contact.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

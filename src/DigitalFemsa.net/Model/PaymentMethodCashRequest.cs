@@ -40,8 +40,8 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentMethodCashRequest" /> class.
         /// </summary>
-        /// <param name="type">Type of payment method (required).</param>
-        /// <param name="expiresAt">expiresAt.</param>
+        /// <param name="type">Type of payment method. (required).</param>
+        /// <param name="expiresAt">Expiration date as unix timestamp (seconds)..</param>
         public PaymentMethodCashRequest(string type = default(string), long expiresAt = default(long))
         {
             // to ensure "type" is required (not null)
@@ -54,16 +54,17 @@ namespace DigitalFemsa.net.Model
         }
 
         /// <summary>
-        /// Type of payment method
+        /// Type of payment method.
         /// </summary>
-        /// <value>Type of payment method</value>
+        /// <value>Type of payment method.</value>
         /// <example>cash</example>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpiresAt
+        /// Expiration date as unix timestamp (seconds).
         /// </summary>
+        /// <value>Expiration date as unix timestamp (seconds).</value>
         /// <example>1553273553</example>
         [DataMember(Name = "expires_at", EmitDefaultValue = false)]
         public long ExpiresAt { get; set; }

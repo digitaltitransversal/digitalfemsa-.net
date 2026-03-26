@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Get a company&#39;s balance
         /// </summary>
         /// <remarks>
-        /// Get a company&#39;s balance
+        /// Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -43,7 +43,7 @@ namespace DigitalFemsa.net.Api
         /// Get a company&#39;s balance
         /// </summary>
         /// <remarks>
-        /// Get a company&#39;s balance
+        /// Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -63,7 +63,7 @@ namespace DigitalFemsa.net.Api
         /// Get a company&#39;s balance
         /// </summary>
         /// <remarks>
-        /// Get a company&#39;s balance
+        /// Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -76,7 +76,7 @@ namespace DigitalFemsa.net.Api
         /// Get a company&#39;s balance
         /// </summary>
         /// <remarks>
-        /// Get a company&#39;s balance
+        /// Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -205,7 +205,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a company&#39;s balance Get a company&#39;s balance
+        /// Get a company&#39;s balance Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -218,7 +218,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a company&#39;s balance Get a company&#39;s balance
+        /// Get a company&#39;s balance Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -278,7 +278,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a company&#39;s balance Get a company&#39;s balance
+        /// Get a company&#39;s balance Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -292,7 +292,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a company&#39;s balance Get a company&#39;s balance
+        /// Get a company&#39;s balance Retrieves the current balance information for the authenticated company.  Monetary fields are returned as arrays of amounts grouped by currency. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>

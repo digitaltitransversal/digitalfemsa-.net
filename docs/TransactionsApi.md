@@ -5,7 +5,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetTransaction**](TransactionsApi.md#gettransaction) | **GET** /transactions/{id} | Get transaction |
-| [**GetTransactions**](TransactionsApi.md#gettransactions) | **GET** /transactions | Get List transactions |
+| [**GetTransactions**](TransactionsApi.md#gettransactions) | **GET** /transactions | List transactions |
 
 <a id="gettransaction"></a>
 # **GetTransaction**
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Get transaction
 
-Get the details of a transaction
+Retrieves the details of a transaction by its ID.
 
 ### Example
 ```csharp
@@ -101,9 +101,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful |  -  |
 | **401** | authentication error |  -  |
-| **404** | authentication error |  -  |
+| **404** | not found entity |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -112,9 +112,9 @@ catch (ApiException e)
 # **GetTransactions**
 > GetTransactionsResponse GetTransactions (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string next = null, string previous = null, string id = null, string chargeId = null, string type = null, string currency = null)
 
-Get List transactions
+List transactions
 
-Get transaction details in the form of a list
+Returns a paginated list of transactions (ledger movements).  A transaction is a movement that represents the financial impact of payment operations, including amounts, fees, and net values. Transactions can be linked to a charge and may be linked to a transfer (payout) when they are included in a payout.  If you need payout-level information (destination, statement reference/description, payout status), use GET /transfers. 
 
 ### Example
 ```csharp
@@ -148,7 +148,7 @@ namespace Example
 
             try
             {
-                // Get List transactions
+                // List transactions
                 GetTransactionsResponse result = apiInstance.GetTransactions(acceptLanguage, xChildCompanyId, limit, next, previous, id, chargeId, type, currency);
                 Debug.WriteLine(result);
             }
@@ -169,7 +169,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get List transactions
+    // List transactions
     ApiResponse<GetTransactionsResponse> response = apiInstance.GetTransactionsWithHttpInfo(acceptLanguage, xChildCompanyId, limit, next, previous, id, chargeId, type, currency);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -214,7 +214,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **500** | internal server error |  -  |
 

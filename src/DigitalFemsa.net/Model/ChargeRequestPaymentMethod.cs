@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// Payment method used in the charge. Go to the [payment methods](https://developers.femsa.com/reference/m%C3%A9todos-de-pago) section for more details 
+    /// Payment method used in the charge. 
     /// </summary>
     [DataContract(Name = "charge_request_payment_method")]
     public partial class ChargeRequestPaymentMethod : IValidatableObject
@@ -40,9 +40,9 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChargeRequestPaymentMethod" /> class.
         /// </summary>
-        /// <param name="expiresAt">Method expiration date as unix timestamp.</param>
+        /// <param name="expiresAt">Method expiration date as unix timestamp (applies to some payment methods, e.g. cash)..</param>
         /// <param name="type">type (required).</param>
-        /// <param name="paymentSourceId">paymentSourceId.</param>
+        /// <param name="paymentSourceId">Identifier of a saved payment source to be used for this charge (if applicable)..</param>
         public ChargeRequestPaymentMethod(long expiresAt = default(long), string type = default(string), string paymentSourceId = default(string))
         {
             // to ensure "type" is required (not null)
@@ -56,10 +56,10 @@ namespace DigitalFemsa.net.Model
         }
 
         /// <summary>
-        /// Method expiration date as unix timestamp
+        /// Method expiration date as unix timestamp (applies to some payment methods, e.g. cash).
         /// </summary>
-        /// <value>Method expiration date as unix timestamp</value>
-        /// <example>1677196303</example>
+        /// <value>Method expiration date as unix timestamp (applies to some payment methods, e.g. cash).</value>
+        /// <example>1789928542</example>
         [DataMember(Name = "expires_at", EmitDefaultValue = false)]
         public long ExpiresAt { get; set; }
 
@@ -71,8 +71,9 @@ namespace DigitalFemsa.net.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaymentSourceId
+        /// Identifier of a saved payment source to be used for this charge (if applicable).
         /// </summary>
+        /// <value>Identifier of a saved payment source to be used for this charge (if applicable).</value>
         /// <example>src_2tLkkyfMPh6v7pFry</example>
         [DataMember(Name = "payment_source_id", EmitDefaultValue = false)]
         public string PaymentSourceId { get; set; }

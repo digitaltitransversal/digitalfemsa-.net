@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// OrderResponseShippingContact
+    /// Shipping contact associated with the order. It may be &#x60;null&#x60; when not provided/required.
     /// </summary>
     [DataContract(Name = "order_response_shipping_contact")]
     public partial class OrderResponseShippingContact : IValidatableObject
@@ -39,13 +39,13 @@ namespace DigitalFemsa.net.Model
         /// <param name="receiver">receiver.</param>
         /// <param name="betweenStreets">betweenStreets.</param>
         /// <param name="address">address.</param>
-        /// <param name="parentId">parentId.</param>
+        /// <param name="parentId">Customer ID that owns this shipping contact..</param>
         /// <param name="varDefault">varDefault.</param>
         /// <param name="id">id.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="metadata">Metadata associated with the shipping contact.</param>
         /// <param name="varObject">varObject.</param>
-        /// <param name="deleted">deleted.</param>
+        /// <param name="deleted">Present only when the shipping contact was deleted..</param>
         public OrderResponseShippingContact(string phone = default(string), string receiver = default(string), string betweenStreets = default(string), CustomerShippingContactsResponseAddress address = default(CustomerShippingContactsResponseAddress), string parentId = default(string), bool varDefault = default(bool), string id = default(string), long createdAt = default(long), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string varObject = default(string), bool deleted = default(bool))
         {
             this.Phone = phone;
@@ -89,8 +89,10 @@ namespace DigitalFemsa.net.Model
         public CustomerShippingContactsResponseAddress Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentId
+        /// Customer ID that owns this shipping contact.
         /// </summary>
+        /// <value>Customer ID that owns this shipping contact.</value>
+        /// <example>cus_1234567890</example>
         [DataMember(Name = "parent_id", EmitDefaultValue = false)]
         public string ParentId { get; set; }
 
@@ -127,9 +129,10 @@ namespace DigitalFemsa.net.Model
         public string Object { get; set; }
 
         /// <summary>
-        /// Gets or Sets Deleted
+        /// Present only when the shipping contact was deleted.
         /// </summary>
-        /// <example>false</example>
+        /// <value>Present only when the shipping contact was deleted.</value>
+        /// <example>true</example>
         [DataMember(Name = "deleted", EmitDefaultValue = true)]
         public bool Deleted { get; set; }
 

@@ -48,7 +48,7 @@ namespace DigitalFemsa.net.Model
         /// <param name="id">id (required).</param>
         /// <param name="livemode">livemode (required).</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="name">Reason for charge (required).</param>
+        /// <param name="name">Payment link name (required).</param>
         /// <param name="needsShippingContact">needsShippingContact.</param>
         /// <param name="varObject">varObject (required).</param>
         /// <param name="paidPaymentsCount">paidPaymentsCount.</param>
@@ -158,9 +158,9 @@ namespace DigitalFemsa.net.Model
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// Reason for charge
+        /// Payment link name
         /// </summary>
-        /// <value>Reason for charge</value>
+        /// <value>Payment link name</value>
         /// <example>Payment Link Name 1594138857</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }

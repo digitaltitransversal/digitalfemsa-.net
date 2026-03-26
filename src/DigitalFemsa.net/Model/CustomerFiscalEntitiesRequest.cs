@@ -42,11 +42,11 @@ namespace DigitalFemsa.net.Model
         /// </summary>
         /// <param name="address">address (required).</param>
         /// <param name="taxId">taxId.</param>
+        /// <param name="name">name.</param>
         /// <param name="email">email.</param>
         /// <param name="phone">phone.</param>
         /// <param name="metadata">metadata.</param>
-        /// <param name="companyName">companyName.</param>
-        public CustomerFiscalEntitiesRequest(CustomerAddress address = default(CustomerAddress), string taxId = default(string), string email = default(string), string phone = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string companyName = default(string))
+        public CustomerFiscalEntitiesRequest(CustomerAddress address = default(CustomerAddress), string taxId = default(string), string name = default(string), string email = default(string), string phone = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
             // to ensure "address" is required (not null)
             if (address == null)
@@ -55,10 +55,10 @@ namespace DigitalFemsa.net.Model
             }
             this.Address = address;
             this.TaxId = taxId;
+            this.Name = name;
             this.Email = email;
             this.Phone = phone;
             this.Metadata = metadata;
-            this.CompanyName = companyName;
         }
 
         /// <summary>
@@ -72,6 +72,13 @@ namespace DigitalFemsa.net.Model
         /// </summary>
         [DataMember(Name = "tax_id", EmitDefaultValue = false)]
         public string TaxId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        /// <example>Femsa</example>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Email
@@ -92,13 +99,6 @@ namespace DigitalFemsa.net.Model
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// Gets or Sets CompanyName
-        /// </summary>
-        /// <example>Femsa</example>
-        [DataMember(Name = "company_name", EmitDefaultValue = false)]
-        public string CompanyName { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -108,10 +108,10 @@ namespace DigitalFemsa.net.Model
             sb.Append("class CustomerFiscalEntitiesRequest {\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  TaxId: ").Append(TaxId).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

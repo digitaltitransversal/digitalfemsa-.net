@@ -4,15 +4,17 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetCharges**](ChargesApi.md#getcharges) | **GET** /charges | Get A List of Charges |
-| [**OrdersCreateCharge**](ChargesApi.md#orderscreatecharge) | **POST** /orders/{id}/charges | Create charge |
+| [**GetCharges**](ChargesApi.md#getcharges) | **GET** /charges | List charges |
+| [**OrdersCreateCharge**](ChargesApi.md#orderscreatecharge) | **POST** /orders/{id}/charges | Create a charge for an order |
 | [**UpdateCharge**](ChargesApi.md#updatecharge) | **PUT** /charges/{id} | Update a charge |
 
 <a id="getcharges"></a>
 # **GetCharges**
-> GetChargesResponse GetCharges (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string search = null, string next = null, string previous = null)
+> GetChargesResponse GetCharges (string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string next = null, string previous = null, string search = null)
 
-Get A List of Charges
+List charges
+
+Retrieves a paginated list of charges for the authenticated account.  Use the pagination parameters (`limit`, `next_page`, `previous_page`) to navigate through results. Use `search` to filter charges (for example by id or reference). 
 
 ### Example
 ```csharp
@@ -37,14 +39,14 @@ namespace Example
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
             var limit = 20;  // int? | The numbers of items to return, the maximum value is 250 (optional)  (default to 20)
-            var search = "search_example";  // string | General order search, e.g. by mail, reference etc. (optional) 
             var next = "next_example";  // string | next page (optional) 
             var previous = "previous_example";  // string | previous page (optional) 
+            var search = "search_example";  // string | General order search, e.g. by mail, reference etc. (optional) 
 
             try
             {
-                // Get A List of Charges
-                GetChargesResponse result = apiInstance.GetCharges(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+                // List charges
+                GetChargesResponse result = apiInstance.GetCharges(acceptLanguage, xChildCompanyId, limit, next, previous, search);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,8 +66,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get A List of Charges
-    ApiResponse<GetChargesResponse> response = apiInstance.GetChargesWithHttpInfo(acceptLanguage, xChildCompanyId, limit, search, next, previous);
+    // List charges
+    ApiResponse<GetChargesResponse> response = apiInstance.GetChargesWithHttpInfo(acceptLanguage, xChildCompanyId, limit, next, previous, search);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -85,9 +87,9 @@ catch (ApiException e)
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 | **limit** | **int?** | The numbers of items to return, the maximum value is 250 | [optional] [default to 20] |
-| **search** | **string** | General order search, e.g. by mail, reference etc. | [optional]  |
 | **next** | **string** | next page | [optional]  |
 | **previous** | **string** | previous page | [optional]  |
+| **search** | **string** | General order search, e.g. by mail, reference etc. | [optional]  |
 
 ### Return type
 
@@ -106,7 +108,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
+| **401** | authentication error |  -  |
 | **422** | whitelist validation error |  -  |
 | **500** | internal server error |  -  |
 
@@ -116,9 +119,9 @@ catch (ApiException e)
 # **OrdersCreateCharge**
 > ChargeOrderResponse OrdersCreateCharge (string id, ChargeRequest chargeRequest, string acceptLanguage = null, string xChildCompanyId = null)
 
-Create charge
+Create a charge for an order
 
-Create charge for an existing orden
+Creates a new charge associated with an existing order.  Notes: - The charge is created for the order identified by the path parameter `id`. - Depending on the payment method, the charge may be created in a non-final status (for example, pending). - If the order does not meet the required conditions, the API may respond with **428 Precondition Required**. 
 
 ### Example
 ```csharp
@@ -147,7 +150,7 @@ namespace Example
 
             try
             {
-                // Create charge
+                // Create a charge for an order
                 ChargeOrderResponse result = apiInstance.OrdersCreateCharge(id, chargeRequest, acceptLanguage, xChildCompanyId);
                 Debug.WriteLine(result);
             }
@@ -168,7 +171,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create charge
+    // Create a charge for an order
     ApiResponse<ChargeOrderResponse> response = apiInstance.OrdersCreateChargeWithHttpInfo(id, chargeRequest, acceptLanguage, xChildCompanyId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -208,9 +211,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  -  |
+| **200** | successful operation |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
+| **422** | parameter validation error |  -  |
 | **428** | Precondition Required |  -  |
 | **500** | internal server error |  -  |
 
@@ -221,6 +225,8 @@ catch (ApiException e)
 > ChargeResponse UpdateCharge (string id, ChargeUpdateRequest chargeUpdateRequest, string acceptLanguage = null, string xChildCompanyId = null)
 
 Update a charge
+
+Updates an existing charge. Only `reference_id` can be updated.
 
 ### Example
 ```csharp
@@ -310,7 +316,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful |  * Date - The date and time that the response was sent <br>  * Content-Type - The format of the response body <br>  * Content-Length - The length of the response body in bytes <br>  * Connection - The type of connection used to transfer the response <br>  |
+| **200** | successful operation |  -  |
 | **422** | whitelist validation error |  -  |
 | **404** | not found entity |  -  |
 | **500** | internal server error |  -  |

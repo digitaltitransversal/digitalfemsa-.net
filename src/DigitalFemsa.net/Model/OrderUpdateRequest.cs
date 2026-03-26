@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// a order
+    /// Order update payload. Only supported fields can be modified.
     /// </summary>
     [DataContract(Name = "order_update_request")]
     public partial class OrderUpdateRequest : IValidatableObject
@@ -35,50 +35,42 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderUpdateRequest" /> class.
         /// </summary>
-        /// <param name="charges">charges.</param>
-        /// <param name="checkout">checkout.</param>
-        /// <param name="currency">Currency with which the payment will be made. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217).</param>
+        /// <param name="currency">Currency code in ISO 4217 (3-letter uppercase)..</param>
         /// <param name="customerInfo">customerInfo.</param>
-        /// <param name="discountLines">List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount..</param>
-        /// <param name="fiscalEntity">fiscalEntity.</param>
         /// <param name="lineItems">List of [products](https://developers.femsa.com/v2.1.0/reference/orderscreateproduct) that are sold in the order. You must have at least one product..</param>
-        /// <param name="metadata">metadata.</param>
-        /// <param name="preAuthorize">Indicates whether the order charges must be preauthorized (default to false).</param>
+        /// <param name="charges">charges.</param>
+        /// <param name="discountLines">List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount..</param>
+        /// <param name="taxLines">taxLines.</param>
+        /// <param name="shippingContactId">Existing shipping contact id from the customer to link to this order..</param>
         /// <param name="shippingContact">shippingContact.</param>
         /// <param name="shippingLines">List of [shipping costs](https://developers.femsa.com/v2.1.0/reference/orderscreateshipping). If the online store offers digital products..</param>
-        /// <param name="taxLines">taxLines.</param>
-        public OrderUpdateRequest(List<ChargeRequest> charges = default(List<ChargeRequest>), CheckoutRequest checkout = default(CheckoutRequest), string currency = default(string), OrderUpdateRequestCustomerInfo customerInfo = default(OrderUpdateRequestCustomerInfo), List<OrderDiscountLinesRequest> discountLines = default(List<OrderDiscountLinesRequest>), OrderUpdateFiscalEntityRequest fiscalEntity = default(OrderUpdateFiscalEntityRequest), List<Product> lineItems = default(List<Product>), Dictionary<string, string> metadata = default(Dictionary<string, string>), bool preAuthorize = false, CustomerShippingContacts shippingContact = default(CustomerShippingContacts), List<ShippingRequest> shippingLines = default(List<ShippingRequest>), List<OrderTaxRequest> taxLines = default(List<OrderTaxRequest>))
+        /// <param name="fiscalEntityId">Existing fiscal entity id from the customer to link to this order..</param>
+        /// <param name="fiscalEntity">fiscalEntity.</param>
+        /// <param name="returnUrl">URL where the customer should be redirected after completing a payment flow (if applicable)..</param>
+        /// <param name="metadata">Arbitrary key-value data that you can attach to the order for your internal use. It is not used for payment processing. Keys should be strings; values can be any JSON value. .</param>
+        /// <param name="status">Order status update (only allowed transitions will be accepted)..</param>
+        public OrderUpdateRequest(string currency = default(string), OrderUpdateRequestCustomerInfo customerInfo = default(OrderUpdateRequestCustomerInfo), List<Product> lineItems = default(List<Product>), List<ChargeRequest> charges = default(List<ChargeRequest>), List<OrderDiscountLinesRequest> discountLines = default(List<OrderDiscountLinesRequest>), List<OrderTaxRequest> taxLines = default(List<OrderTaxRequest>), string shippingContactId = default(string), CustomerShippingContacts shippingContact = default(CustomerShippingContacts), List<ShippingRequest> shippingLines = default(List<ShippingRequest>), string fiscalEntityId = default(string), OrderUpdateFiscalEntityRequest fiscalEntity = default(OrderUpdateFiscalEntityRequest), string returnUrl = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string status = default(string))
         {
-            this.Charges = charges;
-            this.Checkout = checkout;
             this.Currency = currency;
             this.CustomerInfo = customerInfo;
-            this.DiscountLines = discountLines;
-            this.FiscalEntity = fiscalEntity;
             this.LineItems = lineItems;
-            this.Metadata = metadata;
-            this.PreAuthorize = preAuthorize;
+            this.Charges = charges;
+            this.DiscountLines = discountLines;
+            this.TaxLines = taxLines;
+            this.ShippingContactId = shippingContactId;
             this.ShippingContact = shippingContact;
             this.ShippingLines = shippingLines;
-            this.TaxLines = taxLines;
+            this.FiscalEntityId = fiscalEntityId;
+            this.FiscalEntity = fiscalEntity;
+            this.ReturnUrl = returnUrl;
+            this.Metadata = metadata;
+            this.Status = status;
         }
 
         /// <summary>
-        /// Gets or Sets Charges
+        /// Currency code in ISO 4217 (3-letter uppercase).
         /// </summary>
-        [DataMember(Name = "charges", EmitDefaultValue = false)]
-        public List<ChargeRequest> Charges { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Checkout
-        /// </summary>
-        [DataMember(Name = "checkout", EmitDefaultValue = false)]
-        public CheckoutRequest Checkout { get; set; }
-
-        /// <summary>
-        /// Currency with which the payment will be made. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)
-        /// </summary>
-        /// <value>Currency with which the payment will be made. It uses the 3-letter code of the [International Standard ISO 4217.](https://es.wikipedia.org/wiki/ISO_4217)</value>
+        /// <value>Currency code in ISO 4217 (3-letter uppercase).</value>
         /// <example>MXN</example>
         [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
@@ -90,19 +82,6 @@ namespace DigitalFemsa.net.Model
         public OrderUpdateRequestCustomerInfo CustomerInfo { get; set; }
 
         /// <summary>
-        /// List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount.
-        /// </summary>
-        /// <value>List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount.</value>
-        [DataMember(Name = "discount_lines", EmitDefaultValue = false)]
-        public List<OrderDiscountLinesRequest> DiscountLines { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FiscalEntity
-        /// </summary>
-        [DataMember(Name = "fiscal_entity", EmitDefaultValue = false)]
-        public OrderUpdateFiscalEntityRequest FiscalEntity { get; set; }
-
-        /// <summary>
         /// List of [products](https://developers.femsa.com/v2.1.0/reference/orderscreateproduct) that are sold in the order. You must have at least one product.
         /// </summary>
         /// <value>List of [products](https://developers.femsa.com/v2.1.0/reference/orderscreateproduct) that are sold in the order. You must have at least one product.</value>
@@ -110,17 +89,30 @@ namespace DigitalFemsa.net.Model
         public List<Product> LineItems { get; set; }
 
         /// <summary>
-        /// Gets or Sets Metadata
+        /// Gets or Sets Charges
         /// </summary>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, string> Metadata { get; set; }
+        [DataMember(Name = "charges", EmitDefaultValue = false)]
+        public List<ChargeRequest> Charges { get; set; }
 
         /// <summary>
-        /// Indicates whether the order charges must be preauthorized
+        /// List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount.
         /// </summary>
-        /// <value>Indicates whether the order charges must be preauthorized</value>
-        [DataMember(Name = "pre_authorize", EmitDefaultValue = true)]
-        public bool PreAuthorize { get; set; }
+        /// <value>List of [discounts](https://developers.femsa.com/v2.1.0/reference/orderscreatediscountline) that are applied to the order. You must have at least one discount.</value>
+        [DataMember(Name = "discount_lines", EmitDefaultValue = false)]
+        public List<OrderDiscountLinesRequest> DiscountLines { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TaxLines
+        /// </summary>
+        [DataMember(Name = "tax_lines", EmitDefaultValue = false)]
+        public List<OrderTaxRequest> TaxLines { get; set; }
+
+        /// <summary>
+        /// Existing shipping contact id from the customer to link to this order.
+        /// </summary>
+        /// <value>Existing shipping contact id from the customer to link to this order.</value>
+        [DataMember(Name = "shipping_contact_id", EmitDefaultValue = true)]
+        public string ShippingContactId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShippingContact
@@ -136,10 +128,38 @@ namespace DigitalFemsa.net.Model
         public List<ShippingRequest> ShippingLines { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaxLines
+        /// Existing fiscal entity id from the customer to link to this order.
         /// </summary>
-        [DataMember(Name = "tax_lines", EmitDefaultValue = false)]
-        public List<OrderTaxRequest> TaxLines { get; set; }
+        /// <value>Existing fiscal entity id from the customer to link to this order.</value>
+        [DataMember(Name = "fiscal_entity_id", EmitDefaultValue = true)]
+        public string FiscalEntityId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FiscalEntity
+        /// </summary>
+        [DataMember(Name = "fiscal_entity", EmitDefaultValue = false)]
+        public OrderUpdateFiscalEntityRequest FiscalEntity { get; set; }
+
+        /// <summary>
+        /// URL where the customer should be redirected after completing a payment flow (if applicable).
+        /// </summary>
+        /// <value>URL where the customer should be redirected after completing a payment flow (if applicable).</value>
+        [DataMember(Name = "return_url", EmitDefaultValue = false)]
+        public string ReturnUrl { get; set; }
+
+        /// <summary>
+        /// Arbitrary key-value data that you can attach to the order for your internal use. It is not used for payment processing. Keys should be strings; values can be any JSON value. 
+        /// </summary>
+        /// <value>Arbitrary key-value data that you can attach to the order for your internal use. It is not used for payment processing. Keys should be strings; values can be any JSON value. </value>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Metadata { get; set; }
+
+        /// <summary>
+        /// Order status update (only allowed transitions will be accepted).
+        /// </summary>
+        /// <value>Order status update (only allowed transitions will be accepted).</value>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public string Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,18 +169,20 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderUpdateRequest {\n");
-            sb.Append("  Charges: ").Append(Charges).Append("\n");
-            sb.Append("  Checkout: ").Append(Checkout).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  CustomerInfo: ").Append(CustomerInfo).Append("\n");
-            sb.Append("  DiscountLines: ").Append(DiscountLines).Append("\n");
-            sb.Append("  FiscalEntity: ").Append(FiscalEntity).Append("\n");
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  PreAuthorize: ").Append(PreAuthorize).Append("\n");
+            sb.Append("  Charges: ").Append(Charges).Append("\n");
+            sb.Append("  DiscountLines: ").Append(DiscountLines).Append("\n");
+            sb.Append("  TaxLines: ").Append(TaxLines).Append("\n");
+            sb.Append("  ShippingContactId: ").Append(ShippingContactId).Append("\n");
             sb.Append("  ShippingContact: ").Append(ShippingContact).Append("\n");
             sb.Append("  ShippingLines: ").Append(ShippingLines).Append("\n");
-            sb.Append("  TaxLines: ").Append(TaxLines).Append("\n");
+            sb.Append("  FiscalEntityId: ").Append(FiscalEntityId).Append("\n");
+            sb.Append("  FiscalEntity: ").Append(FiscalEntity).Append("\n");
+            sb.Append("  ReturnUrl: ").Append(ReturnUrl).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

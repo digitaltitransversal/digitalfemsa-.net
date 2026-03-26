@@ -28,10 +28,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create customer
+        /// Create a customer
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -42,10 +42,10 @@ namespace DigitalFemsa.net.Api
         CustomerResponse CreateCustomer(Customer customer, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Create customer
+        /// Create a customer
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -58,7 +58,7 @@ namespace DigitalFemsa.net.Api
         /// Create Fiscal Entity
         /// </summary>
         /// <remarks>
-        /// Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create a fiscal entity resource for a given customer ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -73,7 +73,7 @@ namespace DigitalFemsa.net.Api
         /// Create Fiscal Entity
         /// </summary>
         /// <remarks>
-        /// Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create a fiscal entity resource for a given customer ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -141,7 +141,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of customers
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -158,7 +158,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of customers
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -200,7 +200,7 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of CustomerResponse</returns>
         ApiResponse<CustomerResponse> UpdateCustomerWithHttpInfo(string id, UpdateCustomer updateCustomer, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
         /// <summary>
-        /// Update  Fiscal Entity
+        /// Update Fiscal Entity
         /// </summary>
         /// <remarks>
         /// Update Fiscal Entity resource that corresponds to a customer ID.
@@ -208,7 +208,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -216,7 +216,7 @@ namespace DigitalFemsa.net.Api
         UpdateCustomerFiscalEntitiesResponse UpdateCustomerFiscalEntities(string id, string fiscalEntitiesId, CustomerUpdateFiscalEntitiesRequest customerUpdateFiscalEntitiesRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Update  Fiscal Entity
+        /// Update Fiscal Entity
         /// </summary>
         /// <remarks>
         /// Update Fiscal Entity resource that corresponds to a customer ID.
@@ -224,7 +224,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -240,10 +240,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create customer
+        /// Create a customer
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -255,10 +255,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<CustomerResponse> CreateCustomerAsync(Customer customer, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create customer
+        /// Create a customer
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -272,7 +272,7 @@ namespace DigitalFemsa.net.Api
         /// Create Fiscal Entity
         /// </summary>
         /// <remarks>
-        /// Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create a fiscal entity resource for a given customer ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -288,7 +288,7 @@ namespace DigitalFemsa.net.Api
         /// Create Fiscal Entity
         /// </summary>
         /// <remarks>
-        /// Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create a fiscal entity resource for a given customer ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -361,7 +361,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of customers
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -379,7 +379,7 @@ namespace DigitalFemsa.net.Api
         /// Get a list of customers
         /// </summary>
         /// <remarks>
-        /// The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -424,7 +424,7 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (CustomerResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerResponse>> UpdateCustomerWithHttpInfoAsync(string id, UpdateCustomer updateCustomer, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update  Fiscal Entity
+        /// Update Fiscal Entity
         /// </summary>
         /// <remarks>
         /// Update Fiscal Entity resource that corresponds to a customer ID.
@@ -432,7 +432,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -441,7 +441,7 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<UpdateCustomerFiscalEntitiesResponse> UpdateCustomerFiscalEntitiesAsync(string id, string fiscalEntitiesId, CustomerUpdateFiscalEntitiesRequest customerUpdateFiscalEntitiesRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update  Fiscal Entity
+        /// Update Fiscal Entity
         /// </summary>
         /// <remarks>
         /// Update Fiscal Entity resource that corresponds to a customer ID.
@@ -449,7 +449,7 @@ namespace DigitalFemsa.net.Api
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -577,7 +577,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create customer The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Create a customer Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -592,7 +592,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create customer The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Create a customer Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -666,7 +666,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create customer The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Create a customer Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -682,7 +682,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create customer The purpose of business is to create and keep a customer, you will learn what elements you need to create a customer. 
+        /// Create a customer Creates a new customer for the authenticated company.  Use customers to store and reuse buyer information (for example name, email, phone, and addresses). The created customer can be referenced later when creating orders and other resources. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customer">requested field for customer</param>
@@ -759,7 +759,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Fiscal Entity Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create Fiscal Entity Create a fiscal entity resource for a given customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -775,7 +775,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Fiscal Entity Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create Fiscal Entity Create a fiscal entity resource for a given customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -857,7 +857,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Fiscal Entity Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create Fiscal Entity Create a fiscal entity resource for a given customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -874,7 +874,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Fiscal Entity Create Fiscal entity resource that corresponds to a customer ID.
+        /// Create Fiscal Entity Create a fiscal entity resource for a given customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1319,7 +1319,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of customers The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Get a list of customers Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1337,7 +1337,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of customers The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Get a list of customers Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1422,7 +1422,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of customers The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Get a list of customers Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1441,7 +1441,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get a list of customers The purpose of business is to create and maintain a client, you will learn what elements you need to obtain a list of clients, which can be paged.
+        /// Get a list of customers Returns a paginated list of customers for the authenticated company.  Use the [search] parameter to filter results. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1729,12 +1729,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update  Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
+        /// Update Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1746,12 +1746,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update  Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
+        /// Update Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1836,12 +1836,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update  Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
+        /// Update Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1854,12 +1854,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update  Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
+        /// Update Fiscal Entity Update Fiscal Entity resource that corresponds to a customer ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="fiscalEntitiesId">identifier</param>
-        /// <param name="customerUpdateFiscalEntitiesRequest">requested field for customer update fiscal entities</param>
+        /// <param name="customerUpdateFiscalEntitiesRequest">Request body for updating a customer fiscal entity.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

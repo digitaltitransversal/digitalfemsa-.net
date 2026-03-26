@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **int** |  | [optional] 
+**Amount** | **long** |  | [optional] 
 **Channel** | [**ChargeResponseChannel**](ChargeResponseChannel.md) |  | [optional] 
 **CreatedAt** | **long** |  | [optional] 
 **Currency** | **string** |  | [optional] 
@@ -17,11 +17,12 @@ Name | Type | Description | Notes
 **Livemode** | **bool** |  | [optional] 
 **Object** | **string** |  | [optional] 
 **OrderId** | **string** |  | [optional] 
-**PaidAt** | **int?** |  | [optional] 
+**PaidAt** | **long?** |  | [optional] 
 **PaymentMethod** | [**ChargeResponsePaymentMethod**](ChargeResponsePaymentMethod.md) |  | [optional] 
 **ReferenceId** | **string** | Reference ID of the charge | [optional] 
 **Refunds** | [**ChargeResponseRefunds**](ChargeResponseRefunds.md) |  | [optional] 
 **Status** | **string** |  | [optional] 
+**IsRefundable** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

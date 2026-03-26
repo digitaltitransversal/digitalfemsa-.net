@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// OrderResponseCheckout
+    /// Checkout resource linked to the order. Present only when the order is linked to a checkout (&#x60;channel.checkout_request_id&#x60;).
     /// </summary>
     [DataContract(Name = "order_response_checkout")]
     public partial class OrderResponseCheckout : IValidatableObject

@@ -53,7 +53,8 @@ namespace DigitalFemsa.net.Model
         /// <param name="referenceId">Reference ID of the charge.</param>
         /// <param name="refunds">refunds.</param>
         /// <param name="status">status.</param>
-        public ChargesDataResponse(int amount = default(int), ChargeResponseChannel channel = default(ChargeResponseChannel), long createdAt = default(long), string currency = default(string), string customerId = default(string), string description = default(string), string deviceFingerprint = default(string), string failureCode = default(string), string failureMessage = default(string), string id = default(string), bool livemode = default(bool), string varObject = default(string), string orderId = default(string), int? paidAt = default(int?), ChargeResponsePaymentMethod paymentMethod = default(ChargeResponsePaymentMethod), string referenceId = default(string), ChargeResponseRefunds refunds = default(ChargeResponseRefunds), string status = default(string))
+        /// <param name="isRefundable">isRefundable.</param>
+        public ChargesDataResponse(long amount = default(long), ChargeResponseChannel channel = default(ChargeResponseChannel), long createdAt = default(long), string currency = default(string), string customerId = default(string), string description = default(string), string deviceFingerprint = default(string), string failureCode = default(string), string failureMessage = default(string), string id = default(string), bool livemode = default(bool), string varObject = default(string), string orderId = default(string), long? paidAt = default(long?), ChargeResponsePaymentMethod paymentMethod = default(ChargeResponsePaymentMethod), string referenceId = default(string), ChargeResponseRefunds refunds = default(ChargeResponseRefunds), string status = default(string), bool isRefundable = default(bool))
         {
             this.Amount = amount;
             this.Channel = channel;
@@ -73,14 +74,15 @@ namespace DigitalFemsa.net.Model
             this.ReferenceId = referenceId;
             this.Refunds = refunds;
             this.Status = status;
+            this.IsRefundable = isRefundable;
         }
 
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        /// <example>4321</example>
+        /// <example>600000</example>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Channel
@@ -91,7 +93,7 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        /// <example>1676386026</example>
+        /// <example>1768581166</example>
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public long CreatedAt { get; set; }
 
@@ -126,26 +128,27 @@ namespace DigitalFemsa.net.Model
         /// Gets or Sets FailureCode
         /// </summary>
         /// <example>suspected_fraud</example>
-        [DataMember(Name = "failure_code", EmitDefaultValue = false)]
+        [DataMember(Name = "failure_code", EmitDefaultValue = true)]
         public string FailureCode { get; set; }
 
         /// <summary>
         /// Gets or Sets FailureMessage
         /// </summary>
         /// <example>Este cargo ha sido declinado porque el comportamiento del comprador es sospechoso.</example>
-        [DataMember(Name = "failure_message", EmitDefaultValue = false)]
+        [DataMember(Name = "failure_message", EmitDefaultValue = true)]
         public string FailureMessage { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /// <example>63efa757cf65380001aec040</example>
+        /// <example>696a682e1ef5ca00015698b7</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Livemode
         /// </summary>
+        /// <example>true</example>
         [DataMember(Name = "livemode", EmitDefaultValue = true)]
         public bool Livemode { get; set; }
 
@@ -158,16 +161,15 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets OrderId
         /// </summary>
-        /// <example>ord_2tN73UdUSNrYRPD9r</example>
+        /// <example>ord_2zNwzJrfNC24uQUzq</example>
         [DataMember(Name = "order_id", EmitDefaultValue = false)]
         public string OrderId { get; set; }
 
         /// <summary>
         /// Gets or Sets PaidAt
         /// </summary>
-        /// <example>1676390742</example>
         [DataMember(Name = "paid_at", EmitDefaultValue = true)]
-        public int? PaidAt { get; set; }
+        public long? PaidAt { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentMethod
@@ -197,6 +199,13 @@ namespace DigitalFemsa.net.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsRefundable
+        /// </summary>
+        /// <example>false</example>
+        [DataMember(Name = "is_refundable", EmitDefaultValue = true)]
+        public bool IsRefundable { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +231,7 @@ namespace DigitalFemsa.net.Model
             sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("  Refunds: ").Append(Refunds).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  IsRefundable: ").Append(IsRefundable).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

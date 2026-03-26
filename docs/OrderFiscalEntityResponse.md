@@ -1,5 +1,5 @@
 # DigitalFemsa.net.Model.OrderFiscalEntityResponse
-Fiscal entity of the order, Currently it is a purely informative field
+Fiscal entity information associated with the order. This field can be `null`.
 
 ## Properties
 

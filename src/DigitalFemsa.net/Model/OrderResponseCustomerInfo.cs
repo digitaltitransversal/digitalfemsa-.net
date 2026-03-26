@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// OrderResponseCustomerInfo
+    /// Customer information associated with the order.
     /// </summary>
     [DataContract(Name = "order_response_customer_info")]
     public partial class OrderResponseCustomerInfo : IValidatableObject

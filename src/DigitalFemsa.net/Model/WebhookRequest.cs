@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// a webhook
+    /// Parameters used to create or update a webhook.
     /// </summary>
     [DataContract(Name = "webhook_request")]
     public partial class WebhookRequest : IValidatableObject

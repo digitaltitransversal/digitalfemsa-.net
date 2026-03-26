@@ -14,7 +14,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Create Tax
 
-Create new taxes for an existing orden
+Creates a new tax line for an existing order. The tax line is added to the order identified by `id`. The response returns the created tax line.
 
 ### Example
 ```csharp
@@ -37,7 +37,7 @@ namespace Example
 
             var apiInstance = new TaxesApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
-            var orderTaxRequest = new OrderTaxRequest(); // OrderTaxRequest | requested field for a taxes
+            var orderTaxRequest = new OrderTaxRequest(); // OrderTaxRequest | Request body for creating a tax line.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
@@ -83,7 +83,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
-| **orderTaxRequest** | [**OrderTaxRequest**](OrderTaxRequest.md) | requested field for a taxes |  |
+| **orderTaxRequest** | [**OrderTaxRequest**](OrderTaxRequest.md) | Request body for creating a tax line. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 
@@ -107,6 +107,7 @@ catch (ApiException e)
 | **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -117,7 +118,7 @@ catch (ApiException e)
 
 Delete Tax
 
-Delete taxes for an existing orden
+Deletes an existing tax line from an order. The tax line identified by `tax_id` belongs to the order identified by `id`. The response includes the deleted resource with `deleted: true`.
 
 ### Example
 ```csharp
@@ -209,8 +210,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | successful |  -  |
 | **401** | authentication error |  -  |
-| **422** | parameter validation error |  -  |
 | **404** | not found entity |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -221,7 +222,7 @@ catch (ApiException e)
 
 Update Tax
 
-Update taxes for an existing orden
+Updates an existing tax line for an order. The tax line identified by `tax_id` belongs to the order identified by `id`. Only the fields provided in the request body are updated.
 
 ### Example
 ```csharp
@@ -245,7 +246,7 @@ namespace Example
             var apiInstance = new TaxesApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
             var taxId = tax_lin_2tQ974hSHcsdeSZHG;  // string | identifier
-            var updateOrderTaxRequest = new UpdateOrderTaxRequest(); // UpdateOrderTaxRequest | requested field for taxes
+            var updateOrderTaxRequest = new UpdateOrderTaxRequest(); // UpdateOrderTaxRequest | Request body for updating a tax line.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
@@ -292,7 +293,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
 | **taxId** | **string** | identifier |  |
-| **updateOrderTaxRequest** | [**UpdateOrderTaxRequest**](UpdateOrderTaxRequest.md) | requested field for taxes |  |
+| **updateOrderTaxRequest** | [**UpdateOrderTaxRequest**](UpdateOrderTaxRequest.md) | Request body for updating a tax line. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 
@@ -315,8 +316,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | successful |  -  |
 | **401** | authentication error |  -  |
-| **422** | parameter validation error |  -  |
 | **404** | not found entity |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

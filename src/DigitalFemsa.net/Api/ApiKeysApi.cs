@@ -28,10 +28,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Api Key
+        /// Create API key
         /// </summary>
         /// <remarks>
-        /// Create a api key
+        /// Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -42,10 +42,10 @@ namespace DigitalFemsa.net.Api
         ApiKeyCreateResponse CreateApiKey(ApiKeyRequest apiKeyRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Create Api Key
+        /// Create API key
         /// </summary>
         /// <remarks>
-        /// Create a api key
+        /// Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -107,10 +107,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of ApiKeyResponse</returns>
         ApiResponse<ApiKeyResponse> GetApiKeyWithHttpInfo(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get list of Api Keys
+        /// List API keys
         /// </summary>
         /// <remarks>
-        /// Consume the list of api keys you have
+        /// Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -124,10 +124,10 @@ namespace DigitalFemsa.net.Api
         GetApiKeysResponse GetApiKeys(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get list of Api Keys
+        /// List API keys
         /// </summary>
         /// <remarks>
-        /// Consume the list of api keys you have
+        /// Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -176,10 +176,10 @@ namespace DigitalFemsa.net.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Api Key
+        /// Create API key
         /// </summary>
         /// <remarks>
-        /// Create a api key
+        /// Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -191,10 +191,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<ApiKeyCreateResponse> CreateApiKeyAsync(ApiKeyRequest apiKeyRequest, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Api Key
+        /// Create API key
         /// </summary>
         /// <remarks>
-        /// Create a api key
+        /// Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -261,10 +261,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (ApiKeyResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiKeyResponse>> GetApiKeyWithHttpInfoAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get list of Api Keys
+        /// List API keys
         /// </summary>
         /// <remarks>
-        /// Consume the list of api keys you have
+        /// Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -279,10 +279,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<GetApiKeysResponse> GetApiKeysAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string next = default(string), string previous = default(string), string search = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get list of Api Keys
+        /// List API keys
         /// </summary>
         /// <remarks>
-        /// Consume the list of api keys you have
+        /// Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -445,7 +445,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Api Key Create a api key
+        /// Create API key Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -460,7 +460,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Api Key Create a api key
+        /// Create API key Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -534,7 +534,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Api Key Create a api key
+        /// Create API key Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -550,7 +550,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Api Key Create a api key
+        /// Create API key Creates a new API key.  The response includes an &#x60;authentication_token&#x60; that is shown only once (at creation time). Copy and store it securely. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiKeyRequest">requested field for a api keys</param>
@@ -975,7 +975,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get list of Api Keys Consume the list of api keys you have
+        /// List API keys Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -993,7 +993,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get list of Api Keys Consume the list of api keys you have
+        /// List API keys Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1078,7 +1078,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get list of Api Keys Consume the list of api keys you have
+        /// List API keys Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -1097,7 +1097,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get list of Api Keys Consume the list of api keys you have
+        /// List API keys Retrieves a paginated list of API keys for the authenticated account.  Use the pagination parameters (&#x60;limit&#x60;, &#x60;next_page&#x60;, &#x60;previous_page&#x60;) to navigate through results. Use the &#x60;search&#x60; query parameter to perform a general search (for example by key &#x60;id&#x60; or description). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>

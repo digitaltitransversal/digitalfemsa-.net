@@ -7,7 +7,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 | [**OrdersCreateDiscountLine**](DiscountsApi.md#orderscreatediscountline) | **POST** /orders/{id}/discount_lines | Create Discount |
 | [**OrdersDeleteDiscountLines**](DiscountsApi.md#ordersdeletediscountlines) | **DELETE** /orders/{id}/discount_lines/{discount_lines_id} | Delete Discount |
 | [**OrdersGetDiscountLine**](DiscountsApi.md#ordersgetdiscountline) | **GET** /orders/{id}/discount_lines/{discount_lines_id} | Get Discount |
-| [**OrdersGetDiscountLines**](DiscountsApi.md#ordersgetdiscountlines) | **GET** /orders/{id}/discount_lines | Get a List of Discount |
+| [**OrdersGetDiscountLines**](DiscountsApi.md#ordersgetdiscountlines) | **GET** /orders/{id}/discount_lines | Get a List of Discounts |
 | [**OrdersUpdateDiscountLines**](DiscountsApi.md#ordersupdatediscountlines) | **PUT** /orders/{id}/discount_lines/{discount_lines_id} | Update Discount |
 
 <a id="orderscreatediscountline"></a>
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Create Discount
 
-Create discount lines for an existing orden
+Create discount lines for an existing order
 
 ### Example
 ```csharp
@@ -119,7 +119,7 @@ catch (ApiException e)
 
 Delete Discount
 
-Delete an existing discount lines for an existing orden
+Delete an existing discount line for an existing order
 
 ### Example
 ```csharp
@@ -223,7 +223,7 @@ catch (ApiException e)
 
 Get Discount
 
-Get an existing discount lines for an existing orden
+Get an existing discount line for an existing order
 
 ### Example
 ```csharp
@@ -316,7 +316,6 @@ catch (ApiException e)
 | **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
-| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -325,9 +324,9 @@ catch (ApiException e)
 # **OrdersGetDiscountLines**
 > GetOrderDiscountLinesResponse OrdersGetDiscountLines (string id, string acceptLanguage = null, string xChildCompanyId = null, int? limit = null, string search = null, string next = null, string previous = null)
 
-Get a List of Discount
+Get a List of Discounts
 
-Get discount lines for an existing orden
+Get discount lines for an existing order
 
 ### Example
 ```csharp
@@ -359,7 +358,7 @@ namespace Example
 
             try
             {
-                // Get a List of Discount
+                // Get a List of Discounts
                 GetOrderDiscountLinesResponse result = apiInstance.OrdersGetDiscountLines(id, acceptLanguage, xChildCompanyId, limit, search, next, previous);
                 Debug.WriteLine(result);
             }
@@ -380,7 +379,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a List of Discount
+    // Get a List of Discounts
     ApiResponse<GetOrderDiscountLinesResponse> response = apiInstance.OrdersGetDiscountLinesWithHttpInfo(id, acceptLanguage, xChildCompanyId, limit, search, next, previous);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -435,7 +434,7 @@ catch (ApiException e)
 
 Update Discount
 
-Update an existing discount lines for an existing orden
+Update an existing discount line for an existing order
 
 ### Example
 ```csharp

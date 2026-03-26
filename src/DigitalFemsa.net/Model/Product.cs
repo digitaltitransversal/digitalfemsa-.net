@@ -40,16 +40,15 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Product" /> class.
         /// </summary>
-        /// <param name="antifraudInfo">antifraudInfo.</param>
-        /// <param name="brand">The brand of the item..</param>
-        /// <param name="description">Short description of the item.</param>
-        /// <param name="metadata">It is a key/value hash that can hold custom fields. Maximum 100 elements and allows special characters..</param>
         /// <param name="name">The name of the item. It will be displayed in the order. (required).</param>
+        /// <param name="unitPrice">The price of the item in cents. (required).</param>
         /// <param name="quantity">The quantity of the item in the order. (required).</param>
         /// <param name="sku">The stock keeping unit for the item. It is used to identify the item in the order..</param>
+        /// <param name="brand">The brand of the item..</param>
+        /// <param name="description">Short description of the item.</param>
         /// <param name="tags">List of tags for the item. It is used to identify the item in the order..</param>
-        /// <param name="unitPrice">The price of the item in cents. (required).</param>
-        public Product(Dictionary<string, Object> antifraudInfo = default(Dictionary<string, Object>), string brand = default(string), string description = default(string), Dictionary<string, string> metadata = default(Dictionary<string, string>), string name = default(string), int quantity = default(int), string sku = default(string), List<string> tags = default(List<string>), int unitPrice = default(int))
+        /// <param name="metadata">Arbitrary key-value data for your internal use. Keys should be strings; values can be any JSON value. .</param>
+        public Product(string name = default(string), int unitPrice = default(int), int quantity = default(int), string sku = default(string), string brand = default(string), string description = default(string), List<string> tags = default(List<string>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -57,54 +56,30 @@ namespace DigitalFemsa.net.Model
                 throw new ArgumentNullException("name is a required property for Product and cannot be null");
             }
             this.Name = name;
-            this.Quantity = quantity;
             this.UnitPrice = unitPrice;
-            this.AntifraudInfo = antifraudInfo;
+            this.Quantity = quantity;
+            this.Sku = sku;
             this.Brand = brand;
             this.Description = description;
-            this.Metadata = metadata;
-            this.Sku = sku;
             this.Tags = tags;
+            this.Metadata = metadata;
         }
-
-        /// <summary>
-        /// Gets or Sets AntifraudInfo
-        /// </summary>
-        /// <example>{&quot;key&quot;:&quot;value&quot;}</example>
-        [DataMember(Name = "antifraud_info", EmitDefaultValue = false)]
-        public Dictionary<string, Object> AntifraudInfo { get; set; }
-
-        /// <summary>
-        /// The brand of the item.
-        /// </summary>
-        /// <value>The brand of the item.</value>
-        /// <example>Cohiba</example>
-        [DataMember(Name = "brand", EmitDefaultValue = false)]
-        public string Brand { get; set; }
-
-        /// <summary>
-        /// Short description of the item
-        /// </summary>
-        /// <value>Short description of the item</value>
-        /// <example>Imported From Mex.</example>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// It is a key/value hash that can hold custom fields. Maximum 100 elements and allows special characters.
-        /// </summary>
-        /// <value>It is a key/value hash that can hold custom fields. Maximum 100 elements and allows special characters.</value>
-        /// <example>{&quot;key&quot;:&quot;value&quot;}</example>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, string> Metadata { get; set; }
 
         /// <summary>
         /// The name of the item. It will be displayed in the order.
         /// </summary>
         /// <value>The name of the item. It will be displayed in the order.</value>
-        /// <example>Box of Cohiba S1s</example>
+        /// <example>Box of Cohiba</example>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The price of the item in cents.
+        /// </summary>
+        /// <value>The price of the item in cents.</value>
+        /// <example>20000</example>
+        [DataMember(Name = "unit_price", IsRequired = true, EmitDefaultValue = true)]
+        public int UnitPrice { get; set; }
 
         /// <summary>
         /// The quantity of the item in the order.
@@ -123,20 +98,35 @@ namespace DigitalFemsa.net.Model
         public string Sku { get; set; }
 
         /// <summary>
+        /// The brand of the item.
+        /// </summary>
+        /// <value>The brand of the item.</value>
+        /// <example>Cohiba</example>
+        [DataMember(Name = "brand", EmitDefaultValue = false)]
+        public string Brand { get; set; }
+
+        /// <summary>
+        /// Short description of the item
+        /// </summary>
+        /// <value>Short description of the item</value>
+        /// <example>Imported From Mex.</example>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// List of tags for the item. It is used to identify the item in the order.
         /// </summary>
         /// <value>List of tags for the item. It is used to identify the item in the order.</value>
-        /// <example>[&quot;food&quot;,&quot;mexican food&quot;]</example>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        /// The price of the item in cents.
+        /// Arbitrary key-value data for your internal use. Keys should be strings; values can be any JSON value. 
         /// </summary>
-        /// <value>The price of the item in cents.</value>
-        /// <example>20000</example>
-        [DataMember(Name = "unit_price", IsRequired = true, EmitDefaultValue = true)]
-        public int UnitPrice { get; set; }
+        /// <value>Arbitrary key-value data for your internal use. Keys should be strings; values can be any JSON value. </value>
+        /// <example>{&quot;key&quot;:&quot;value&quot;}</example>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -146,15 +136,14 @@ namespace DigitalFemsa.net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Product {\n");
-            sb.Append("  AntifraudInfo: ").Append(AntifraudInfo).Append("\n");
-            sb.Append("  Brand: ").Append(Brand).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
+            sb.Append("  Brand: ").Append(Brand).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  UnitPrice: ").Append(UnitPrice).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -175,10 +164,10 @@ namespace DigitalFemsa.net.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Description (string) maxLength
-            if (this.Description != null && this.Description.Length > 250)
+            // UnitPrice (int) minimum
+            if (this.UnitPrice < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, must be a value greater than or equal to 0.", new [] { "UnitPrice" });
             }
 
             // Quantity (int) minimum
@@ -187,10 +176,10 @@ namespace DigitalFemsa.net.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }
 
-            // UnitPrice (int) minimum
-            if (this.UnitPrice < (int)0)
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 250)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UnitPrice, must be a value greater than or equal to 0.", new [] { "UnitPrice" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 250.", new [] { "Description" });
             }
 
             yield break;

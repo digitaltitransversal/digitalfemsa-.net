@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// create new taxes for an existing order
+    /// Create a new tax line for an existing order.
     /// </summary>
     [DataContract(Name = "update_order_tax_request")]
     public partial class UpdateOrderTaxRequest : IValidatableObject
@@ -36,7 +36,7 @@ namespace DigitalFemsa.net.Model
         /// Initializes a new instance of the <see cref="UpdateOrderTaxRequest" /> class.
         /// </summary>
         /// <param name="amount">The amount to be collected for tax in cents.</param>
-        /// <param name="description">description or tax&#39;s name.</param>
+        /// <param name="description">Description or tax name.</param>
         /// <param name="metadata">metadata.</param>
         public UpdateOrderTaxRequest(long amount = default(long), string description = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
@@ -54,10 +54,10 @@ namespace DigitalFemsa.net.Model
         public long Amount { get; set; }
 
         /// <summary>
-        /// description or tax&#39;s name
+        /// Description or tax name
         /// </summary>
-        /// <value>description or tax&#39;s name</value>
-        /// <example>testing</example>
+        /// <value>Description or tax name</value>
+        /// <example>VAT</example>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 

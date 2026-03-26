@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// [Checkout](https://developers.femsa.com/v2.1.0/reference/payment-link) details 
+    /// [Checkout](https://developers.digitalfemsa.io/docs/checkout-redireccionado) details 
     /// </summary>
     [DataContract(Name = "checkout_request")]
     public partial class CheckoutRequest : IValidatableObject

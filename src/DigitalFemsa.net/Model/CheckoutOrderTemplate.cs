@@ -27,7 +27,7 @@ using OpenAPIDateConverter = DigitalFemsa.net.Client.OpenAPIDateConverter;
 namespace DigitalFemsa.net.Model
 {
     /// <summary>
-    /// It maintains the attributes with which the order will be created when receiving a new payment.
+    /// Attributes used to create the order when a new payment is received.
     /// </summary>
     [DataContract(Name = "checkout_order_template")]
     public partial class CheckoutOrderTemplate : IValidatableObject
@@ -40,10 +40,10 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckoutOrderTemplate" /> class.
         /// </summary>
-        /// <param name="currency">It is the currency in which the order will be created. It must be a valid ISO 4217 currency code. (required).</param>
+        /// <param name="currency">ISO 4217 currency code for the order. (required).</param>
         /// <param name="customerInfo">customerInfo.</param>
-        /// <param name="lineItems">They are the products to buy. Each contains the \&quot;unit price\&quot; and \&quot;quantity\&quot; parameters that are used to calculate the total amount of the order. (required).</param>
-        /// <param name="metadata">It is a set of key-value pairs that you can attach to the order. It can be used to store additional information about the order in a structured format..</param>
+        /// <param name="lineItems">Products to buy. Each contains unit price and quantity used to calculate the order total. (required).</param>
+        /// <param name="metadata">Arbitrary key-value data attached to the order for internal use..</param>
         public CheckoutOrderTemplate(string currency = default(string), CheckoutOrderTemplateCustomerInfo customerInfo = default(CheckoutOrderTemplateCustomerInfo), List<Product> lineItems = default(List<Product>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
             // to ensure "currency" is required (not null)
@@ -63,9 +63,9 @@ namespace DigitalFemsa.net.Model
         }
 
         /// <summary>
-        /// It is the currency in which the order will be created. It must be a valid ISO 4217 currency code.
+        /// ISO 4217 currency code for the order.
         /// </summary>
-        /// <value>It is the currency in which the order will be created. It must be a valid ISO 4217 currency code.</value>
+        /// <value>ISO 4217 currency code for the order.</value>
         /// <example>MXN</example>
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
@@ -77,16 +77,16 @@ namespace DigitalFemsa.net.Model
         public CheckoutOrderTemplateCustomerInfo CustomerInfo { get; set; }
 
         /// <summary>
-        /// They are the products to buy. Each contains the \&quot;unit price\&quot; and \&quot;quantity\&quot; parameters that are used to calculate the total amount of the order.
+        /// Products to buy. Each contains unit price and quantity used to calculate the order total.
         /// </summary>
-        /// <value>They are the products to buy. Each contains the \&quot;unit price\&quot; and \&quot;quantity\&quot; parameters that are used to calculate the total amount of the order.</value>
+        /// <value>Products to buy. Each contains unit price and quantity used to calculate the order total.</value>
         [DataMember(Name = "line_items", IsRequired = true, EmitDefaultValue = true)]
         public List<Product> LineItems { get; set; }
 
         /// <summary>
-        /// It is a set of key-value pairs that you can attach to the order. It can be used to store additional information about the order in a structured format.
+        /// Arbitrary key-value data attached to the order for internal use.
         /// </summary>
-        /// <value>It is a set of key-value pairs that you can attach to the order. It can be used to store additional information about the order in a structured format.</value>
+        /// <value>Arbitrary key-value data attached to the order for internal use.</value>
         /// <example>{&quot;key&quot;:&quot;value&quot;}</example>
         [DataMember(Name = "metadata", EmitDefaultValue = false)]
         public Dictionary<string, Object> Metadata { get; set; }

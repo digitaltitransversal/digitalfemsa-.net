@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Create Payment Method
         /// </summary>
         /// <remarks>
-        /// Create a payment method for a customer.
+        /// Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -46,7 +46,7 @@ namespace DigitalFemsa.net.Api
         /// Create Payment Method
         /// </summary>
         /// <remarks>
-        /// Create a payment method for a customer.
+        /// Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -60,7 +60,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Payment Method
         /// </summary>
         /// <remarks>
-        /// Delete an existing payment method
+        /// Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -75,7 +75,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Payment Method
         /// </summary>
         /// <remarks>
-        /// Delete an existing payment method
+        /// Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -124,12 +124,12 @@ namespace DigitalFemsa.net.Api
         /// Update Payment Method
         /// </summary>
         /// <remarks>
-        /// Gets a payment Method that corresponds to a customer ID.
+        /// Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -140,12 +140,12 @@ namespace DigitalFemsa.net.Api
         /// Update Payment Method
         /// </summary>
         /// <remarks>
-        /// Gets a payment Method that corresponds to a customer ID.
+        /// Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -164,7 +164,7 @@ namespace DigitalFemsa.net.Api
         /// Create Payment Method
         /// </summary>
         /// <remarks>
-        /// Create a payment method for a customer.
+        /// Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -180,7 +180,7 @@ namespace DigitalFemsa.net.Api
         /// Create Payment Method
         /// </summary>
         /// <remarks>
-        /// Create a payment method for a customer.
+        /// Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -195,7 +195,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Payment Method
         /// </summary>
         /// <remarks>
-        /// Delete an existing payment method
+        /// Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -211,7 +211,7 @@ namespace DigitalFemsa.net.Api
         /// Delete Payment Method
         /// </summary>
         /// <remarks>
-        /// Delete an existing payment method
+        /// Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -263,12 +263,12 @@ namespace DigitalFemsa.net.Api
         /// Update Payment Method
         /// </summary>
         /// <remarks>
-        /// Gets a payment Method that corresponds to a customer ID.
+        /// Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -280,12 +280,12 @@ namespace DigitalFemsa.net.Api
         /// Update Payment Method
         /// </summary>
         /// <remarks>
-        /// Gets a payment Method that corresponds to a customer ID.
+        /// Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -413,7 +413,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Payment Method Create a payment method for a customer.
+        /// Create Payment Method Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -429,7 +429,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Payment Method Create a payment method for a customer.
+        /// Create Payment Method Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -511,7 +511,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Payment Method Create a payment method for a customer.
+        /// Create Payment Method Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -528,7 +528,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Payment Method Create a payment method for a customer.
+        /// Create Payment Method Creates a new payment method for a customer. The payment method is associated with the customer identified by &#x60;id&#x60;. The accepted fields depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -613,7 +613,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Payment Method Delete an existing payment method
+        /// Delete Payment Method Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -629,7 +629,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Payment Method Delete an existing payment method
+        /// Delete Payment Method Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -710,7 +710,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Payment Method Delete an existing payment method
+        /// Delete Payment Method Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -727,7 +727,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Payment Method Delete an existing payment method
+        /// Delete Payment Method Deletes a specific payment method of a customer. After deletion, the payment method can no longer be used for future payments.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1039,12 +1039,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Payment Method Gets a payment Method that corresponds to a customer ID.
+        /// Update Payment Method Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1056,12 +1056,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Payment Method Gets a payment Method that corresponds to a customer ID.
+        /// Update Payment Method Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1146,12 +1146,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Payment Method Gets a payment Method that corresponds to a customer ID.
+        /// Update Payment Method Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1164,12 +1164,12 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Payment Method Gets a payment Method that corresponds to a customer ID.
+        /// Update Payment Method Updates a specific payment method of a customer. Use this endpoint to modify the payment method identified by &#x60;payment_method_id&#x60; for the customer identified by &#x60;id&#x60;. The fields that can be updated depend on the payment method &#x60;type&#x60;.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="paymentMethodId">Identifier of the payment method</param>
-        /// <param name="updatePaymentMethods">requested field for customer payment methods</param>
+        /// <param name="updatePaymentMethods">Request body for updating a customer payment method.</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
         /// <param name="xChildCompanyId">In the case of a holding company, the company id of the child company to which will process the request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

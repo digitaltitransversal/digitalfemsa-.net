@@ -33,6 +33,52 @@ namespace DigitalFemsa.net.Model
     public partial class OrderRefundRequest : IValidatableObject
     {
         /// <summary>
+        /// Refund reason. If not provided, the API uses a default reason.
+        /// </summary>
+        /// <value>Refund reason. If not provided, the API uses a default reason.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReasonEnum
+        {
+            /// <summary>
+            /// Enum RequestedByClient for value: requested_by_client
+            /// </summary>
+            [EnumMember(Value = "requested_by_client")]
+            RequestedByClient = 1,
+
+            /// <summary>
+            /// Enum CannotBeFulfilled for value: cannot_be_fulfilled
+            /// </summary>
+            [EnumMember(Value = "cannot_be_fulfilled")]
+            CannotBeFulfilled = 2,
+
+            /// <summary>
+            /// Enum DuplicatedTransaction for value: duplicated_transaction
+            /// </summary>
+            [EnumMember(Value = "duplicated_transaction")]
+            DuplicatedTransaction = 3,
+
+            /// <summary>
+            /// Enum SuspectedFraud for value: suspected_fraud
+            /// </summary>
+            [EnumMember(Value = "suspected_fraud")]
+            SuspectedFraud = 4,
+
+            /// <summary>
+            /// Enum Other for value: other
+            /// </summary>
+            [EnumMember(Value = "other")]
+            Other = 5
+        }
+
+
+        /// <summary>
+        /// Refund reason. If not provided, the API uses a default reason.
+        /// </summary>
+        /// <value>Refund reason. If not provided, the API uses a default reason.</value>
+        /// <example>suspected_fraud</example>
+        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
+        public ReasonEnum Reason { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="OrderRefundRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,41 +86,41 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderRefundRequest" /> class.
         /// </summary>
-        /// <param name="amount">amount (required).</param>
-        /// <param name="expiresAt">expiresAt.</param>
-        /// <param name="reason">reason (required).</param>
-        public OrderRefundRequest(int amount = default(int), long? expiresAt = default(long?), string reason = default(string))
+        /// <param name="amount">Amount to refund. If not provided, the API refunds the refundable amount of the selected charge. (required).</param>
+        /// <param name="chargeId">Charge ID to refund. If not provided, the API selects a refundable charge from the order..</param>
+        /// <param name="reason">Refund reason. If not provided, the API uses a default reason. (required).</param>
+        /// <param name="expiresAt">Expiration timestamp for cash refunds (must be within the allowed range configured by the API)..</param>
+        public OrderRefundRequest(int amount = default(int), string chargeId = default(string), ReasonEnum reason = default(ReasonEnum), long? expiresAt = default(long?))
         {
             this.Amount = amount;
-            // to ensure "reason" is required (not null)
-            if (reason == null)
-            {
-                throw new ArgumentNullException("reason is a required property for OrderRefundRequest and cannot be null");
-            }
             this.Reason = reason;
+            this.ChargeId = chargeId;
             this.ExpiresAt = expiresAt;
         }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// Amount to refund. If not provided, the API refunds the refundable amount of the selected charge.
         /// </summary>
+        /// <value>Amount to refund. If not provided, the API refunds the refundable amount of the selected charge.</value>
         /// <example>500</example>
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public int Amount { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpiresAt
+        /// Charge ID to refund. If not provided, the API selects a refundable charge from the order.
         /// </summary>
+        /// <value>Charge ID to refund. If not provided, the API selects a refundable charge from the order.</value>
+        /// <example>6976b2e3c4418f00012943c5</example>
+        [DataMember(Name = "charge_id", EmitDefaultValue = true)]
+        public string ChargeId { get; set; }
+
+        /// <summary>
+        /// Expiration timestamp for cash refunds (must be within the allowed range configured by the API).
+        /// </summary>
+        /// <value>Expiration timestamp for cash refunds (must be within the allowed range configured by the API).</value>
         /// <example>1553273553</example>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public long? ExpiresAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Reason
-        /// </summary>
-        /// <example>suspected_fraud</example>
-        [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
-        public string Reason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,8 +131,9 @@ namespace DigitalFemsa.net.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class OrderRefundRequest {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
+            sb.Append("  ChargeId: ").Append(ChargeId).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

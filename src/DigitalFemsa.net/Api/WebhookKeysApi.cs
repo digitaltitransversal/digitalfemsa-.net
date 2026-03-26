@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook Key
         /// </summary>
         /// <remarks>
-        /// Create a webhook key
+        /// Creates a new webhook signing key for the current company.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -44,7 +44,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook Key
         /// </summary>
         /// <remarks>
-        /// Create a webhook key
+        /// Creates a new webhook signing key for the current company.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -53,8 +53,11 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of WebhookKeyCreateResponse</returns>
         ApiResponse<WebhookKeyCreateResponse> CreateWebhookKeyWithHttpInfo(string acceptLanguage = default(string), WebhookKeyRequest webhookKeyRequest = default(WebhookKeyRequest), int operationIndex = 0);
         /// <summary>
-        /// Delete Webhook key
+        /// Delete webhook key
         /// </summary>
+        /// <remarks>
+        /// Deletes a webhook signing key.
+        /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -63,10 +66,10 @@ namespace DigitalFemsa.net.Api
         WebhookKeyDeleteResponse DeleteWebhookKey(string id, string acceptLanguage = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Delete Webhook key
+        /// Delete webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -75,8 +78,11 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of WebhookKeyDeleteResponse</returns>
         ApiResponse<WebhookKeyDeleteResponse> DeleteWebhookKeyWithHttpInfo(string id, string acceptLanguage = default(string), int operationIndex = 0);
         /// <summary>
-        /// Get Webhook Key
+        /// Get webhook key
         /// </summary>
+        /// <remarks>
+        /// Retrieves the details of a webhook signing key by its ID.
+        /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -86,10 +92,10 @@ namespace DigitalFemsa.net.Api
         WebhookKeyResponse GetWebhookKey(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0);
 
         /// <summary>
-        /// Get Webhook Key
+        /// Get webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook signing key by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -132,10 +138,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>ApiResponse of GetWebhookKeysResponse</returns>
         ApiResponse<GetWebhookKeysResponse> GetWebhookKeysWithHttpInfo(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0);
         /// <summary>
-        /// Update Webhook Key
+        /// Update webhook key
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook key
+        /// Activates or deactivates an existing webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -146,10 +152,10 @@ namespace DigitalFemsa.net.Api
         WebhookKeyResponse UpdateWebhookKey(string id, string acceptLanguage = default(string), WebhookKeyUpdateRequest webhookKeyUpdateRequest = default(WebhookKeyUpdateRequest), int operationIndex = 0);
 
         /// <summary>
-        /// Update Webhook Key
+        /// Update webhook key
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook key
+        /// Activates or deactivates an existing webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -171,7 +177,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook Key
         /// </summary>
         /// <remarks>
-        /// Create a webhook key
+        /// Creates a new webhook signing key for the current company.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -185,7 +191,7 @@ namespace DigitalFemsa.net.Api
         /// Create Webhook Key
         /// </summary>
         /// <remarks>
-        /// Create a webhook key
+        /// Creates a new webhook signing key for the current company.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -195,10 +201,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (WebhookKeyCreateResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookKeyCreateResponse>> CreateWebhookKeyWithHttpInfoAsync(string acceptLanguage = default(string), WebhookKeyRequest webhookKeyRequest = default(WebhookKeyRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Webhook key
+        /// Delete webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -209,10 +215,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookKeyDeleteResponse> DeleteWebhookKeyAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Webhook key
+        /// Delete webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -222,10 +228,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (WebhookKeyDeleteResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookKeyDeleteResponse>> DeleteWebhookKeyWithHttpInfoAsync(string id, string acceptLanguage = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Webhook Key
+        /// Get webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook signing key by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -237,10 +243,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookKeyResponse> GetWebhookKeyAsync(string id, string acceptLanguage = default(string), string xChildCompanyId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Webhook Key
+        /// Get webhook key
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the details of a webhook signing key by its ID.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -286,10 +292,10 @@ namespace DigitalFemsa.net.Api
         /// <returns>Task of ApiResponse (GetWebhookKeysResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetWebhookKeysResponse>> GetWebhookKeysWithHttpInfoAsync(string acceptLanguage = default(string), string xChildCompanyId = default(string), int? limit = default(int?), string search = default(string), string next = default(string), string previous = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Webhook Key
+        /// Update webhook key
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook key
+        /// Activates or deactivates an existing webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -301,10 +307,10 @@ namespace DigitalFemsa.net.Api
         System.Threading.Tasks.Task<WebhookKeyResponse> UpdateWebhookKeyAsync(string id, string acceptLanguage = default(string), WebhookKeyUpdateRequest webhookKeyUpdateRequest = default(WebhookKeyUpdateRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Webhook Key
+        /// Update webhook key
         /// </summary>
         /// <remarks>
-        /// updates an existing webhook key
+        /// Activates or deactivates an existing webhook signing key.
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -435,7 +441,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Webhook Key Create a webhook key
+        /// Create Webhook Key Creates a new webhook signing key for the current company.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -449,7 +455,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Webhook Key Create a webhook key
+        /// Create Webhook Key Creates a new webhook signing key for the current company.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -512,7 +518,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Webhook Key Create a webhook key
+        /// Create Webhook Key Creates a new webhook signing key for the current company.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -527,7 +533,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Create Webhook Key Create a webhook key
+        /// Create Webhook Key Creates a new webhook signing key for the current company.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="acceptLanguage">Use for knowing which language to use (optional, default to es)</param>
@@ -593,7 +599,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook key 
+        /// Delete webhook key Deletes a webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -607,7 +613,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook key 
+        /// Delete webhook key Deletes a webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -675,7 +681,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook key 
+        /// Delete webhook key Deletes a webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -690,7 +696,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Delete Webhook key 
+        /// Delete webhook key Deletes a webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -761,7 +767,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook Key 
+        /// Get webhook key Retrieves the details of a webhook signing key by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -776,7 +782,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook Key 
+        /// Get webhook key Retrieves the details of a webhook signing key by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -849,7 +855,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook Key 
+        /// Get webhook key Retrieves the details of a webhook signing key by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -865,7 +871,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Webhook Key 
+        /// Get webhook key Retrieves the details of a webhook signing key by its ID.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1151,7 +1157,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook Key updates an existing webhook key
+        /// Update webhook key Activates or deactivates an existing webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1166,7 +1172,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook Key updates an existing webhook key
+        /// Update webhook key Activates or deactivates an existing webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1237,7 +1243,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook Key updates an existing webhook key
+        /// Update webhook key Activates or deactivates an existing webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -1253,7 +1259,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Update Webhook Key updates an existing webhook key
+        /// Update webhook key Activates or deactivates an existing webhook signing key.
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>

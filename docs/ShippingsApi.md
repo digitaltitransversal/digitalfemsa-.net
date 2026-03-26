@@ -14,7 +14,7 @@ All URIs are relative to *https://api.digitalfemsa.io*
 
 Create Shipping
 
-Create new shipping for an existing orden
+Creates a new shipping line for an existing order. The shipping line is added to the order identified by `id`. The response returns the created shipping line.
 
 ### Example
 ```csharp
@@ -37,7 +37,7 @@ namespace Example
 
             var apiInstance = new ShippingsApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
-            var shippingRequest = new ShippingRequest(); // ShippingRequest | requested field for a shipping
+            var shippingRequest = new ShippingRequest(); // ShippingRequest | Request body for creating or updating a shipping line.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
@@ -83,7 +83,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
-| **shippingRequest** | [**ShippingRequest**](ShippingRequest.md) | requested field for a shipping |  |
+| **shippingRequest** | [**ShippingRequest**](ShippingRequest.md) | Request body for creating or updating a shipping line. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 
@@ -107,6 +107,7 @@ catch (ApiException e)
 | **200** | successful |  -  |
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
+| **422** | parameter validation error |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -117,7 +118,7 @@ catch (ApiException e)
 
 Delete Shipping
 
-Delete shipping
+Deletes an existing shipping line from an order. The shipping line identified by `shipping_id` belongs to the order identified by `id`.
 
 ### Example
 ```csharp
@@ -211,7 +212,6 @@ catch (ApiException e)
 | **401** | authentication error |  -  |
 | **404** | not found entity |  -  |
 | **422** | parameter validation error |  -  |
-| **428** | Precondition Required |  -  |
 | **500** | internal server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -222,7 +222,7 @@ catch (ApiException e)
 
 Update Shipping
 
-Update existing shipping for an existing orden
+Updates an existing shipping line for an order. The shipping line identified by `shipping_id` belongs to the order identified by `id`. Only the fields provided in the request body are updated.
 
 ### Example
 ```csharp
@@ -246,7 +246,7 @@ namespace Example
             var apiInstance = new ShippingsApi(config);
             var id = 6307a60c41de27127515a575;  // string | Identifier of the resource
             var shippingId = ship_lin_2tQ974hSHcsdeSZHG;  // string | identifier
-            var shippingRequest = new ShippingRequest(); // ShippingRequest | requested field for a shipping
+            var shippingRequest = new ShippingRequest(); // ShippingRequest | Request body for creating or updating a shipping line.
             var acceptLanguage = es;  // string | Use for knowing which language to use (optional)  (default to es)
             var xChildCompanyId = 6441b6376b60c3a638da80af;  // string | In the case of a holding company, the company id of the child company to which will process the request. (optional) 
 
@@ -293,7 +293,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Identifier of the resource |  |
 | **shippingId** | **string** | identifier |  |
-| **shippingRequest** | [**ShippingRequest**](ShippingRequest.md) | requested field for a shipping |  |
+| **shippingRequest** | [**ShippingRequest**](ShippingRequest.md) | Request body for creating or updating a shipping line. |  |
 | **acceptLanguage** | **string** | Use for knowing which language to use | [optional] [default to es] |
 | **xChildCompanyId** | **string** | In the case of a holding company, the company id of the child company to which will process the request. | [optional]  |
 

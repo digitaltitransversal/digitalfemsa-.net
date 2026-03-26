@@ -31,7 +31,7 @@ namespace DigitalFemsa.net.Api
         /// Get Event
         /// </summary>
         /// <remarks>
-        /// Returns a single event
+        /// Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -45,7 +45,7 @@ namespace DigitalFemsa.net.Api
         /// Get Event
         /// </summary>
         /// <remarks>
-        /// Returns a single event
+        /// Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -88,7 +88,7 @@ namespace DigitalFemsa.net.Api
         /// Resend Event
         /// </summary>
         /// <remarks>
-        /// Try to send an event
+        /// Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -102,7 +102,7 @@ namespace DigitalFemsa.net.Api
         /// Resend Event
         /// </summary>
         /// <remarks>
-        /// Try to send an event
+        /// Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -124,7 +124,7 @@ namespace DigitalFemsa.net.Api
         /// Get Event
         /// </summary>
         /// <remarks>
-        /// Returns a single event
+        /// Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -139,7 +139,7 @@ namespace DigitalFemsa.net.Api
         /// Get Event
         /// </summary>
         /// <remarks>
-        /// Returns a single event
+        /// Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -188,7 +188,7 @@ namespace DigitalFemsa.net.Api
         /// Resend Event
         /// </summary>
         /// <remarks>
-        /// Try to send an event
+        /// Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -203,7 +203,7 @@ namespace DigitalFemsa.net.Api
         /// Resend Event
         /// </summary>
         /// <remarks>
-        /// Try to send an event
+        /// Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </remarks>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -334,7 +334,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Event Returns a single event
+        /// Get Event Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -349,7 +349,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Event Returns a single event
+        /// Get Event Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -422,7 +422,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Event Returns a single event
+        /// Get Event Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -438,7 +438,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Get Event Returns a single event
+        /// Get Event Returns a single event by its ID, including its payload (&#x60;data&#x60;) and webhook delivery information. The &#x60;webhook_status&#x60; indicates whether webhook notifications were applicable and their overall status. The [webhook_logs]) array contains delivery attempts (it can be empty when webhook notifications are not applicable or no attempts were created). 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Identifier of the resource</param>
@@ -724,7 +724,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Resend Event Try to send an event
+        /// Resend Event Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -739,7 +739,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Resend Event Try to send an event
+        /// Resend Event Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -815,7 +815,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Resend Event Try to send an event
+        /// Resend Event Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>
@@ -831,7 +831,7 @@ namespace DigitalFemsa.net.Api
         }
 
         /// <summary>
-        /// Resend Event Try to send an event
+        /// Resend Event Triggers a new delivery attempt for a specific webhook log associated with the given event. Use this endpoint to retry failed webhook deliveries (for example, non-2xx responses or timeouts). The response returns the updated webhook log with the latest attempt metadata. 
         /// </summary>
         /// <exception cref="DigitalFemsa.net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventId">event identifier</param>

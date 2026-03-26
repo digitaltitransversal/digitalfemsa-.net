@@ -57,21 +57,21 @@ namespace DigitalFemsa.net.Model
         /// <summary>
         /// Gets or Sets CheckoutRequestId
         /// </summary>
-        /// <example>6fca054a-8519-4c43-971e-cea35cc519bb</example>
+        /// <example>f3a5bfc1-ba1c-474f-9687-46d8b75ffc90</example>
         [DataMember(Name = "checkout_request_id", EmitDefaultValue = false)]
         public string CheckoutRequestId { get; set; }
 
         /// <summary>
         /// Gets or Sets CheckoutRequestType
         /// </summary>
-        /// <example>HostedPayment</example>
+        /// <example>Integration</example>
         [DataMember(Name = "checkout_request_type", EmitDefaultValue = false)]
         public string CheckoutRequestType { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /// <example>channel_2tNDzhA4Akmzj11AU</example>
+        /// <example>channel_2zNxD65G8MBNkYksy</example>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
