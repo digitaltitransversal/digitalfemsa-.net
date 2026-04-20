@@ -31,5 +31,5 @@
   "packageCopyright" : "DigitalFemsa",
   "PackageReleaseNotes" : "add support for payout orders",
   "releaseNote" : "update entity webhook, nuget config",
-  "packageVersion" : "1.2.0"
+  "packageVersion" : "1.2.1"
 }
